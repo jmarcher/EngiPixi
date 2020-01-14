@@ -20,9 +20,9 @@ void Engine::start(const char* title, int width, int height, bool fullScreen)
         }
 
         // Init tiles
-        for(auto x = 0; x < TILE_COUNT_PER_SCREEN; ++x) {
-            for(auto y = 0; y < TILE_COUNT_PER_SCREEN; ++y) {
-                _map[x][y] = Tile();
+        for(auto & x : _map) {
+            for(auto & y : x) {
+                y = Tile();
             }
         }
 
@@ -82,4 +82,5 @@ void Engine::clean()
     SDL_DestroyWindow(this->window);
     SDL_DestroyRenderer(this->renderer);
     SDL_Quit();
+    std::cout << "SDL Cleared" << std::endl;
 }

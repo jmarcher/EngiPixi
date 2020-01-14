@@ -10,11 +10,13 @@ public:
     Tile();
     ~Tile();
     void draw();
+    int xPosition() const;
+    int yPosition() const;
 protected:
     void fillTile(int,int,int);
     void fillTile(Pixel);
     Pixel _pixels[TILE_SIZE][TILE_SIZE];
-    int _x,_z;
+    int _x,_y;
 };
 
 #endif // TILE_H

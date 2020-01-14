@@ -2,6 +2,8 @@
 
 Tile::Tile()
 {
+    this->_x = 0;
+    this->_y = 0;
     fillTile(black);
 }
 
@@ -10,22 +12,30 @@ Tile::~Tile()
 }
 
 void Tile::fillTile(Pixel p){
-    for(auto i = 0; i < TILE_SIZE ; ++i){
-        for(auto j = 0; j < TILE_SIZE; ++j){
-            _pixels[i][j] = p;
+    for(auto & _pixel : _pixels){
+        for(auto & j : _pixel){
+            j = p;
         }
     }
 }
 
 void Tile::fillTile(int r, int g, int b){
-    for(auto i = 0; i < TILE_SIZE ; ++i){
-        for(auto j = 0; j < TILE_SIZE; ++j){
-            _pixels[i][j] = Pixel(r,g,b);
+    for(auto & _pixel : _pixels){
+        for(auto & j : _pixel){
+            j = Pixel(r,g,b);
         }
     }
 }
 
 void Tile::draw(){
     
+}
+
+int Tile::xPosition() const {
+    return this->_x;
+}
+
+int Tile::yPosition() const {
+    return this->_y;
 }
 
