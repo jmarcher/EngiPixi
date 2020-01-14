@@ -9,12 +9,15 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="Components.h"/>
+    <File Name="EntityComponentSystem.cpp"/>
+    <File Name="EntityComponentSystem.h"/>
+    <File Name="TextureManager.cpp"/>
+    <File Name="TextureManager.h"/>
     <File Name="Map.cpp"/>
     <File Name="Map.h"/>
     <File Name="GameObject.cpp"/>
     <File Name="GameObject.h"/>
-    <File Name="TexureManager.cpp"/>
-    <File Name="TexureManager.h"/>
     <File Name="Tile.cpp"/>
     <File Name="Tile.h"/>
     <File Name="Engine.cpp"/>

@@ -3,13 +3,14 @@
 
 #include "Engine.h"
 
-class TexureManager
+class TextureManager
 {
 public:
-    TexureManager();
-    ~TexureManager();
+    TextureManager();
+    ~TextureManager();
     
     static SDL_Texture* LoadTexture(const char * fileName);
+    static void draw(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination);
 
 };
 

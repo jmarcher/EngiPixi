@@ -1,7 +1,13 @@
 #include "Engine.h"
 
+
+
 GameObject* player;
 GameObject* enemy;
+Map * map;
+
+Manager * manager;
+auto & newPlayer(manager->addEntity());
 
 SDL_Renderer* Engine::renderer = nullptr;
 
@@ -41,6 +47,9 @@ void Engine::start(const char* title, int width, int height, bool fullScreen)
     }
     player = new GameObject("../Data/Sprites/player.png", 0, 0);
     enemy = new GameObject("../Data/Sprites/enemy.png", 50, 50);
+    map = new Map();
+    
+//    newPlayer.addComponent<PositionComponent>();
 }
 
 bool Engine::isRunning() const
@@ -68,13 +77,18 @@ void Engine::update()
 
     player->update();
     enemy->update();
+//    manager->update();
+    
+    std::cout << newPlayer.getComponent<PositionComponent>().x() << "," <<
+    newPlayer.getComponent<PositionComponent>().y() << std::endl;
 
-    std::cout << this->_ticks << std::endl;
+//    std::cout << this->_ticks << std::endl;
 }
 
 void Engine::render()
 {
     SDL_RenderClear(renderer);
+    map->draw();
     player->render();
     enemy->render();
     SDL_RenderPresent(renderer);

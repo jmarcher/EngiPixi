@@ -8,8 +8,12 @@
 #include <iostream>
 
 #include "GameObject.h"
-#include "TexureManager.h"
+#include "Map.h"
+#include "TextureManager.h"
 #include "Tile.h"
+
+#include "EntityComponentSystem.h"
+#include "Components.h"
 
 class Engine
 {

@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/GameObject.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/TexureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tile.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/EntityComponentSystem.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tile.cpp$(ObjectSuffix) $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/GameObject.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) 
 
 
 
@@ -91,6 +91,38 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/EntityComponentSystem.cpp$(ObjectSuffix): EntityComponentSystem.cpp $(IntermediateDirectory)/EntityComponentSystem.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/EntityComponentSystem.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/EntityComponentSystem.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/EntityComponentSystem.cpp$(DependSuffix): EntityComponentSystem.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/EntityComponentSystem.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/EntityComponentSystem.cpp$(DependSuffix) -MM EntityComponentSystem.cpp
+
+$(IntermediateDirectory)/EntityComponentSystem.cpp$(PreprocessSuffix): EntityComponentSystem.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/EntityComponentSystem.cpp$(PreprocessSuffix) EntityComponentSystem.cpp
+
+$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
+
+$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix): TextureManager.cpp $(IntermediateDirectory)/TextureManager.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/TextureManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/TextureManager.cpp$(DependSuffix): TextureManager.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/TextureManager.cpp$(DependSuffix) -MM TextureManager.cpp
+
+$(IntermediateDirectory)/TextureManager.cpp$(PreprocessSuffix): TextureManager.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/TextureManager.cpp$(PreprocessSuffix) TextureManager.cpp
+
+$(IntermediateDirectory)/Tile.cpp$(ObjectSuffix): Tile.cpp $(IntermediateDirectory)/Tile.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Tile.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Tile.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Tile.cpp$(DependSuffix): Tile.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Tile.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Tile.cpp$(DependSuffix) -MM Tile.cpp
+
+$(IntermediateDirectory)/Tile.cpp$(PreprocessSuffix): Tile.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Tile.cpp$(PreprocessSuffix) Tile.cpp
+
 $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix): Engine.cpp $(IntermediateDirectory)/Engine.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Engine.cpp$(DependSuffix): Engine.cpp
@@ -107,29 +139,13 @@ $(IntermediateDirectory)/GameObject.cpp$(DependSuffix): GameObject.cpp
 $(IntermediateDirectory)/GameObject.cpp$(PreprocessSuffix): GameObject.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/GameObject.cpp$(PreprocessSuffix) GameObject.cpp
 
-$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
+$(IntermediateDirectory)/Map.cpp$(ObjectSuffix): Map.cpp $(IntermediateDirectory)/Map.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Map.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Map.cpp$(DependSuffix): Map.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Map.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Map.cpp$(DependSuffix) -MM Map.cpp
 
-$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
-
-$(IntermediateDirectory)/TexureManager.cpp$(ObjectSuffix): TexureManager.cpp $(IntermediateDirectory)/TexureManager.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/TexureManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/TexureManager.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/TexureManager.cpp$(DependSuffix): TexureManager.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/TexureManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/TexureManager.cpp$(DependSuffix) -MM TexureManager.cpp
-
-$(IntermediateDirectory)/TexureManager.cpp$(PreprocessSuffix): TexureManager.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/TexureManager.cpp$(PreprocessSuffix) TexureManager.cpp
-
-$(IntermediateDirectory)/Tile.cpp$(ObjectSuffix): Tile.cpp $(IntermediateDirectory)/Tile.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Tile.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Tile.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Tile.cpp$(DependSuffix): Tile.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Tile.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Tile.cpp$(DependSuffix) -MM Tile.cpp
-
-$(IntermediateDirectory)/Tile.cpp$(PreprocessSuffix): Tile.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Tile.cpp$(PreprocessSuffix) Tile.cpp
+$(IntermediateDirectory)/Map.cpp$(PreprocessSuffix): Map.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Map.cpp$(PreprocessSuffix) Map.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
