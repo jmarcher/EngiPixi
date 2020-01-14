@@ -11,6 +11,7 @@ Tile::~Tile()
 {
 }
 
+
 void Tile::fillTile(Pixel p){
     for(auto & _pixel : _pixels){
         for(auto & j : _pixel){

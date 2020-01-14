@@ -1,5 +1,10 @@
 #include "Engine.h"
 
+GameObject* player;
+GameObject* enemy;
+
+SDL_Renderer* Engine::renderer = nullptr;
+
 Engine::Engine()
 {
     this->_isRunning = false;
@@ -7,7 +12,6 @@ Engine::Engine()
 
 Engine::~Engine()
 {
-
 }
 
 void Engine::start(const char* title, int width, int height, bool fullScreen)
@@ -20,26 +24,23 @@ void Engine::start(const char* title, int width, int height, bool fullScreen)
         }
 
         // Init tiles
-        for(auto & x : _map) {
-            for(auto & y : x) {
+        for(auto& x : _map) {
+            for(auto& y : x) {
                 y = Tile();
             }
         }
 
         this->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-        if(this->window) {
-            std::cout << "Window initialized" << std::endl;
-        }
-
-        this->renderer = SDL_CreateRenderer(this->window, -1, 0);
-        if(this->renderer) {
-            std::cout << "Renderer initialized" << std::endl;
-            SDL_SetRenderDrawColor(this->renderer, 255, 255, 255, 255);
+        renderer = SDL_CreateRenderer(this->window, -1, 0);
+        if(renderer) {
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         }
 
     } else {
         this->_isRunning = false;
     }
+    player = new GameObject("../Data/Sprites/player.png", 0, 0);
+    enemy = new GameObject("../Data/Sprites/enemy.png", 50, 50);
 }
 
 bool Engine::isRunning() const
@@ -64,23 +65,25 @@ void Engine::handleEvents()
 void Engine::update()
 {
     this->_ticks++;
+
+    player->update();
+    enemy->update();
+
     std::cout << this->_ticks << std::endl;
 }
 
-void Engine::draw()
+void Engine::render()
 {
-    SDL_RenderClear(this->renderer);
-}
-
-void Engine::present()
-{
-    SDL_RenderPresent(this->renderer);
+    SDL_RenderClear(renderer);
+    player->render();
+    enemy->render();
+    SDL_RenderPresent(renderer);
 }
 
 void Engine::clean()
 {
     SDL_DestroyWindow(this->window);
-    SDL_DestroyRenderer(this->renderer);
+    SDL_DestroyRenderer(renderer);
     SDL_Quit();
     std::cout << "SDL Cleared" << std::endl;
 }

@@ -1,18 +1,32 @@
-#include <iostream>
 #include "Engine.h"
+#include <iostream>
 
-int main(int argc, char **argv) {
-    Engine engine;
-    engine.start("game", 800, 600, false);
+Engine * engine = nullptr;
 
-    while (engine.isRunning()) {
-        engine.handleEvents();
-        engine.update();
-        engine.draw();
-        engine.present();
+int main(int argc, char** argv)
+{
+    const int FPS = 60;
+    const int frameDelay = 1000 / FPS;
+    
+    unsigned long int frameStart;
+    int frameTime;
+    
+    engine = new Engine();
+    engine->start("game", 1200, 900, false);
+
+    while(engine->isRunning()) {
+        frameStart = SDL_GetTicks();
+        engine->handleEvents();
+        engine->update();
+        engine->render();
+        
+        frameTime = SDL_GetTicks() - frameStart;
+        // Check if we need to delay the frames
+        if(frameDelay > frameTime){
+            SDL_Delay(frameDelay - frameTime);
+        }
     }
 
-    engine.clean();
+    engine->clean();
     return 0;
 }
-

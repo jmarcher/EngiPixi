@@ -5,9 +5,16 @@
       <![CDATA[00010001N0005Debug000000000000]]>
     </Plugin>
   </Plugins>
+  <VirtualDirectory Name="Data"/>
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="Map.cpp"/>
+    <File Name="Map.h"/>
+    <File Name="GameObject.cpp"/>
+    <File Name="GameObject.h"/>
+    <File Name="TexureManager.cpp"/>
+    <File Name="TexureManager.h"/>
     <File Name="Tile.cpp"/>
     <File Name="Tile.h"/>
     <File Name="Engine.cpp"/>
@@ -25,13 +32,14 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="prepend" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-std=c++17 -O0;-Wall -lSDL2main -lSDL2 -lSDL2_image" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+      <Compiler Options="-std=c++17 -O0;-Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
         <IncludePath Value="/usr/include/"/>
       </Compiler>
       <Linker Options="" Required="yes">
         <LibraryPath Value="/usr/lib/"/>
         <Library Value="SDL2"/>
+        <Library Value="SDL2_image"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>

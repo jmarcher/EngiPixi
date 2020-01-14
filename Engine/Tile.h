@@ -9,6 +9,7 @@ class Tile
 public:
     Tile();
     ~Tile();
+    
     void draw();
     int xPosition() const;
     int yPosition() const;
