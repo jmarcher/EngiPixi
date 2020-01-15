@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Engine" Version="10.0.0" InternalType="Console">
+  <VirtualDirectory Name="assets">
+    <VirtualDirectory Name="sprites"/>
+  </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00010001N0005Debug000000000000]]>
     </Plugin>
   </Plugins>
+  <Reconciliation>
+    <Regexes/>
+    <Excludepaths/>
+    <Ignorefiles/>
+    <Extensions>
+      <![CDATA[*.cpp;*.c;*.h;*.hpp;*.xrc;*.wxcp;*.fbp]]>
+    </Extensions>
+    <Topleveldir>/home/gordo/Code/C++/EngiPixi/Engine</Topleveldir>
+  </Reconciliation>
   <VirtualDirectory Name="Data"/>
   <Description/>
   <Dependencies/>

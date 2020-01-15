@@ -25,9 +25,9 @@ int firstLevel[20][25] = {
 };
 Map::Map()
 {
-    this->dirt = TextureManager::LoadTexture("../Data/Sprites/dirt.png");
-    this->grass = TextureManager::LoadTexture("../Data/Sprites/grass.png");
-    this->water = TextureManager::LoadTexture("../Data/Sprites/water.png");
+    this->dirt = TextureManager::LoadTexture("../assets/sprites/dirt.png");
+    this->grass = TextureManager::LoadTexture("../assets/sprites/grass.png");
+    this->water = TextureManager::LoadTexture("../assets/sprites/water.png");
 
     this->load(firstLevel);
 }

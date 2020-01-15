@@ -46,8 +46,8 @@ void Engine::start(const char* title, int width, int height, bool fullScreen)
     } else {
         this->_isRunning = false;
     }
-    player = new GameObject("../Data/Sprites/player.png", 0, 0);
-    enemy = new GameObject("../Data/Sprites/enemy.png", 50, 50);
+    player = new GameObject("../assets/sprites/player.png", 0, 0);
+    enemy = new GameObject("../assets/sprites/enemy.png", 50, 50);
     map = new Map();
     
     newPlayer.addComponent<PositionComponent>();
