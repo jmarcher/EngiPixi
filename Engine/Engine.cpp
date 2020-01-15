@@ -1,21 +1,21 @@
 #include "Engine.h"
 
-#include "EntityComponentSystem.h"
-#include "Components.h"
+//#include "ECS/EntityComponentSystem.h"
+#include "ECS/Components.h"
 #include <string>
 
-GameObject *player;
-GameObject *enemy;
-Map *map;
-
-Manager manager;
-auto &newPlayer(manager.addEntity());
-
 SDL_Renderer *Engine::renderer = nullptr;
+
+Map *map;
+Manager *manager = new Manager();
+
+auto &player(manager->addEntity());
 
 Engine::Engine(bool showFps) {
     this->_isRunning = false;
     this->_showFps = showFps;
+    this->_ticks = 0;
+    this->window = nullptr;
 }
 
 Engine::~Engine() {
@@ -46,12 +46,11 @@ void Engine::start(const char *title, int width, int height, bool fullScreen) {
     } else {
         this->_isRunning = false;
     }
-    player = new GameObject("../assets/sprites/player.png", 0, 0);
-    enemy = new GameObject("../assets/sprites/enemy.png", 50, 50);
+
     map = new Map();
 
-    newPlayer.addComponent<PositionComponent>();
-    newPlayer.getComponent<PositionComponent>().setPosition(500, 500);
+    player.addComponent<PositionComponent>(0, 0);
+    player.addComponent<SpriteComponent>("../assets/sprites/player.png");
 }
 
 bool Engine::isRunning() const {
@@ -74,17 +73,19 @@ void Engine::handleEvents() {
 void Engine::update() {
     this->_ticks++;
 
-    player->update();
-    enemy->update();
-    manager.update();
+    manager->update();
+
+    if (player.getComponent<PositionComponent>().x() > 100) {
+        player.getComponent<SpriteComponent>().setTexture("../assets/sprites/enemy.png");
+    }
 
 }
 
 void Engine::render() {
     SDL_RenderClear(renderer);
     map->draw();
-    player->render();
-    enemy->render();
+
+    manager->draw();
 
     // If the FPS are show, we can wait to present and drawFPS will present
     // the screen for us
@@ -102,21 +103,15 @@ void Engine::clean() {
 void Engine::drawFPS(const char *fps) {
     TTF_Font *Sans = TTF_OpenFont("../assets/fonts/ani.ttf", 32);
 
-
-    SDL_Color White = {255, 255, 255,
-                       255};
-
-    SDL_Surface *surfaceMessage = TTF_RenderText_Solid(Sans, fps,
-                                                       White);
-
-    SDL_Texture *message = SDL_CreateTextureFromSurface(renderer,
-                                                        surfaceMessage);
-
+    SDL_Color White = {255, 255, 255, 255};
+    SDL_Surface *surfaceMessage = TTF_RenderText_Solid(Sans, fps, White);
+    SDL_Texture *message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
     SDL_FreeSurface(surfaceMessage);
 
     SDL_Rect message_rect = {10, 10, 100, 100}; //create a rect
-
     SDL_RenderCopy(renderer, message, nullptr, &message_rect);
 
+    // We can safely call SDL_RenderPreset because when using this function the
+    // draw method will not present anything.
     SDL_RenderPresent(renderer);
 }

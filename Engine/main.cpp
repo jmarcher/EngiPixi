@@ -4,13 +4,13 @@
 #define FRAME_VALUES 10
 
 // An array to store frame times:
-Uint32 frametimes[FRAME_VALUES];
+Uint32 frameTimes[FRAME_VALUES];
 
 // Last calculated SDL_GetTicks
-Uint32 frametimelast;
+Uint32 frameTimeLast;
 
 // total frames rendered
-Uint32 framecount;
+Uint32 frameCount;
 
 float framesPerSecond;
 // Frames per second as char*
@@ -22,35 +22,34 @@ Engine *engine = nullptr;
 void fpsInit() {
 
     // Set all frame times to 0ms.
-    memset(frametimes, 0, sizeof(frametimes));
-    framecount = 0;
+    memset(frameTimes, 0, sizeof(frameTimes));
+    frameCount = 0;
     framesPerSecond = 0;
-    frametimelast = SDL_GetTicks();
+    frameTimeLast = SDL_GetTicks();
 
 }
 
 void calculateFps() {
 
-    Uint32 frametimesindex;
-    Uint32 getticks;
+    Uint32 frameTimesIndex;
+    Uint32 currentTicks;
     Uint32 count;
-    Uint32 i;
 
-    // frametimesindex is the position in the array. It ranges from 0 to FRAME_VALUES.
+    // frameTimesIndex is the position in the array. It ranges from 0 to FRAME_VALUES.
     // This value rotates back to 0 after it hits FRAME_VALUES.
-    frametimesindex = framecount % FRAME_VALUES;
+    frameTimesIndex = frameCount % FRAME_VALUES;
 
     // store the current time
-    getticks = SDL_GetTicks();
+    currentTicks = SDL_GetTicks();
 
     // save the frame time value
-    frametimes[frametimesindex] = getticks - frametimelast;
+    frameTimes[frameTimesIndex] = currentTicks - frameTimeLast;
 
     // save the last frame time for the next calculateFps
-    frametimelast = getticks;
+    frameTimeLast = currentTicks;
 
     // increment the frame count
-    framecount++;
+    frameCount++;
 
     // Work out the current framerate
 
@@ -58,9 +57,9 @@ void calculateFps() {
 
     // I've included a test to see if the whole array has been written to or not. This will stop
     // strange values on the first few (FRAME_VALUES) frames.
-    if (framecount < FRAME_VALUES) {
+    if (frameCount < FRAME_VALUES) {
 
-        count = framecount;
+        count = frameCount;
 
     } else {
 
@@ -70,10 +69,8 @@ void calculateFps() {
 
     // add up all the values and divide to get the average frame time.
     framesPerSecond = 0;
-    for (i = 0; i < count; i++) {
-
-        framesPerSecond += frametimes[i];
-
+    for (Uint32 i = 0; i < count; i++) {
+        framesPerSecond += frameTimes[i];
     }
 
     framesPerSecond /= count;
@@ -92,7 +89,7 @@ int main(int argc, char **argv) {
     int frameTime;
     bool showFps = true;
     engine = new Engine(showFps);
-    engine->start("game", 800, 640, false);
+    engine->start("game", 1600, 1280, false);
 
     // put this as close as possible to the start of the loop (before it starts!)
     if (showFps)

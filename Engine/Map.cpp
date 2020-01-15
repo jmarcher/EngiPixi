@@ -1,12 +1,12 @@
 #include "Map.h"
 #include "TextureManager.h"
 
-int firstLevel[20][25] = {
+int firstLevel[MAP_ROWS][MAP_COLUMNS] = {
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-    { 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
@@ -21,7 +21,7 @@ int firstLevel[20][25] = {
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
 };
 Map::Map()
 {
@@ -36,10 +36,10 @@ Map::~Map()
 {
 }
 
-void Map::load(int toLoad[20][25])
+void Map::load(int toLoad[MAP_ROWS][MAP_COLUMNS])
 {
-    for(auto row = 0; row < 20; ++row) {
-        for(auto column = 0; column < 25; ++column) {
+    for(auto row = 0; row < MAP_ROWS; ++row) {
+        for(auto column = 0; column < MAP_COLUMNS; ++column) {
             map[row][column] = toLoad[row][column];
         }
     }
@@ -53,11 +53,11 @@ void Map::load(int toLoad[20][25])
 void Map::draw()
 {
     int type = 0;
-    for(auto row = 0; row < 20; ++row) {
-        for(auto colum = 0; colum < 25; ++colum) {
-            type = map[row][colum];
-            this->destination.x = row * TILE_SIDE_SIZE * 2;
-            this->destination.y = colum * TILE_SIDE_SIZE * 2;
+    for(auto row = 0; row < MAP_ROWS; ++row) {
+        for(auto column = 0; column < MAP_COLUMNS; ++column) {
+            type = map[row][column];
+            this->destination.x = column * TILE_SIDE_SIZE * 2;
+            this->destination.y = row * TILE_SIDE_SIZE * 2;
             switch(type) {
             case WATER:
                 TextureManager::draw(this->water, this->source, this->destination);

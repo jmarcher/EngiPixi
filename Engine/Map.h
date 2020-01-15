@@ -1,6 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
-
+#define MAP_ROWS 20
+#define MAP_COLUMNS 25
 #define WATER 0
 #define GRASS 1
 #define DIRT 2

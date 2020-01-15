@@ -22,6 +22,6 @@ file(GLOB source_files
         "*.cpp"
         )
 
-add_executable(EngiPixi ${source_files})
+add_executable(EngiPixi ${source_files} ECS/SpriteComponent.h ECS/PositionComponent.h)
 
 target_link_libraries(EngiPixi SDL2 SDL2_image SDL2_ttf)

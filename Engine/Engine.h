@@ -8,7 +8,6 @@
 #include "SDL2/SDL_ttf.h"
 #include <iostream>
 
-#include "GameObject.h"
 #include "Map.h"
 #include "TextureManager.h"
 #include "Tile.h"
