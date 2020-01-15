@@ -35,6 +35,7 @@ using ComponentArray = std::array<Component*, maxComponents>;
 class Component
 {
 public:
+
     Entity* entity;
 
     virtual void init()
@@ -55,6 +56,7 @@ public:
 class Entity
 {
 public:
+
     void update()
     {
         for(auto& c : this->components) {
@@ -81,7 +83,7 @@ public:
 
     template <typename T> bool hasComponents() const
     {
-        return componentBitSet[getComponentTypeID<T>];
+        return componentBitSet[getComponentTypeID<T>()];
     }
 
     template <typename T, typename... TArgs> T& addComponent(TArgs&&... mArgs)
@@ -119,6 +121,9 @@ class Manager
 {
 
 public:
+    Manager(){}
+    ~Manager(){}
+
     void update()
     {
         for(auto& e : entites) {
@@ -143,8 +148,8 @@ public:
     Entity& addEntity()
     {
         Entity* e = new Entity();
-//        std::unique_ptr<Entity> uPtr { e };
-//        entites.emplace_back(std::move(uPtr));
+        std::unique_ptr<Entity> uPtr { e };
+        entites.emplace_back(std::move(uPtr));
 
         return *e;
     }
@@ -152,6 +157,5 @@ public:
 protected:
     std::vector<std::unique_ptr<Entity>> entites;
 };
-
 
 #endif // ENTITYCOMPONENTSYSTEM_H

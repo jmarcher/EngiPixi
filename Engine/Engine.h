@@ -12,8 +12,7 @@
 #include "TextureManager.h"
 #include "Tile.h"
 
-#include "EntityComponentSystem.h"
-#include "Components.h"
+
 
 class Engine
 {

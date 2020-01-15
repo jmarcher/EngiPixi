@@ -1,13 +1,14 @@
 #include "Engine.h"
 
-
+#include "EntityComponentSystem.h"
+#include "Components.h"
 
 GameObject* player;
 GameObject* enemy;
 Map * map;
 
-Manager * manager;
-auto & newPlayer(manager->addEntity());
+Manager manager;
+auto & newPlayer(manager.addEntity());
 
 SDL_Renderer* Engine::renderer = nullptr;
 
@@ -49,7 +50,8 @@ void Engine::start(const char* title, int width, int height, bool fullScreen)
     enemy = new GameObject("../Data/Sprites/enemy.png", 50, 50);
     map = new Map();
     
-//    newPlayer.addComponent<PositionComponent>();
+    newPlayer.addComponent<PositionComponent>();
+    newPlayer.getComponent<PositionComponent>().setPosition(500,500);
 }
 
 bool Engine::isRunning() const
@@ -77,7 +79,7 @@ void Engine::update()
 
     player->update();
     enemy->update();
-//    manager->update();
+    manager.update();
     
     std::cout << newPlayer.getComponent<PositionComponent>().x() << "," <<
     newPlayer.getComponent<PositionComponent>().y() << std::endl;
