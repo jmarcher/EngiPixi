@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Engine" Version="10.0.0" InternalType="Console">
-  <VirtualDirectory Name="assets">
-    <VirtualDirectory Name="sprites"/>
-  </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00010001N0005Debug000000000000]]>
     </Plugin>
   </Plugins>
+  <VirtualDirectory Name="assets">
+    <VirtualDirectory Name="sprites"/>
+  </VirtualDirectory>
   <Reconciliation>
     <Regexes/>
     <Excludepaths/>
@@ -21,6 +21,12 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="ECS">
+      <File Name="ECS/SpriteComponent.h"/>
+      <File Name="ECS/PositionComponent.h"/>
+      <File Name="ECS/EntityComponentSystem.h"/>
+      <File Name="ECS/Components.h"/>
+    </VirtualDirectory>
     <File Name="Components.h"/>
     <File Name="EntityComponentSystem.cpp"/>
     <File Name="EntityComponentSystem.h"/>

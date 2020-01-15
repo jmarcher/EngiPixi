@@ -27,8 +27,16 @@ public:
     }
 
     void update() override {
+//        this->xPosition++;
+//        this->yPosition++;
+    }
+
+    void addXPosition() {
         this->xPosition++;
-        this->yPosition++;
+    }
+
+    void substractXPosition() {
+        this->xPosition--;
     }
 
     void setPosition(int x, int y) {

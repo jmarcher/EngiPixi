@@ -1,4 +1,16 @@
 [{
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image"
+ }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/PositionComponent.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/PositionComponent.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/PositionComponent.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image"
+ }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image"
+ }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/TextureManager.h",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/TextureManager.h -o /home/gordo/Code/C++/EngiPixi/Engine/TextureManager.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image"
@@ -22,6 +34,10 @@
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/EntityComponentSystem.cpp",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/EntityComponentSystem.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/EntityComponentSystem.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image"
+ }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/Components.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/Components.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/Components.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image"
  }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",

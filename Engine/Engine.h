@@ -40,6 +40,8 @@ protected:
     bool _isRunning, _showFps;
     Tile _map[TILE_COUNT_PER_SCREEN][TILE_COUNT_PER_SCREEN];
     unsigned long long _ticks;
+
+    void handleKeyboardEvents(SDL_KeyboardEvent *event);
 };
 
 #endif // ENGINE_H

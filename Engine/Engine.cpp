@@ -57,6 +57,22 @@ bool Engine::isRunning() const {
     return this->_isRunning;
 }
 
+void Engine::handleKeyboardEvents(SDL_KeyboardEvent *key) {
+    switch (key->keysym.sym) {
+        case SDLK_ESCAPE:
+            this->_isRunning = false;
+            break;
+        case SDLK_RIGHT:
+            player.getComponent<PositionComponent>().addXPosition();
+            break;
+            case SDLK_LEFT:
+            player.getComponent<PositionComponent>().substractXPosition();
+            break;
+        default:
+            break;
+    }
+}
+
 void Engine::handleEvents() {
     SDL_Event event;
     SDL_PollEvent(&event);
@@ -65,6 +81,8 @@ void Engine::handleEvents() {
         case SDL_QUIT:
             this->_isRunning = false;
             break;
+        case SDL_KEYDOWN:
+            this->handleKeyboardEvents(&event.key);
         default:
             break;
     }
@@ -77,6 +95,8 @@ void Engine::update() {
 
     if (player.getComponent<PositionComponent>().x() > 100) {
         player.getComponent<SpriteComponent>().setTexture("../assets/sprites/enemy.png");
+    }else{
+        player.getComponent<SpriteComponent>().setTexture("../assets/sprites/player.png");
     }
 
 }
