@@ -20,17 +20,14 @@ Engine *engine = nullptr;
 
 // This function gets called once on startup.
 void fpsInit() {
-
     // Set all frame times to 0ms.
     memset(frameTimes, 0, sizeof(frameTimes));
     frameCount = 0;
     framesPerSecond = 0;
     frameTimeLast = SDL_GetTicks();
-
 }
 
 void calculateFps() {
-
     Uint32 frameTimesIndex;
     Uint32 currentTicks;
     Uint32 count;
@@ -58,9 +55,7 @@ void calculateFps() {
     // I've included a test to see if the whole array has been written to or not. This will stop
     // strange values on the first few (FRAME_VALUES) frames.
     if (frameCount < FRAME_VALUES) {
-
         count = frameCount;
-
     } else {
 
         count = FRAME_VALUES;
