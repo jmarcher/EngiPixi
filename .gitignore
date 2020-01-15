@@ -62,7 +62,8 @@ les
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
+.idea/
+Engine/.idea/
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries

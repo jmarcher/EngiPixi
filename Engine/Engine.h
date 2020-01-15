@@ -5,6 +5,7 @@
 
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
+#include "SDL2/SDL_ttf.h"
 #include <iostream>
 
 #include "GameObject.h"
@@ -13,26 +14,31 @@
 #include "Tile.h"
 
 
-
-class Engine
-{
+class Engine {
 public:
-    Engine();
+    Engine(bool showFps);
+
     ~Engine();
 
-    void start(const char* title, int width, int height, bool fullScreen);
+    void start(const char *title, int width, int height, bool fullScreen);
+
     void handleEvents();
+
     void update();
+
     void render();
+
     void clean();
 
     bool isRunning() const;
 
-    static SDL_Renderer* renderer;
+    void drawFPS(const char *fps);
+
+    static SDL_Renderer *renderer;
 
 protected:
-    SDL_Window* window;
-    bool _isRunning;
+    SDL_Window *window;
+    bool _isRunning, _showFps;
     Tile _map[TILE_COUNT_PER_SCREEN][TILE_COUNT_PER_SCREEN];
     unsigned long long _ticks;
 };
