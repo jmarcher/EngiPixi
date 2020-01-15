@@ -29,7 +29,6 @@ void Tile::fillTile(int r, int g, int b){
 }
 
 void Tile::draw(){
-    
 }
 
 int Tile::xPosition() const {

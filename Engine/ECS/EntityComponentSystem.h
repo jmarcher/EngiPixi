@@ -35,7 +35,6 @@ using ComponentArray = std::array<Component*, maxComponents>;
 class Component
 {
 public:
-
     Entity* entity;
 
     virtual void init()
@@ -56,7 +55,6 @@ public:
 class Entity
 {
 public:
-
     void update()
     {
         for(auto& c : this->components) {
@@ -119,7 +117,6 @@ protected:
 
 class Manager
 {
-
 public:
     Manager(){}
     ~Manager(){}

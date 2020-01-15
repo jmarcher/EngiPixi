@@ -31,6 +31,5 @@ void GameObject::update()
 
 void GameObject::render()
 {
-
     SDL_RenderCopy(Engine::renderer, objectTexture, &sourceRect, &destinationRect);
 }

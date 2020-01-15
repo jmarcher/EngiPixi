@@ -57,9 +57,7 @@ void calculateFps() {
     if (frameCount < FRAME_VALUES) {
         count = frameCount;
     } else {
-
         count = FRAME_VALUES;
-
     }
 
     // add up all the values and divide to get the average frame time.

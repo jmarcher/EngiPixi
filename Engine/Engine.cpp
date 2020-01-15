@@ -98,7 +98,6 @@ void Engine::update() {
     }else{
         player.getComponent<SpriteComponent>().setTexture("../assets/sprites/player.png");
     }
-
 }
 
 void Engine::render() {
