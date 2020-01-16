@@ -32,7 +32,7 @@ void calculateFps() {
     Uint32 currentTicks;
     Uint32 count;
 
-    // frameTimesIndex is the position in the array. It ranges from 0 to FRAME_VALUES.
+    // frameTimesIndex is the transformation in the array. It ranges from 0 to FRAME_VALUES.
     // This value rotates back to 0 after it hits FRAME_VALUES.
     frameTimesIndex = frameCount % FRAME_VALUES;
 

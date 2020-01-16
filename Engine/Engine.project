@@ -23,7 +23,7 @@
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="ECS">
       <File Name="ECS/SpriteComponent.h"/>
-      <File Name="ECS/PositionComponent.h"/>
+      <File Name="ECS/TransformComponent.h"/>
       <File Name="ECS/EntityComponentSystem.h"/>
       <File Name="ECS/Components.h"/>
     </VirtualDirectory>

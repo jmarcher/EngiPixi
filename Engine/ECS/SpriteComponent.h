@@ -9,6 +9,10 @@
 #include "SDL2/SDL.h"
 
 class SpriteComponent : public Component {
+protected:
+    TransformComponent *transformation;
+    SDL_Texture *texture;
+    SDL_Rect sourceRect, destinationRect;
 public:
     SpriteComponent() = default;
 
@@ -21,25 +25,20 @@ public:
     }
 
     void init() override {
-        this->position = &entity->getComponent<PositionComponent>();
+        this->transformation = &entity->getComponent<TransformComponent>();
         this->sourceRect.x = this->sourceRect.y = 0;
         this->sourceRect.h = this->sourceRect.w = 32;
         this->destinationRect.h = this->destinationRect.w = this->sourceRect.h * 2;
     }
 
     void update() override {
-        this->destinationRect.x = this->position->x();
-        this->destinationRect.y = this->position->y();
+        this->destinationRect.x = (int) this->transformation->x();
+        this->destinationRect.y = (int) this->transformation->y();
     }
 
     void draw() override {
         TextureManager::draw(this->texture, this->sourceRect, this->destinationRect);
     }
-
-protected:
-    PositionComponent *position;
-    SDL_Texture *texture;
-    SDL_Rect sourceRect, destinationRect;
 };
 
 #endif //ENGIPIXI_SPRITECOMPONENT_H

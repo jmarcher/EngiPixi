@@ -5,6 +5,8 @@
 #define WATER 0
 #define GRASS 1
 #define DIRT 2
+// Nice
+#define TREE 3
 
 #define TILE_SIDE_SIZE 32
 
@@ -24,7 +26,8 @@ protected:
     SDL_Texture* dirt;
     SDL_Texture* grass;
     SDL_Texture* water;
-    
+    SDL_Texture* tree;
+
     int map[20][25];
 };
 

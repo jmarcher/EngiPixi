@@ -49,7 +49,7 @@ void Engine::start(const char *title, int width, int height, bool fullScreen) {
 
     map = new Map();
 
-    player.addComponent<PositionComponent>(0, 0);
+    player.addComponent<TransformComponent>(0, 0);
     player.addComponent<SpriteComponent>("../assets/sprites/player.png");
 }
 
@@ -63,10 +63,10 @@ void Engine::handleKeyboardEvents(SDL_KeyboardEvent *key) {
             this->_isRunning = false;
             break;
         case SDLK_RIGHT:
-            player.getComponent<PositionComponent>().addXPosition();
+            player.getComponent<TransformComponent>().addXPosition();
             break;
             case SDLK_LEFT:
-            player.getComponent<PositionComponent>().substractXPosition();
+                player.getComponent<TransformComponent>().subtractXPosition();
             break;
         default:
             break;
@@ -92,8 +92,8 @@ void Engine::update() {
     this->_ticks++;
 
     manager->update();
-
-    if (player.getComponent<PositionComponent>().x() > 100) {
+    player.getComponent<TransformComponent>().position.add(Vector2D(0,5));
+    if (player.getComponent<TransformComponent>().x() > 100) {
         player.getComponent<SpriteComponent>().setTexture("../assets/sprites/enemy.png");
     }else{
         player.getComponent<SpriteComponent>().setTexture("../assets/sprites/player.png");
