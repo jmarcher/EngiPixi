@@ -35,6 +35,8 @@ public:
 
     static SDL_Renderer *renderer;
 
+    static SDL_Event event;
+
 protected:
     SDL_Window *window;
     bool _isRunning, _showFps;

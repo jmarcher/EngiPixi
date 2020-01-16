@@ -33,6 +33,10 @@ Map::Map() {
 }
 
 Map::~Map() {
+    SDL_DestroyTexture(this->dirt);
+    SDL_DestroyTexture(this->grass);
+    SDL_DestroyTexture(this->water);
+    SDL_DestroyTexture(this->tree);
 }
 
 void Map::load(int toLoad[MAP_ROWS][MAP_COLUMNS]) {

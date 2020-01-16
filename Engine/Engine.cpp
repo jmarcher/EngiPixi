@@ -2,14 +2,18 @@
 
 //#include "ECS/EntityComponentSystem.h"
 #include "ECS/Components.h"
+#include "Collision.h"
 #include <string>
 
 SDL_Renderer *Engine::renderer = nullptr;
+
+SDL_Event Engine::event;
 
 Map *map;
 Manager *manager = new Manager();
 
 auto &player(manager->addEntity());
+auto &wall(manager->addEntity());
 
 Engine::Engine(bool showFps) {
     this->_isRunning = false;
@@ -49,40 +53,27 @@ void Engine::start(const char *title, int width, int height, bool fullScreen) {
 
     map = new Map();
 
-    player.addComponent<TransformComponent>(0, 0);
+    player.addComponent<TransformComponent>(0, 0, 2);
     player.addComponent<SpriteComponent>("../assets/sprites/player.png");
+    player.addComponent<KeyboardController>();
+    player.addComponent<ColliderComponent>("player");
+
+    wall.addComponent<TransformComponent>(600.0f, 600.0f, 300, 20, 1);
+    wall.addComponent<SpriteComponent>("../assets/sprites/dirt.png");
+    wall.addComponent<ColliderComponent>("wall");
 }
 
 bool Engine::isRunning() const {
     return this->_isRunning;
 }
 
-void Engine::handleKeyboardEvents(SDL_KeyboardEvent *key) {
-    switch (key->keysym.sym) {
-        case SDLK_ESCAPE:
-            this->_isRunning = false;
-            break;
-        case SDLK_RIGHT:
-            player.getComponent<TransformComponent>().addXPosition();
-            break;
-            case SDLK_LEFT:
-                player.getComponent<TransformComponent>().subtractXPosition();
-            break;
-        default:
-            break;
-    }
-}
-
 void Engine::handleEvents() {
-    SDL_Event event;
     SDL_PollEvent(&event);
 
     switch (event.type) {
         case SDL_QUIT:
             this->_isRunning = false;
             break;
-        case SDL_KEYDOWN:
-            this->handleKeyboardEvents(&event.key);
         default:
             break;
     }
@@ -92,11 +83,10 @@ void Engine::update() {
     this->_ticks++;
 
     manager->update();
-    player.getComponent<TransformComponent>().position.add(Vector2D(0,5));
-    if (player.getComponent<TransformComponent>().x() > 100) {
-        player.getComponent<SpriteComponent>().setTexture("../assets/sprites/enemy.png");
-    }else{
-        player.getComponent<SpriteComponent>().setTexture("../assets/sprites/player.png");
+
+    if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
+                        wall.getComponent<ColliderComponent>().collider)) {
+        std::cout << "Colliding" << std::endl;
     }
 }
 

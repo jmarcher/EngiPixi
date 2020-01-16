@@ -20,6 +20,10 @@ public:
         this->setTexture(path);
     }
 
+    ~SpriteComponent() {
+        SDL_DestroyTexture(this->texture);
+    }
+
     void setTexture(const char *path) {
         this->texture = TextureManager::LoadTexture(path);
     }
@@ -27,8 +31,10 @@ public:
     void init() override {
         this->transformation = &entity->getComponent<TransformComponent>();
         this->sourceRect.x = this->sourceRect.y = 0;
-        this->sourceRect.h = this->sourceRect.w = 32;
-        this->destinationRect.h = this->destinationRect.w = this->sourceRect.h * 2;
+        this->sourceRect.w = this->transformation->width;
+        this->sourceRect.h = this->transformation->height;
+        this->destinationRect.h = this->transformation->height * this->transformation->scale;
+        this->destinationRect.w = this->transformation->width * this->transformation->scale;
     }
 
     void update() override {
