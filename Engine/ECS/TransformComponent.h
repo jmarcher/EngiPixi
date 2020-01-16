@@ -6,7 +6,6 @@
 
 class TransformComponent : public Component {
 public:
-
     Vector2D position;
     TransformComponent() {
         this->position.x = 0.0f;
@@ -26,8 +25,7 @@ public:
     }
 
     void update() override {
-//        this->xPosition++;
-//        this->yPosition++;
+
     }
 
     void addXPosition() {
