@@ -17,8 +17,6 @@ private:
     unsigned int frameCount;
 
     float fps;
-    // Frames per second as char*
-    char c_framesPerSecond[5];
 public:
     FpsHelper();
 

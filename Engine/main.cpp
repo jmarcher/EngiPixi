@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 
     unsigned long int frameStart;
     int frameTime;
-    bool showFps = true;
+    bool showFps = false;
     engine = new Engine(showFps);
     engine->start("game", 1600, 1280, false);
 
