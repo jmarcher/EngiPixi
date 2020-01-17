@@ -14,21 +14,17 @@ void FpsHelper::init() {
 
 void FpsHelper::calculateFps() {
     unsigned int frameTimesIndex;
-    unsigned int currentTicks;
     unsigned int count;
 
     // frameTimesIndex is the transformation in the array. It ranges from 0 to FRAME_VALUES.
     // This value rotates back to 0 after it hits FRAME_VALUES.
     frameTimesIndex = frameCount % FRAME_VALUES;
 
-    // store the current time
-    currentTicks = SDL_GetTicks();
-
     // save the frame time value
-    frameTimes[frameTimesIndex] = currentTicks - frameTimeLast;
+    frameTimes[frameTimesIndex] = this->frameStart - frameTimeLast;
 
     // save the last frame time for the next calculateFps
-    frameTimeLast = currentTicks;
+    frameTimeLast = this->frameStart;
 
     // increment the frame count
     frameCount++;
@@ -47,7 +43,7 @@ void FpsHelper::calculateFps() {
 
     // add up all the values and divide to get the average frame time.
     fps = 0;
-    for (auto i = 0; i < count; i++) {
+    for (unsigned int i = 0; i < count; i++) {
         fps += frameTimes[i];
     }
 
@@ -59,4 +55,17 @@ void FpsHelper::calculateFps() {
 
 std::string FpsHelper::framesPerSecond() const {
     return std::to_string(fps);
+}
+
+void FpsHelper::startFrame() {
+    this->frameStart = SDL_GetTicks();
+}
+
+void FpsHelper::endFrame() {
+    this->frameEnd = SDL_GetTicks() - this->frameStart;
+
+    // Check if we need to delay the frames
+    if (FRAME_DELAY > this->frameEnd) {
+        SDL_Delay(FRAME_DELAY - this->frameEnd);
+    }
 }

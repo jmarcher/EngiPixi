@@ -22,6 +22,6 @@ file(GLOB source_files
         "*.cpp"
         )
 
-add_executable(EngiPixi ${source_files} ECS/SpriteComponent.h ECS/TransformComponent.h Math/Vector2D.h Math/Vector2D.cpp Helpers/Debug/FpsHelper.cpp Helpers/Debug/FpsHelper.h ECS/KeyboardController.h ECS/ColliderComponent.h Collision.h Collision.cpp)
+add_executable(EngiPixi ${source_files} ECS/SpriteComponent.h ECS/TransformComponent.h Math/Vector2D.h Math/Vector2D.cpp Helpers/FpsHelper.cpp Helpers/FpsHelper.h ECS/KeyboardController.h ECS/ColliderComponent.h Collision.h Collision.cpp)
 
 target_link_libraries(EngiPixi SDL2 SDL2_image SDL2_ttf)

@@ -3,7 +3,9 @@
 
 #include "SDL2/SDL.h"
 #include <string>
-#define FRAME_VALUES 10
+const unsigned int FRAME_VALUES = 10;
+const unsigned int FPS = 60;
+const unsigned int FRAME_DELAY = 1000 / FPS;
 
 class FpsHelper {
 private:
@@ -17,6 +19,11 @@ private:
     unsigned int frameCount;
 
     float fps;
+    
+    // FrameTicks
+    unsigned int frameStart;
+    unsigned int frameEnd;
+    
 public:
     FpsHelper();
 
@@ -24,6 +31,10 @@ public:
     void init();
 
     std::string framesPerSecond() const;
+    
+    void startFrame();
+    
+    void endFrame();
 
     void calculateFps();
 };

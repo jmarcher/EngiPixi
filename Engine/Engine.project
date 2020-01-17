@@ -6,7 +6,22 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="assets">
-    <VirtualDirectory Name="sprites"/>
+    <VirtualDirectory Name="fonts">
+      <File Name="assets/fonts/ani.ttf"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="sprites">
+      <File Name="assets/sprites/water.png"/>
+      <File Name="assets/sprites/water.aseprite"/>
+      <File Name="assets/sprites/player.png"/>
+      <File Name="assets/sprites/player.ase"/>
+      <File Name="assets/sprites/grass.png"/>
+      <File Name="assets/sprites/grass.aseprite"/>
+      <File Name="assets/sprites/enemy.png"/>
+      <File Name="assets/sprites/dirt.png"/>
+      <File Name="assets/sprites/dirt.aseprite"/>
+      <File Name="assets/sprites/basic_tree.png"/>
+      <File Name="assets/sprites/basic_tree.aseprite"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Reconciliation>
     <Regexes/>
@@ -17,19 +32,28 @@
     </Extensions>
     <Topleveldir>/home/gordo/Code/C++/EngiPixi/Engine</Topleveldir>
   </Reconciliation>
-  <VirtualDirectory Name="Data"/>
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="Collision.h"/>
+    <File Name="Collision.cpp"/>
+    <VirtualDirectory Name="Math">
+      <File Name="Math/Vector2D.cpp"/>
+      <File Name="Math/Vector2D.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Helpers">
+      <File Name="Helpers/FpsHelper.h"/>
+      <File Name="Helpers/FpsHelper.cpp"/>
+    </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/KeyboardController.h"/>
+      <File Name="ECS/ColliderComponent.h"/>
       <File Name="ECS/SpriteComponent.h"/>
       <File Name="ECS/TransformComponent.h"/>
-      <File Name="ECS/EntityComponentSystem.h"/>
+      <File Name="ECS/EntityComponentSystem.h" ExcludeProjConfig=""/>
       <File Name="ECS/Components.h"/>
     </VirtualDirectory>
     <File Name="Components.h"/>
-    <File Name="EntityComponentSystem.cpp"/>
-    <File Name="EntityComponentSystem.h"/>
     <File Name="TextureManager.cpp"/>
     <File Name="TextureManager.h"/>
     <File Name="Map.cpp"/>
@@ -53,7 +77,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="prepend" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-std=c++17 -O0;-Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+      <Compiler Options="-std=c++17 -O0;-Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
         <IncludePath Value="/usr/include/"/>
       </Compiler>
@@ -61,6 +85,7 @@
         <LibraryPath Value="/usr/lib/"/>
         <Library Value="SDL2"/>
         <Library Value="SDL2_image"/>
+        <Library Value="SDL2_ttf"/>
       </Linker>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
