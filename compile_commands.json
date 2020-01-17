@@ -39,21 +39,17 @@
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
  }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
+ }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Tile.h",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Tile.h -o /home/gordo/Code/C++/EngiPixi/Engine/Tile.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
  }, {
-  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Components.h",
-  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Components.h -o /home/gordo/Code/C++/EngiPixi/Engine/Components.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
- }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
- }, {
-  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp",
-  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
  }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/GameObject.h",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
@@ -62,14 +58,6 @@
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
- }, {
-  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp",
-  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
- }, {
-  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Collision.h",
-  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Collision.h -o /home/gordo/Code/C++/EngiPixi/Engine/Collision.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
  }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Map.h",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
@@ -110,6 +98,14 @@
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.h",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.h -o /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
+ }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
+ }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Collision.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Collision.h -o /home/gordo/Code/C++/EngiPixi/Engine/Collision.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
  }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Tile.cpp",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",

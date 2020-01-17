@@ -57,7 +57,6 @@
       <File Name="ECS/EntityComponentSystem.h" ExcludeProjConfig=""/>
       <File Name="ECS/Components.h"/>
     </VirtualDirectory>
-    <File Name="Components.h"/>
     <File Name="TextureManager.cpp"/>
     <File Name="TextureManager.h"/>
     <File Name="Map.cpp"/>
