@@ -80,12 +80,12 @@ void Engine::handleEvents() {
 }
 
 void Engine::update() {
-    this->_ticks++;
-
+    manager->refresh();
     manager->update();
 
     if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
                         wall.getComponent<ColliderComponent>().collider)) {
+        player.getComponent<TransformComponent>().velocity * -1;
         std::cout << "Colliding" << std::endl;
     }
 }

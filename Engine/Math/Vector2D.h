@@ -22,6 +22,9 @@ public:
     friend Vector2D& operator*(Vector2D& v1, const Vector2D& v2);
     friend Vector2D& operator/(Vector2D& v1, const Vector2D& v2);
 
+    Vector2D& operator*(const int & i);
+    Vector2D& zero();
+
     Vector2D& operator+=(const Vector2D& vector);
     Vector2D& operator-=(const Vector2D& vector);
     Vector2D& operator*=(const Vector2D& vector);

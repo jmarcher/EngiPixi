@@ -52,22 +52,37 @@ Vector2D &operator/(Vector2D &v1, const Vector2D &v2) {
 }
 
 
-Vector2D& Vector2D::operator+=(const Vector2D& vector){
+Vector2D &Vector2D::operator+=(const Vector2D &vector) {
     return this->add(vector);
 }
-Vector2D& Vector2D::operator-=(const Vector2D& vector){
+
+Vector2D &Vector2D::operator-=(const Vector2D &vector) {
     return this->subtract(vector);
 }
-Vector2D& Vector2D::operator*=(const Vector2D& vector){
+
+Vector2D &Vector2D::operator*=(const Vector2D &vector) {
     return this->multiply(vector);
 }
-Vector2D& Vector2D::operator/=(const Vector2D& vector){
+
+Vector2D &Vector2D::operator/=(const Vector2D &vector) {
     return this->divide(vector);
 }
 
 std::ostream &operator<<(std::ostream &stream, const Vector2D &vector) {
     stream << "(" << vector.x << "," << vector.y << ")";
     return stream;
+}
+
+Vector2D &Vector2D::operator*(const int &i) {
+    this->x *= i;
+    this->y *= i;
+    return *this;
+}
+
+Vector2D &Vector2D::zero() {
+    this->x = 0;
+    this->y = 0;
+    return *(this);
 }
 
 

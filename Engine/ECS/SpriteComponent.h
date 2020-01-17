@@ -38,8 +38,8 @@ public:
     }
 
     void update() override {
-        this->destinationRect.x = (int) this->transformation->x();
-        this->destinationRect.y = (int) this->transformation->y();
+        this->destinationRect.x = static_cast<int>(this->transformation->x());
+        this->destinationRect.y = static_cast<int>(this->transformation->y());
     }
 
     void draw() override {
