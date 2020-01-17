@@ -7,7 +7,7 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include <iostream>
-
+#include <string>
 #include "Map.h"
 #include "TextureManager.h"
 #include "Tile.h"
@@ -19,7 +19,7 @@ public:
 
     ~Engine();
 
-    void start(const char *title, int width, int height, bool fullScreen);
+    void start(const std::string& title, int width, int height, bool fullScreen);
 
     void handleEvents();
 
@@ -31,7 +31,7 @@ public:
 
     bool isRunning() const;
 
-    void drawFPS(const char *fps);
+    void drawFPS(const std::string& fps);
 
     static SDL_Renderer *renderer;
 

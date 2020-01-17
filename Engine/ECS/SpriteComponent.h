@@ -5,46 +5,31 @@
 #ifndef ENGIPIXI_SPRITECOMPONENT_H
 #define ENGIPIXI_SPRITECOMPONENT_H
 
+#include <string>
 #include "Components.h"
 #include "SDL2/SDL.h"
 
-class SpriteComponent : public Component {
+class SpriteComponent : public Component
+{
 protected:
-    TransformComponent *transformation;
-    SDL_Texture *texture;
+    TransformComponent* transformation;
+    SDL_Texture* texture;
     SDL_Rect sourceRect, destinationRect;
+
 public:
     SpriteComponent() = default;
 
-    SpriteComponent(const char *path) {
-        this->setTexture(path);
-    }
+    SpriteComponent(const std::string& path);
 
-    ~SpriteComponent() {
-        SDL_DestroyTexture(this->texture);
-    }
+    ~SpriteComponent();
 
-    void setTexture(const char *path) {
-        this->texture = TextureManager::LoadTexture(path);
-    }
+    void setTexture(const std::string& path);
 
-    void init() override {
-        this->transformation = &entity->getComponent<TransformComponent>();
-        this->sourceRect.x = this->sourceRect.y = 0;
-        this->sourceRect.w = this->transformation->width;
-        this->sourceRect.h = this->transformation->height;
-        this->destinationRect.h = this->transformation->height * this->transformation->scale;
-        this->destinationRect.w = this->transformation->width * this->transformation->scale;
-    }
+    void init() override;
 
-    void update() override {
-        this->destinationRect.x = static_cast<int>(this->transformation->x());
-        this->destinationRect.y = static_cast<int>(this->transformation->y());
-    }
+    void update() override;
 
-    void draw() override {
-        TextureManager::draw(this->texture, this->sourceRect, this->destinationRect);
-    }
+    void draw() override;
 };
 
-#endif //ENGIPIXI_SPRITECOMPONENT_H
+#endif // ENGIPIXI_SPRITECOMPONENT_H

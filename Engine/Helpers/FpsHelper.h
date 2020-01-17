@@ -30,7 +30,7 @@ public:
     // This function gets called once on startup.
     void init();
 
-    std::string framesPerSecond() const;
+    const std::string framesPerSecond() const;
     
     void startFrame();
     

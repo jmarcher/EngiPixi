@@ -46,6 +46,9 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/ColliderComponent.cpp"/>
+      <File Name="ECS/SpriteComponent.cpp"/>
+      <File Name="ECS/KeyboardController.cpp"/>
       <File Name="ECS/KeyboardController.h"/>
       <File Name="ECS/ColliderComponent.h"/>
       <File Name="ECS/SpriteComponent.h"/>

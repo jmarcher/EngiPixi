@@ -1,7 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #define MAP_ROWS 20
-#define MAP_COLUMNS 25
+#define MAP_COLUMNS 20
 #define WATER 0
 #define GRASS 1
 #define DIRT 2
@@ -18,7 +18,7 @@ public:
     Map();
     ~Map();
 
-    void load(int toLoad[20][25]);
+    void load(int toLoad[MAP_ROWS][MAP_COLUMNS]);
     void draw();
 
 protected:
@@ -28,7 +28,7 @@ protected:
     SDL_Texture* water;
     SDL_Texture* tree;
 
-    int map[20][25];
+    int map[MAP_ROWS][MAP_COLUMNS];
 };
 
 #endif // MAP_H

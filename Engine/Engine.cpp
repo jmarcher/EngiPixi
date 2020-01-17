@@ -25,7 +25,7 @@ Engine::Engine(bool showFps) {
 Engine::~Engine() {
 }
 
-void Engine::start(const char *title, int width, int height, bool fullScreen) {
+void Engine::start(const std::string& title, int width, int height, bool fullScreen) {
     int flags = 0;
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
         TTF_Init();
@@ -41,7 +41,7 @@ void Engine::start(const char *title, int width, int height, bool fullScreen) {
             }
         }
 
-        this->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+        this->window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
         renderer = SDL_CreateRenderer(this->window, -1, 0);
         if (renderer) {
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -109,11 +109,11 @@ void Engine::clean() {
     std::cout << "SDL Cleared" << std::endl;
 }
 
-void Engine::drawFPS(const char *fps) {
+void Engine::drawFPS(const std::string& fps) {
     TTF_Font *Sans = TTF_OpenFont("../assets/fonts/ani.ttf", 32);
 
     SDL_Color White = {255, 255, 255, 255};
-    SDL_Surface *surfaceMessage = TTF_RenderText_Solid(Sans, fps, White);
+    SDL_Surface *surfaceMessage = TTF_RenderText_Solid(Sans, fps.c_str(), White);
     SDL_Texture *message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
     SDL_FreeSurface(surfaceMessage);
 

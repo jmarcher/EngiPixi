@@ -1,1 +1,1 @@
-./Debug/Math_Vector2D.cpp.o ./Debug/Helpers_FpsHelper.cpp.o ./Debug/Engine.cpp.o ./Debug/Collision.cpp.o ./Debug/GameObject.cpp.o ./Debug/TextureManager.cpp.o ./Debug/Map.cpp.o ./Debug/main.cpp.o ./Debug/Tile.cpp.o
+./Debug/ECS_SpriteComponent.cpp.o ./Debug/ECS_KeyboardController.cpp.o ./Debug/Math_Vector2D.cpp.o ./Debug/Helpers_FpsHelper.cpp.o ./Debug/Engine.cpp.o ./Debug/Collision.cpp.o ./Debug/ECS_ColliderComponent.cpp.o ./Debug/GameObject.cpp.o ./Debug/TextureManager.cpp.o ./Debug/Map.cpp.o ./Debug/main.cpp.o ./Debug/Tile.cpp.o

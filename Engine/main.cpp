@@ -5,7 +5,7 @@
 Engine *engine = nullptr;
 
 int main(int argc, char **argv) {
-    bool showFps = true;
+    bool showFps = false;
     engine = new Engine(showFps);
     engine->start("game", 1600, 1280, false);
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
         engine->render();
         if (showFps) {
             fps.calculateFps();
-            engine->drawFPS(fps.framesPerSecond().c_str());
+            engine->drawFPS(fps.framesPerSecond());
         }
         
         fps.endFrame();
