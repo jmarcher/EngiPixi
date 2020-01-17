@@ -16,9 +16,6 @@ Manager* manager = new Manager();
 
 auto& player(manager->addEntity());
 auto& wall(manager->addEntity());
-auto& tile_0(manager->addEntity());
-auto& tile_1(manager->addEntity());
-auto& tile_2(manager->addEntity());
 
 Engine::Engine(bool showFps)
 {
@@ -61,14 +58,8 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     }
 
     map = new Map();
-
-    tile_0.addComponent<TileComponent>(200, 200, 32, 32, WATER);
     
-    tile_1.addComponent<TileComponent>(250, 250, 32, 32, DIRT);
-    tile_1.addComponent<ColliderComponent>("dirt");
-
-    tile_2.addComponent<TileComponent>(150, 150, 32, 32, GRASS);
-    tile_2.addComponent<ColliderComponent>("grass");
+    Map::load("../assets/data/maps/intro.map", TILE_SIZE, TILE_SIZE);
 
     player.addComponent<TransformComponent>(0, 0, 2);
     player.addComponent<SpriteComponent>("../assets/sprites/player.png");
@@ -102,9 +93,10 @@ void Engine::update()
 {
     manager->refresh();
     manager->update();
-    
-    for(auto collider : colliders){
-        if(Collision::AABB(player.getComponent<ColliderComponent>(), *collider));
+
+    for(auto collider : colliders) {
+        if(Collision::AABB(player.getComponent<ColliderComponent>(), *collider))
+            ;
     }
 
     if(Collision::AABB(
@@ -117,7 +109,7 @@ void Engine::update()
 void Engine::render()
 {
     SDL_RenderClear(renderer);
-//    map->draw();
+    //    map->draw();
 
     manager->draw();
 
@@ -150,4 +142,10 @@ void Engine::drawFPS(const std::string& fps)
     // We can safely call SDL_RenderPreset because when using this function the
     // draw method will not present anything.
     SDL_RenderPresent(renderer);
+}
+void Engine::addTile(int id, int x, int y)
+{
+    auto& tile(manager->addEntity());
+    tile.addComponent<TileComponent>(x, y, TILE_SIZE, TILE_SIZE, id);
+    
 }

@@ -1,7 +1,7 @@
 #ifndef TILE_H
 #define TILE_H
 #include <tuple>
-#define TILE_SIZE 1
+#define TILE_SIZE 32
 typedef std::tuple<int,int,int> Pixel;
 const Pixel black(0,0,0);
 class Tile

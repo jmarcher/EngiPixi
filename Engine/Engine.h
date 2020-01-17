@@ -42,6 +42,8 @@ public:
     static SDL_Event event;
     
     static std::vector<ColliderComponent*> colliders;
+    
+    static void addTile(int id, int x, int y);
 
 protected:
     SDL_Window *window;
