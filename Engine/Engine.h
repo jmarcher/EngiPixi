@@ -8,10 +8,14 @@
 #include "SDL2/SDL_ttf.h"
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Map.h"
 #include "TextureManager.h"
 #include "Tile.h"
+#include "ECS/Components.h"
+#include "ECS/ColliderComponent.h"
 
+class ColliderComponent;
 
 class Engine {
 public:
@@ -36,6 +40,8 @@ public:
     static SDL_Renderer *renderer;
 
     static SDL_Event event;
+    
+    static std::vector<ColliderComponent*> colliders;
 
 protected:
     SDL_Window *window;

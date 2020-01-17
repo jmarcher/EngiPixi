@@ -46,6 +46,8 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/TileComponent.cpp"/>
+      <File Name="ECS/TileComponent.h"/>
       <File Name="ECS/TransformComponent.cpp"/>
       <File Name="ECS/ColliderComponent.cpp"/>
       <File Name="ECS/SpriteComponent.cpp"/>

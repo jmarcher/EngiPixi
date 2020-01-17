@@ -11,6 +11,8 @@ void ColliderComponent::init()
         entity->addComponent<TransformComponent>();
     }
     transform = &entity->getComponent<TransformComponent>();
+    
+    Engine::colliders.push_back(this);
 }
 
 void ColliderComponent::update()
