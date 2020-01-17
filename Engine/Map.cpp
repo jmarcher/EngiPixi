@@ -25,10 +25,10 @@ int firstLevel[MAP_ROWS][MAP_COLUMNS] = {
 };
 
 Map::Map() {
-    this->dirt = TextureManager::LoadTexture("../assets/sprites/dirt.png");
-    this->grass = TextureManager::LoadTexture("../assets/sprites/grass.png");
-    this->water = TextureManager::LoadTexture("../assets/sprites/water.png");
-    this->tree = TextureManager::LoadTexture("../assets/sprites/basic_tree.png");
+    this->dirt = TextureManager::load("../assets/sprites/dirt.png");
+    this->grass = TextureManager::load("../assets/sprites/grass.png");
+    this->water = TextureManager::load("../assets/sprites/water.png");
+    this->tree = TextureManager::load("../assets/sprites/basic_tree.png");
     this->load(firstLevel);
 }
 

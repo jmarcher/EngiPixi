@@ -12,7 +12,7 @@ SpriteComponent::~SpriteComponent()
 
 void SpriteComponent::setTexture(const std::string& path)
 {
-    this->texture = TextureManager::LoadTexture(path.c_str());
+    this->texture = TextureManager::load(path.c_str());
 }
 
 void SpriteComponent::init()

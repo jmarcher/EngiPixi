@@ -8,10 +8,10 @@ TextureManager::~TextureManager()
 {
 }
 
-SDL_Texture* TextureManager::LoadTexture(const char* fileName)
+SDL_Texture* TextureManager::load(const std::string& fileName)
 {
     SDL_Texture* result;
-    SDL_Surface* temporalSurface = IMG_Load(fileName);
+    SDL_Surface* temporalSurface = IMG_Load(fileName.c_str());
     result = SDL_CreateTextureFromSurface(Engine::renderer, temporalSurface);
     SDL_FreeSurface(temporalSurface);
     

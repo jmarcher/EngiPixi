@@ -4,7 +4,7 @@ GameObject::GameObject(const char* textureSheet, int x, int y)
 {
     this->xPosition = x;
     this->yPosition = y;
-    this->objectTexture = TextureManager::LoadTexture(textureSheet);
+    this->objectTexture = TextureManager::load(textureSheet);
 }
 
 GameObject::~GameObject()
