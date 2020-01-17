@@ -9,65 +9,30 @@ public:
     Vector2D position;
     Vector2D velocity;
 
-    int width = 32;
-    int height = 32;
+    unsigned short width = 32;
+    unsigned short height = 32;
     int scale = 1;
     int speed = 3;
 
-    TransformComponent() {
-        this->position.zero();
-    }
+    TransformComponent();
 
-    explicit TransformComponent(int scale) {
-        this->position.zero();
-        this->scale = scale;
-    }
+    explicit TransformComponent(int scale);
 
-    TransformComponent(float x, float y, int scale) {
-        this->setPosition(x, y);
-        this->scale = scale;
-    }
+    TransformComponent(float x, float y, int scale);
+    
+    TransformComponent(float x, float y);
 
-    TransformComponent(float x, float y) {
-        this->setPosition(x, y);
-    }
+    TransformComponent(float x, float y, int w, int h, int scale);
 
-    TransformComponent(float x, float y, int w, int h, int scale) {
-        this->setPosition(x, y);
-        this->width = w;
-        this->height = h;
-        this->scale = scale;
-    }
+    [[nodiscard]] float x() const;
 
-    [[nodiscard]] float x() const {
-        return this->position.x;
-    }
+    [[nodiscard]] float y() const;
 
-    [[nodiscard]] float y() const {
-        return this->position.y;
-    }
+    void init() override;
 
-    void init() override {
-        this->velocity.zero();
-    }
+    void update() override;
 
-    void update() override {
-        this->position.x += this->velocity.x * this->speed;
-        this->position.y += this->velocity.y * this->speed;
-    }
-
-    void addXPosition() {
-        this->position.x++;
-    }
-
-    void subtractXPosition() {
-        this->position.y--;
-    }
-
-    void setPosition(float x, float y) {
-        this->position.x = x;
-        this->position.y = y;
-    }
+    void setPosition(float x, float y);
 };
 
 #endif //ENGIPIXI_TRANSFORMCOMPONENT_H

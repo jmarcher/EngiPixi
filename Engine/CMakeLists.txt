@@ -20,6 +20,12 @@ set(CMAKE_CXX_STANDARD 17)
 file(GLOB source_files
         "*.h"
         "*.cpp"
+        "ECS/*.cpp"
+        "ECS/*.h"
+        "Helpers/*.h"
+        "Helpers/*.cpp"
+        "Math/*.h"
+        "Math/*.cpp"
         )
 
 add_executable(EngiPixi ${source_files} ECS/SpriteComponent.h ECS/TransformComponent.h Math/Vector2D.h Math/Vector2D.cpp Helpers/FpsHelper.cpp Helpers/FpsHelper.h ECS/KeyboardController.h ECS/ColliderComponent.h Collision.h Collision.cpp)

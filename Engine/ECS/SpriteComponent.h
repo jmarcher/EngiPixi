@@ -1,20 +1,18 @@
-//
-// Created by gordo on 15.01.20.
-//
-
 #ifndef ENGIPIXI_SPRITECOMPONENT_H
 #define ENGIPIXI_SPRITECOMPONENT_H
 
+#include "SDL2/SDL.h"
 #include <string>
 #include "Components.h"
-#include "SDL2/SDL.h"
+
+class TransformComponent;
 
 class SpriteComponent : public Component
 {
 protected:
-    TransformComponent* transformation;
     SDL_Texture* texture;
     SDL_Rect sourceRect, destinationRect;
+    TransformComponent* transformation;
 
 public:
     SpriteComponent() = default;

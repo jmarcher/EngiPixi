@@ -31,6 +31,10 @@
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
  }, {
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
+ }, {
   "file": "/home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp",
   "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
   "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL_image -lSDL_ttf"
