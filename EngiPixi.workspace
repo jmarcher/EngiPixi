@@ -8,7 +8,7 @@
       <Project Name="Engine" ConfigName="Debug"/>
       <Project Name="Tests" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
+    <WorkspaceConfiguration Name="Release" Selected="no">
       <Environment/>
       <Project Name="Engine" ConfigName="Release"/>
       <Project Name="Tests" ConfigName="Release"/>

@@ -5,19 +5,24 @@
 
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
-#include "SDL2/SDL_ttf.h"
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Map.h"
+
 #include "TextureManager.h"
-#include "Tile.h"
-#include "ECS/Components.h"
 #include "ECS/ColliderComponent.h"
 
 class ColliderComponent;
 
 class Engine {
+    
+protected:
+    SDL_Window *window;
+    bool _isRunning;
+    bool _showFps;
+
+    void handleKeyboardEvents(SDL_KeyboardEvent *event);
+    
 public:
     Engine(bool showFps);
 
@@ -45,13 +50,6 @@ public:
     
     static void addTile(int id, int x, int y);
 
-protected:
-    SDL_Window *window;
-    bool _isRunning, _showFps;
-    Tile _map[TILE_COUNT_PER_SCREEN][TILE_COUNT_PER_SCREEN];
-    unsigned long long _ticks;
-
-    void handleKeyboardEvents(SDL_KeyboardEvent *event);
 };
 
 #endif // ENGINE_H

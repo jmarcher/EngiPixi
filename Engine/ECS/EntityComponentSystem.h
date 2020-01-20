@@ -10,26 +10,29 @@
 
 class Component;
 class Entity;
+class Manager;
 
 using ComponentID = std::size_t;
 
-inline ComponentID getComponentTypeID()
+inline ComponentID getNewComponentTypeID()
 {
-    static ComponentID lastID = 0;
+    static ComponentID lastID = 0u;
 
     return lastID++;
 }
 
 template <typename T> inline ComponentID getComponentTypeID() noexcept
 {
-    static ComponentID typeId = getComponentTypeID();
+    static ComponentID typeId = getNewComponentTypeID();
 
     return typeId;
 }
 
 constexpr std::size_t maxComponents = 32;
+constexpr std::size_t maxGroups = 32;
 
 using ComponentBitSet = std::bitset<maxComponents>;
+using GroupBitset = std::bitset<maxGroups>;
 using ComponentArray = std::array<Component*, maxComponents>;
 
 class Component
@@ -40,9 +43,11 @@ public:
     virtual void init()
     {
     }
+
     virtual void update()
     {
     }
+
     virtual void draw()
     {
     }
@@ -54,6 +59,16 @@ public:
 
 class Entity
 {
+
+protected:
+    std::vector<std::unique_ptr<Component>> components;
+
+    ComponentArray componentArray;
+    ComponentBitSet componentBitSet;
+    GroupBitset groupBitset;
+
+    bool active = true;
+
 public:
     void update()
     {
@@ -106,20 +121,21 @@ public:
 
         return *static_cast<T*>(ptr);
     }
-
-protected:
-    bool active = true;
-    std::vector<std::unique_ptr<Component>> components;
-
-    ComponentArray componentArray;
-    ComponentBitSet componentBitSet;
 };
 
 class Manager
 {
+
+protected:
+    std::vector<std::unique_ptr<Entity>> entites;
+
 public:
-    Manager(){}
-    ~Manager(){}
+    Manager()
+    {
+    }
+    ~Manager()
+    {
+    }
 
     void update()
     {
@@ -150,9 +166,6 @@ public:
 
         return *e;
     }
-
-protected:
-    std::vector<std::unique_ptr<Entity>> entites;
 };
 
 #endif // ENTITYCOMPONENTSYSTEM_H

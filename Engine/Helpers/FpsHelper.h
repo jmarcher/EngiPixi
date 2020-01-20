@@ -3,7 +3,7 @@
 
 #include "SDL2/SDL.h"
 #include <string>
-const unsigned int FRAME_VALUES = 10;
+const unsigned int FRAME_VALUES = 8;
 const unsigned int FPS = 60;
 const unsigned int FRAME_DELAY = 1000 / FPS;
 
@@ -32,11 +32,21 @@ public:
 
     const std::string framesPerSecond() const;
     
+    void calculateFps();
+    
+    
+    /**
+     * @brief Start a frame it initializes all the variables in order to knwo
+     * if we need to delay the next frame or not.
+     */
     void startFrame();
     
+    /**
+     * @brief Ends a frame, and in case it is necessary, delays the rendering
+     * in order to reach the desired framerate.
+     */
     void endFrame();
 
-    void calculateFps();
 };
 
 

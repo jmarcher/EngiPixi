@@ -2,8 +2,12 @@
 
 //#include "ECS/EntityComponentSystem.h"
 
+#include "ECS/Components.h"
 #include "Collision.h"
+#include "Map.h"
 #include <string>
+#include "SDL2/SDL_image.h"
+#include "SDL2/SDL_ttf.h"
 
 SDL_Renderer* Engine::renderer = nullptr;
 
@@ -21,7 +25,6 @@ Engine::Engine(bool showFps)
 {
     this->_isRunning = false;
     this->_showFps = showFps;
-    this->_ticks = 0;
     this->window = nullptr;
 }
 
@@ -37,13 +40,6 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
         this->_isRunning = true;
         if(fullScreen) {
             flags = SDL_WINDOW_FULLSCREEN;
-        }
-
-        // Init tiles
-        for(auto& x : _map) {
-            for(auto& y : x) {
-                y = Tile();
-            }
         }
 
         this->window =

@@ -3,9 +3,9 @@
 
 #include "EntityComponentSystem.h"
 #include "TransformComponent.h"
+#include "TileComponent.h"
 #include "SpriteComponent.h"
 #include "KeyboardController.h"
 #include "ColliderComponent.h"
-#include "TileComponent.h"
 
 #endif
