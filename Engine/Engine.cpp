@@ -2,12 +2,12 @@
 
 //#include "ECS/EntityComponentSystem.h"
 
-#include "ECS/Components.h"
 #include "Collision.h"
+#include "ECS/Components.h"
 #include "Map.h"
-#include <string>
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
+#include <string>
 
 SDL_Renderer* Engine::renderer = nullptr;
 
@@ -16,10 +16,17 @@ SDL_Event Engine::event;
 std::vector<ColliderComponent*> Engine::colliders;
 
 Map* map;
-Manager* manager = new Manager();
+Manager manager;
 
-auto& player(manager->addEntity());
-auto& wall(manager->addEntity());
+auto& player(manager.addEntity());
+auto& wall(manager.addEntity());
+
+enum groupedLabels : std::size_t {
+    groupMap,
+    groupPlayers,
+    groupEnemies,
+    groupColliders,
+};
 
 Engine::Engine(bool showFps)
 {
@@ -54,17 +61,20 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     }
 
     map = new Map();
-    
+
     Map::load("../assets/data/maps/intro.map", TILE_SIZE, TILE_SIZE);
 
     player.addComponent<TransformComponent>(0, 0, 2);
     player.addComponent<SpriteComponent>("../assets/sprites/player.png");
     player.addComponent<KeyboardController>();
+    //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
+    player.addGroup(groupPlayers);
 
     wall.addComponent<TransformComponent>(600.0f, 600.0f, 300, 20, 1);
     wall.addComponent<SpriteComponent>("../assets/sprites/dirt.png");
     wall.addComponent<ColliderComponent>("wall");
+    wall.addGroup(groupMap);
 }
 
 bool Engine::isRunning() const
@@ -87,8 +97,8 @@ void Engine::handleEvents()
 
 void Engine::update()
 {
-    manager->refresh();
-    manager->update();
+    manager.refresh();
+    manager.update();
 
     for(auto collider : colliders) {
         if(Collision::AABB(player.getComponent<ColliderComponent>(), *collider))
@@ -101,18 +111,33 @@ void Engine::update()
         std::cout << "Colliding" << std::endl;
     }
 }
+auto& tiles(manager.getGroup(groupMap));
+auto& players(manager.getGroup(groupPlayers));
+auto& enemies(manager.getGroup(groupEnemies));
+auto& colliders(manager.getGroup(groupColliders));
 
 void Engine::render()
 {
     SDL_RenderClear(renderer);
     //    map->draw();
 
-    manager->draw();
+    //    manager.draw();
 
+    for(auto& t : tiles) {
+        t->draw();
+    }
+    for(auto& p : players) {
+        p->draw();
+    }
+    for(auto& e : enemies) {
+        e->draw();
+    }
+    for(auto& c : colliders) {
+        c->draw();
+    }
     // If the FPS are show, we can wait to present and drawFPS will present
     // the screen for us
-    if(!this->_showFps)
-        SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer);
 }
 
 void Engine::clean()
@@ -141,7 +166,7 @@ void Engine::drawFPS(const std::string& fps)
 }
 void Engine::addTile(int id, int x, int y)
 {
-    auto& tile(manager->addEntity());
+    auto& tile(manager.addEntity());
     tile.addComponent<TileComponent>(x, y, TILE_SIZE, TILE_SIZE, id);
-    
+    tile.addGroup(groupMap);
 }

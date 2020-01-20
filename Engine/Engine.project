@@ -46,6 +46,9 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/EntityComponentSystem.cpp"/>
+      <File Name="ECS/JoystickController.cpp"/>
+      <File Name="ECS/JoystickController.h"/>
       <File Name="ECS/TileComponent.cpp"/>
       <File Name="ECS/TileComponent.h"/>
       <File Name="ECS/TransformComponent.cpp"/>

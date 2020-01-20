@@ -6,6 +6,7 @@
 #include "TileComponent.h"
 #include "SpriteComponent.h"
 #include "KeyboardController.h"
+#include "JoystickController.h"
 #include "ColliderComponent.h"
 
 #endif
