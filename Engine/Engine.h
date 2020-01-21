@@ -5,24 +5,28 @@
 
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
+#include "SDL2/SDL_ttf.h"
 #include <iostream>
 #include <string>
 #include <vector>
 
-#include "TextureManager.h"
 #include "ECS/ColliderComponent.h"
+#include "TextureManager.h"
 
 class ColliderComponent;
 
-class Engine {
-    
+class Engine
+{
+
 protected:
-    SDL_Window *window;
+    TTF_Font* debugFont;
+    SDL_Window* window;
     bool _isRunning;
     bool _showFps;
+    unsigned long _frames;
 
-    void handleKeyboardEvents(SDL_KeyboardEvent *event);
-    
+    void handleKeyboardEvents(SDL_KeyboardEvent* event);
+
 public:
     Engine(bool showFps);
 
@@ -42,14 +46,13 @@ public:
 
     void drawFPS(const std::string& fps);
 
-    static SDL_Renderer *renderer;
+    static SDL_Renderer* renderer;
 
     static SDL_Event event;
-    
-    static std::vector<ColliderComponent*> colliders;
-    
-    static void addTile(int id, int x, int y);
 
+    static std::vector<ColliderComponent*> colliders;
+
+    static void addTile(int id, int x, int y);
 };
 
 #endif // ENGINE_H

@@ -18,20 +18,23 @@ private:
     // total frames rendered
     unsigned int frameCount;
 
-    float fps;
+    double fps;
     
     // FrameTicks
     unsigned int frameStart;
     unsigned int frameEnd;
     
+    // This function gets called once on startup.
+    void init();
 public:
     FpsHelper();
 
-    // This function gets called once on startup.
-    void init();
-
-    const std::string framesPerSecond() const;
+    std::string framesPerSecond() const;
     
+    /**
+     * @brief Calculates the average FPS and stores in a member in order to be 
+     * retrieved with `std::string framesPerSecond()`
+     */
     void calculateFps();
     
     

@@ -9,16 +9,24 @@
 
 class ColliderComponent : public Component
 {
-public:
+protected:
     SDL_Rect collider;
-    std::string tag;
     TransformComponent* transform;
+    std::string tag;
 
+public:
     ColliderComponent(const std::string& t);
 
     void init() override;
 
     void update() override;
+
+    ColliderComponent& setCollider(const SDL_Rect& collider);
+    ColliderComponent& setTag(const std::string& tag);
+    ColliderComponent& setTransform(TransformComponent* transform);
+    const SDL_Rect& getCollider() const;
+    const std::string& getTag() const;
+    TransformComponent* getTransform();
 };
 
 #endif // ENGIPIXI_COLLIDERCOMPONENT_H

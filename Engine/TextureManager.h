@@ -10,7 +10,7 @@ public:
     ~TextureManager();
     
     static SDL_Texture* load(const std::string& fileName);
-    static void draw(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination);
+    static void draw(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip);
 };
 
 #endif // TEXUREMANAGER_H

@@ -53,7 +53,7 @@ void FpsHelper::calculateFps() {
     fps = 1000.f / fps;
 }
 
-const std::string FpsHelper::framesPerSecond() const {
+std::string FpsHelper::framesPerSecond() const {
     return std::to_string(fps);
 }
 

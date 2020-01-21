@@ -6,7 +6,6 @@
 #include "ECS/Components.h"
 #include "Map.h"
 #include "SDL2/SDL_image.h"
-#include "SDL2/SDL_ttf.h"
 #include <string>
 
 SDL_Renderer* Engine::renderer = nullptr;
@@ -44,6 +43,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     int flags = 0;
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0) {
         TTF_Init();
+        this->debugFont = TTF_OpenFont("../assets/fonts/ani.ttf", 64);
         this->_isRunning = true;
         if(fullScreen) {
             flags = SDL_WINDOW_FULLSCREEN;
@@ -65,7 +65,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     Map::load("../assets/data/maps/intro.map", TILE_SIZE, TILE_SIZE);
 
     player.addComponent<TransformComponent>(0, 0, 2);
-    player.addComponent<SpriteComponent>("../assets/sprites/player.png");
+    player.addComponent<SpriteComponent>("../assets/sprites/player_anims.png", true);
     player.addComponent<KeyboardController>();
     //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
@@ -97,6 +97,7 @@ void Engine::handleEvents()
 
 void Engine::update()
 {
+    this->_frames++;
     manager.refresh();
     manager.update();
 
@@ -106,7 +107,7 @@ void Engine::update()
     }
 
     if(Collision::AABB(
-           player.getComponent<ColliderComponent>().collider, wall.getComponent<ColliderComponent>().collider)) {
+           player.getComponent<ColliderComponent>().getCollider(), wall.getComponent<ColliderComponent>().getCollider())) {
         player.getComponent<TransformComponent>().velocity * -1;
         std::cout << "Colliding" << std::endl;
     }
@@ -150,10 +151,8 @@ void Engine::clean()
 
 void Engine::drawFPS(const std::string& fps)
 {
-    TTF_Font* Sans = TTF_OpenFont("../assets/fonts/ani.ttf", 32);
-
     SDL_Color White = { 255, 255, 255, 255 };
-    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, fps.c_str(), White);
+    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(this->debugFont, fps.c_str(), White);
     SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
     SDL_FreeSurface(surfaceMessage);
 
@@ -163,6 +162,7 @@ void Engine::drawFPS(const std::string& fps)
     // We can safely call SDL_RenderPreset because when using this function the
     // draw method will not present anything.
     SDL_RenderPresent(renderer);
+    delete message;
 }
 void Engine::addTile(int id, int x, int y)
 {

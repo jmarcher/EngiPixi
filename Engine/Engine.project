@@ -10,6 +10,8 @@
       <File Name="assets/fonts/ani.ttf"/>
     </VirtualDirectory>
     <VirtualDirectory Name="sprites">
+      <File Name="assets/sprites/player_idle.png"/>
+      <File Name="assets/sprites/player_anims.png"/>
       <File Name="assets/sprites/water.png"/>
       <File Name="assets/sprites/water.aseprite"/>
       <File Name="assets/sprites/player.png"/>
@@ -46,6 +48,7 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/Animation.h"/>
       <File Name="ECS/EntityComponentSystem.cpp"/>
       <File Name="ECS/JoystickController.cpp"/>
       <File Name="ECS/JoystickController.h"/>
