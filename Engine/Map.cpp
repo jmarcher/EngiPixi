@@ -10,16 +10,24 @@ Map::~Map()
 {
 }
 
-void Map::load(std::string path, int sizeX, int sizeY)
+void Map::load(const std::string& path, int sizeX, int sizeY)
 {
-    char tile;
+    char c;
     std::fstream mapFile;
     mapFile.open(path);
 
+    int sourceX, sourceY;
+
     for(int y = 0; y < sizeY; y++) {
         for(int x = 0; x < sizeX; x++) {
-            mapFile.get(tile);
-            Engine::addTile(atoi(&tile), x*32, y*32);
+            // The first character gets interpreted as
+            mapFile.get(c);
+            sourceY = atoi(&c) * 32;
+
+            mapFile.get(c);
+            sourceX = atoi(&c) * 32;
+
+            Engine::addTile(sourceX, sourceY, x * 64, y * 64);
             mapFile.ignore();
         }
     }

@@ -12,7 +12,7 @@ public:
     Map();
     ~Map();
 
-    static void load(std::string path, int sizeX, int sizeY);
+    static void load(const std::string& path, int sizeX, int sizeY);
 
 };
 

@@ -4,7 +4,7 @@
 #include "SDL2/SDL.h"
 #include <string>
 const unsigned int FRAME_VALUES = 8;
-const unsigned int FPS = 60;
+const unsigned int FPS = 120;
 const unsigned int FRAME_DELAY = 1000 / FPS;
 
 class FpsHelper {

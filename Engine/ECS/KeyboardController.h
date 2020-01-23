@@ -9,8 +9,8 @@ class KeyboardController : public Component
 {
 private:
     TransformComponent* transform;
-public:
     SpriteComponent* sprite;
+public:
 
     void init() override;
 

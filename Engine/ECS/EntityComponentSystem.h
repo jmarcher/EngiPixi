@@ -185,7 +185,7 @@ public:
 
     Entity &addEntity() {
         Entity *e = new Entity(*this);
-        std::unique_ptr<Entity> uPtr{e};
+        std::unique_ptr<Entity> uPtr { e };
         entities.emplace_back(std::move(uPtr));
 
         return *e;

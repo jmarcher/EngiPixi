@@ -70,9 +70,8 @@ SpriteComponent::SpriteComponent(const std::string& path, bool isAnimated)
     Animation idle = Animation(0, 3, 100);
     Animation walk = Animation(1, 8, 100);
 
-    animations.emplace("idle", Animation(0, 3, 100));
-    animations.emplace("walk", Animation(1, 8, 100));
-    animations.emplace("walk2", walk);
+    animations.emplace("idle", idle);
+    animations.emplace("walk", walk);
 
     this->play("idle");
 

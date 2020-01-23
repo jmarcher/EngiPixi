@@ -21,13 +21,13 @@ class Engine
 protected:
     TTF_Font* debugFont;
     SDL_Window* window;
-    bool _isRunning;
     bool _showFps;
     unsigned long _frames;
-
     void handleKeyboardEvents(SDL_KeyboardEvent* event);
 
 public:
+    static bool isRunning;
+
     Engine(bool showFps);
 
     ~Engine();
@@ -41,9 +41,7 @@ public:
     void render();
 
     void clean();
-
-    bool isRunning() const;
-
+    
     void drawFPS(const std::string& fps);
 
     static SDL_Renderer* renderer;
@@ -52,7 +50,7 @@ public:
 
     static std::vector<ColliderComponent*> colliders;
 
-    static void addTile(int id, int x, int y);
+    static void addTile(int sourceX, int sourceU, int xPosition, int yPosition);
 };
 
 #endif // ENGINE_H

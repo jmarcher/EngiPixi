@@ -5,7 +5,8 @@ TransformComponent::TransformComponent() {
 }
 
 TransformComponent::TransformComponent(int scale) {
-    this->position.zero();
+    this->position.x = 400-64;
+    this->position.y = 320-64;
     this->scale = scale;
 }
 
@@ -38,8 +39,8 @@ void TransformComponent::init() {
 }
 
 void TransformComponent::update() {
-    this->position.x += this->velocity.x * static_cast<float>(this->speed);
-    this->position.y += this->velocity.y * static_cast<float>(this->speed);
+//    this->position.x += this->velocity.x * static_cast<float>(this->speed);
+//    this->position.y += this->velocity.y * static_cast<float>(this->speed);
 }
 
 void TransformComponent::setPosition(float x, float y) {

@@ -18,11 +18,11 @@ void KeyboardController::update() {
                 this->transform->velocity.x = -1;
                 break;
             case SDLK_d:
-                sprite->play("walk");
+                this->sprite->play("walk");
                 this->transform->velocity.x = 1;
                 break;
             case SDLK_s:
-                this->sprite->play("walk2");
+                this->sprite->play("walk");
                 this->transform->velocity.y = 1;
                 break;
             default:
@@ -47,6 +47,9 @@ void KeyboardController::update() {
             case SDLK_s:
                 this->transform->velocity.y = 0;
                 this->sprite->play("idle");
+                break;
+            case SDLK_ESCAPE:
+                Engine::isRunning = false;
                 break;
             default:
                 break;
