@@ -39,8 +39,8 @@ void TransformComponent::init() {
 }
 
 void TransformComponent::update() {
-//    this->position.x += this->velocity.x * static_cast<float>(this->speed);
-//    this->position.y += this->velocity.y * static_cast<float>(this->speed);
+    this->position.x += this->velocity.x * static_cast<float>(this->speed);
+    this->position.y += this->velocity.y * static_cast<float>(this->speed);
 }
 
 void TransformComponent::setPosition(float x, float y) {

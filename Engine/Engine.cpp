@@ -10,6 +10,8 @@ SDL_Renderer *Engine::renderer = nullptr;
 
 SDL_Event Engine::event;
 
+SDL_Rect Engine::camera = {0, 0, 800, 640};
+
 std::vector<ColliderComponent *> Engine::colliders;
 
 Manager manager;
@@ -89,13 +91,17 @@ void Engine::update() {
     manager.refresh();
     manager.update();
 
-    Vector2D playerVelocity = player.getComponent<TransformComponent>().velocity;
-    int playerSpeed = player.getComponent<TransformComponent>().speed;
+    camera.x = player.getComponent<TransformComponent>().position.x - 400;
+    camera.y = player.getComponent<TransformComponent>().position.y - 320;
 
-    for (auto t:tiles) {
-        t->getComponent<TileComponent>().destinationRect.x += -(playerVelocity.x * playerSpeed);
-        t->getComponent<TileComponent>().destinationRect.y += -(playerVelocity.y * playerSpeed);
-    }
+    if (camera.x < 0)
+        camera.x = 0;
+    if (camera.y < 0)
+        camera.y = 0;
+    if (camera.x > camera.w)
+        camera.x = camera.w;
+    if (camera.y > camera.h)
+        camera.y = camera.h;
 }
 
 void Engine::render() {

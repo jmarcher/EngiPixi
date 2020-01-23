@@ -10,6 +10,9 @@ TileComponent::TileComponent(int sourceX, int sourceY, int xPosition, int yPosit
 {
     this->texture = TextureManager::load(path);
 
+    this->position.x = xPosition;
+    this->position.y = yPosition;
+
     this->sourceRect.x = sourceX;
     this->sourceRect.y = sourceY;
 
@@ -23,4 +26,9 @@ TileComponent::TileComponent(int sourceX, int sourceY, int xPosition, int yPosit
 void TileComponent::draw()
 {
     TextureManager::draw(this->texture, this->sourceRect, this->destinationRect, SDL_FLIP_NONE);
+}
+
+void TileComponent::update(){
+    destinationRect.x = position.x - Engine::camera.x;
+    destinationRect.y = position.y - Engine::camera.y;
 }

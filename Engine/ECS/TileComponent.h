@@ -4,6 +4,7 @@
 #include <string>
 #include "SDL2/SDL.h"
 #include "EntityComponentSystem.h"
+#include "../Math/Vector2D.h"
 
 
 class SpriteComponent;
@@ -15,6 +16,7 @@ protected:
 public:
     SDL_Rect sourceRect;
     SDL_Rect destinationRect;
+    Vector2D position;
 
     TileComponent() = default;
     ~TileComponent();
@@ -23,7 +25,7 @@ public:
     
     void draw() override;
 
-
+    void update() override;
 };
 
 #endif // TILECOMPONENT_H

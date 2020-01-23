@@ -32,8 +32,8 @@ void SpriteComponent::update()
             this->sourceRect.w * static_cast<int>((SDL_GetTicks() / this->animationSpeed) % this->frames);
     }
     this->sourceRect.y = this->transformation->height * this->animationIndex;
-    this->destinationRect.x = static_cast<int>(this->transformation->x());
-    this->destinationRect.y = static_cast<int>(this->transformation->y());
+    this->destinationRect.x = static_cast<int>(this->transformation->x()) - Engine::camera.x;
+    this->destinationRect.y = static_cast<int>(this->transformation->y()) - Engine::camera.y;
 }
 
 void SpriteComponent::draw()

@@ -41,16 +41,18 @@ public:
     void render();
 
     void clean();
-    
+
+    static void addTile(int sourceX, int sourceU, int xPosition, int yPosition);
+
     void drawFPS(const std::string& fps);
+
+    static SDL_Rect camera;
 
     static SDL_Renderer* renderer;
 
     static SDL_Event event;
 
     static std::vector<ColliderComponent*> colliders;
-
-    static void addTile(int sourceX, int sourceU, int xPosition, int yPosition);
 };
 
 #endif // ENGINE_H
