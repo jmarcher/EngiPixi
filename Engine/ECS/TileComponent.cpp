@@ -29,6 +29,6 @@ void TileComponent::draw()
 }
 
 void TileComponent::update(){
-    destinationRect.x = position.x - Engine::camera.x;
-    destinationRect.y = position.y - Engine::camera.y;
+    destinationRect.x = static_cast<int>(position.x) - Engine::camera.x;
+    destinationRect.y = static_cast<int>(position.y) - Engine::camera.y;
 }
