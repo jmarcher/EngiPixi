@@ -5,7 +5,11 @@ struct Animation {
     int aIndex;
     int aFrames;
     int aSpeed;
-    Animation(){}
+    Animation(){
+        this->aIndex = 0;
+        this->aFrames = 1;
+        this->aSpeed = 100;
+    }
     Animation(int mIndex, int mFrames, int mSpeed) {
         aIndex = mIndex;
         aFrames = mFrames;

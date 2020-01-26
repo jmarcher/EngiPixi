@@ -1,8 +1,6 @@
 #include "Engine.h"
 #include <iostream>
 #include <cstdint>
-#include <thread>
-#include <chrono>
 #include "Helpers/FpsHelper.h"
 
 

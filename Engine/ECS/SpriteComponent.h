@@ -1,9 +1,13 @@
 #ifndef ENGIPIXI_SPRITECOMPONENT_H
 #define ENGIPIXI_SPRITECOMPONENT_H
+#ifdef __linux__ 
+#include "SDL2/SDL.h"
+#elif _WIN32
+#include "SDL.h"
+#endif
 
 #include "Animation.h"
 #include "Components.h"
-#include "SDL2/SDL.h"
 #include <map>
 #include <string>
 

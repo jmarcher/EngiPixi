@@ -2,7 +2,7 @@
 #define TILECOMPONENT_H
 
 #include <string>
-#include "SDL2/SDL.h"
+#include "SDL.h"
 #include "EntityComponentSystem.h"
 #include "../Math/Vector2D.h"
 
