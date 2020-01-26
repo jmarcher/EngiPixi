@@ -62,7 +62,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
         Engine::isRunning = false;
     }
 
-    Map::load("../assets/data/maps/map.map", 25, 20);
+    Map::load("../assets/data/maps/big_map.map", 32, 32);
 
     player.addComponent<TransformComponent>(4);
     player.addComponent<SpriteComponent>("../assets/sprites/player_anims.png", true);
@@ -151,9 +151,8 @@ void Engine::drawFPS(const std::string& fps)
     SDL_RenderPresent(renderer);
 }
 
-void Engine::addTile(int sourceX, int sourceY, int xPosition, int yPosition)
-{
-    auto& tile(manager.addEntity());
-    tile.addComponent<TileComponent>(sourceX, sourceY, xPosition, yPosition, "../assets/sprites/terrain_ss.png");
+void Engine::addTile(int sourceX, int sourceY, int xPosition, int yPosition) {
+    auto &tile(manager.addEntity());
+    tile.addComponent<TileComponent>(sourceX, sourceY, xPosition, yPosition, "../assets/sprites/terrain_big_map.png");
     tile.addGroup(groupMap);
 }
