@@ -49,8 +49,6 @@ public:
 
     void clean();
 
-    static void addTile(int sourceX, int sourceU, int xPosition, int yPosition);
-
     void drawFPS(const std::string& fps);
 
     static SDL_Rect camera;
@@ -59,7 +57,12 @@ public:
 
     static SDL_Event event;
 
-    static std::vector<ColliderComponent*> colliders;
+    enum groupedLabels : std::size_t {
+        groupMap,
+        groupPlayers,
+        groupEnemies,
+        groupColliders,
+    };
 };
 
 #endif // ENGINE_H

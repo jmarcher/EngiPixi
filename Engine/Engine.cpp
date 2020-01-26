@@ -9,25 +9,18 @@ SDL_Event Engine::event;
 
 SDL_Rect Engine::camera = { 0, 0, 800, 640 };
 
-std::vector<ColliderComponent*> Engine::colliders;
+Map* map;
+
 
 Manager manager;
 
 auto& player(manager.addEntity());
-auto& wall(manager.addEntity());
 
-enum groupedLabels : std::size_t {
-    groupMap,
-    groupPlayers,
-    groupEnemies,
-    groupColliders,
-};
 bool Engine::isRunning = false;
 
-auto& tiles(manager.getGroup(groupMap));
-auto& players(manager.getGroup(groupPlayers));
-auto& enemies(manager.getGroup(groupEnemies));
-auto& colliders(manager.getGroup(groupColliders));
+auto& tiles(manager.getGroup(Engine::groupMap));
+auto& players(manager.getGroup(Engine::groupPlayers));
+auto& colliders(manager.getGroup(Engine::groupColliders));
 
 Engine::Engine(bool showFps)
 {
@@ -61,8 +54,9 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     } else {
         Engine::isRunning = false;
     }
+    map = new Map("../assets/sprites/terrain_big_map.png", 3, 32);
 
-    Map::load("../assets/data/maps/big_map.map", 32, 32);
+    map->load("../assets/sprites/big_map.map", 32, 32);
 
     player.addComponent<TransformComponent>(4);
     player.addComponent<SpriteComponent>("../assets/sprites/player_anims.png", true);
@@ -87,21 +81,31 @@ void Engine::handleEvents()
 
 void Engine::update()
 {
+    SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
+    Vector2D playerPosition = player.getComponent<TransformComponent>().position;
+
     this->_frames++;
     manager.refresh();
     manager.update();
 
-    camera.x = player.getComponent<TransformComponent>().position.x - 400;
-    camera.y = player.getComponent<TransformComponent>().position.y - 320;
+    for (auto& collider : colliders) {
+        SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
+        if (Collision::AABB(cCollider, playerCollider)) {
+            player.getComponent<TransformComponent>().position = playerPosition;
+        }
+    }
+
+    camera.x = player.getComponent<TransformComponent>().position.x - 400 - player.getComponent<SpriteComponent>().getDestinationRect().w;
+    camera.y = player.getComponent<TransformComponent>().position.y - 320 - player.getComponent<SpriteComponent>().getDestinationRect().h;
 
     if(camera.x < 0)
         camera.x = 0;
     if(camera.y < 0)
         camera.y = 0;
-    if(camera.x > camera.w)
-        camera.x = camera.w;
-    if(camera.y > camera.h)
-        camera.y = camera.h;
+    if(camera.x > map->getWidth() - camera.w)
+        camera.x = map->getWidth() - camera.w;
+    if(camera.y > map->getHeight() - camera.h)
+        camera.y = map->getHeight() - camera.h;
 }
 
 void Engine::render()
@@ -114,15 +118,15 @@ void Engine::render()
     for(auto& t : tiles) {
         t->draw();
     }
+
+    for (auto& c : colliders) {
+        c->draw();
+    }
+
     for(auto& p : players) {
         p->draw();
     }
-    for(auto& e : enemies) {
-        e->draw();
-    }
-    for(auto& c : colliders) {
-        c->draw();
-    }
+
     // If the FPS are show, we can wait to present and drawFPS will present
     // the screen for us
     SDL_RenderPresent(renderer);
@@ -149,10 +153,4 @@ void Engine::drawFPS(const std::string& fps)
     // We can safely call SDL_RenderPreset because when using this function the
     // draw method will not present anything.
     SDL_RenderPresent(renderer);
-}
-
-void Engine::addTile(int sourceX, int sourceY, int xPosition, int yPosition) {
-    auto &tile(manager.addEntity());
-    tile.addComponent<TileComponent>(sourceX, sourceY, xPosition, yPosition, "../assets/sprites/terrain_big_map.png");
-    tile.addGroup(groupMap);
 }

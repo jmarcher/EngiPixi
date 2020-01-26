@@ -53,6 +53,8 @@ public:
     void setHorizontalFlip();
     void setVerticalFlip();
     void setNoFlip();
+
+    SDL_Rect getDestinationRect() const;
 };
 
 #endif // ENGIPIXI_SPRITECOMPONENT_H

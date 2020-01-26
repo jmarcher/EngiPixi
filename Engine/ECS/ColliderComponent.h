@@ -16,11 +16,14 @@ class ColliderComponent : public Component
 {
 protected:
     SDL_Rect collider;
+    SDL_Texture* displayTexture;
+    SDL_Rect sourceRect, destinationRect;
     TransformComponent* transform;
     std::string tag;
 
 public:
     ColliderComponent(const std::string& t);
+    ColliderComponent(const std::string& t, int xPosition, int yPosition, int size);
 
     ColliderComponent& setCollider(const SDL_Rect& collider);
 
@@ -37,6 +40,8 @@ public:
     void init() override;
 
     void update() override;
+
+    void draw() override;
 };
 
 #endif // ENGIPIXI_COLLIDERCOMPONENT_H

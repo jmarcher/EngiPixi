@@ -77,3 +77,7 @@ SpriteComponent::SpriteComponent(const std::string& path, bool isAnimated)
 
     this->setTexture(path);
 }
+
+SDL_Rect SpriteComponent::getDestinationRect() const {
+    return this->destinationRect;
+}
