@@ -6,6 +6,12 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="assets">
+    <VirtualDirectory Name="data">
+      <VirtualDirectory Name="maps">
+        <File Name="assets/data/maps/map.map"/>
+        <File Name="assets/data/maps/intro.map"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
     <VirtualDirectory Name="fonts">
       <File Name="assets/fonts/ani.ttf"/>
     </VirtualDirectory>

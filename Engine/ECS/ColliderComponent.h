@@ -17,16 +17,21 @@ protected:
 public:
     ColliderComponent(const std::string& t);
 
+    ColliderComponent& setCollider(const SDL_Rect& collider);
+
+    ColliderComponent& setTag(const std::string& tag);
+
+    ColliderComponent& setTransform(TransformComponent* transform);
+
+    const SDL_Rect& getCollider() const;
+
+    const std::string& getTag() const;
+    
+    TransformComponent* getTransform();
+    
     void init() override;
 
     void update() override;
-
-    ColliderComponent& setCollider(const SDL_Rect& collider);
-    ColliderComponent& setTag(const std::string& tag);
-    ColliderComponent& setTransform(TransformComponent* transform);
-    const SDL_Rect& getCollider() const;
-    const std::string& getTag() const;
-    TransformComponent* getTransform();
 };
 
 #endif // ENGIPIXI_COLLIDERCOMPONENT_H

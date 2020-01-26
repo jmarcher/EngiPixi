@@ -5,8 +5,12 @@ struct Animation {
     int aIndex;
     int aFrames;
     int aSpeed;
-    Animation(){}
-    Animation(int mIndex, int mFrames, int mSpeed) {
+    Animation()
+    {
+    }
+
+    Animation(int mIndex, int mFrames, int mSpeed)
+    {
         aIndex = mIndex;
         aFrames = mFrames;
         aSpeed = mSpeed;

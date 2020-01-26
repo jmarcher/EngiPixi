@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-#include "ECS/ColliderComponent.h"
+#include "ECS/Components.h"
 #include "TextureManager.h"
 
 class ColliderComponent;

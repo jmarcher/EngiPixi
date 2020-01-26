@@ -1,12 +1,18 @@
-#include "TileComponent.h"
 #include "../TextureManager.h"
+#include "TileComponent.h"
 
 TileComponent::~TileComponent()
 {
     SDL_DestroyTexture(this->texture);
 }
 
-TileComponent::TileComponent(int sourceX, int sourceY, int xPosition, int yPosition, const std::string& path)
+TileComponent::TileComponent(int sourceX,
+    int sourceY,
+    int xPosition,
+    int yPosition,
+    int tileSize,
+    int tileScale,
+    const std::string& path)
 {
     this->texture = TextureManager::load(path);
 
@@ -16,19 +22,20 @@ TileComponent::TileComponent(int sourceX, int sourceY, int xPosition, int yPosit
     this->sourceRect.x = sourceX;
     this->sourceRect.y = sourceY;
 
-    this->sourceRect.h = this->sourceRect.w = 32;
+    this->sourceRect.h = this->sourceRect.w = tileSize;
 
     this->destinationRect.x = xPosition;
     this->destinationRect.y = yPosition;
 
-    this->destinationRect.h = this->destinationRect.w = 64;
+    this->destinationRect.h = this->destinationRect.w = tileSize * tileScale;
 }
 void TileComponent::draw()
 {
     TextureManager::draw(this->texture, this->sourceRect, this->destinationRect, SDL_FLIP_NONE);
 }
 
-void TileComponent::update(){
+void TileComponent::update()
+{
     destinationRect.x = static_cast<int>(position.x) - Engine::camera.x;
     destinationRect.y = static_cast<int>(position.y) - Engine::camera.y;
 }

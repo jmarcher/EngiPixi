@@ -1,18 +1,18 @@
 #ifndef TILECOMPONENT_H
 #define TILECOMPONENT_H
 
-#include <string>
-#include "SDL2/SDL.h"
-#include "EntityComponentSystem.h"
 #include "../Math/Vector2D.h"
-
+#include "EntityComponentSystem.h"
+#include "SDL2/SDL.h"
+#include <string>
 
 class SpriteComponent;
 
-class TileComponent:public Component
+class TileComponent : public Component
 {
 protected:
     SDL_Texture* texture;
+
 public:
     SDL_Rect sourceRect;
     SDL_Rect destinationRect;
@@ -20,9 +20,15 @@ public:
 
     TileComponent() = default;
     ~TileComponent();
-    
-    TileComponent(int sourceX, int sourceY, int xPosition, int yPosition, const std::string& path);
-    
+
+    TileComponent(int sourceX,
+        int sourceY,
+        int xPosition,
+        int yPosition,
+        int tileSize,
+        int tileScale,
+        const std::string& path);
+
     void draw() override;
 
     void update() override;
