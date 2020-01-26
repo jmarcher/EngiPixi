@@ -1,16 +1,23 @@
 #ifndef ENGIPIXI_FPSHELPER_H
 #define ENGIPIXI_FPSHELPER_H
 
+#ifdef __linux__ 
 #include "SDL2/SDL.h"
+#elif _WIN32
+#include "SDL.h"
+#endif
 #include <string>
-const unsigned int FRAME_VALUES = 8;
-const unsigned int FPS = 120;
-const unsigned int FRAME_DELAY = 1000 / FPS;
+
 
 class FpsHelper {
 private:
+
+    const unsigned int FRAME_VALUES = 8;
+    const unsigned int FPS = 120;
+    const unsigned int FRAME_DELAY = 1000 / FPS;
+
     // An array to store frame times:
-    unsigned int frameTimes[FRAME_VALUES];
+    unsigned int frameTimes[8];
 
     // Last calculated SDL_GetTicks
     unsigned int frameTimeLast;

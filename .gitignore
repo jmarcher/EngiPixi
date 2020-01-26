@@ -135,3 +135,5 @@ fabric.properties
 Engine/Release/
 
 Engine/Debug/
+
+\.vs/

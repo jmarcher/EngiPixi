@@ -2,9 +2,14 @@
 #ifndef ENGIPIXI_COLLIDERCOMPONENT_H
 #define ENGIPIXI_COLLIDERCOMPONENT_H
 
+#ifdef __linux__ 
+#include "SDL2/SDL.h"
+#elif _WIN32
+#include "SDL.h"
+#endif
+
 #include "Components.h"
 #include "EntityComponentSystem.h"
-#include "SDL2/SDL.h"
 #include <string>
 
 class ColliderComponent : public Component

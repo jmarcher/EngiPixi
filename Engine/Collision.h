@@ -1,8 +1,13 @@
 #ifndef ENGIPIXI_COLLISION_H
 #define ENGIPIXI_COLLISION_H
 
-#include "ECS/ColliderComponent.h"
+#ifdef __linux__ 
 #include "SDL2/SDL.h"
+#elif _WIN32
+#include "SDL.h"
+#endif
+
+#include "ECS/ColliderComponent.h"
 
 class ColliderComponent;
 

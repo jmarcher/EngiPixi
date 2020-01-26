@@ -1,8 +1,11 @@
 #ifndef JOYSTICKCONTROLLER_H
 #define JOYSTICKCONTROLLER_H
-
-#include "../Engine.h"
+#ifdef __linux__ 
 #include "SDL2/SDL.h"
+#elif _WIN32
+#include "SDL.h"
+#endif
+#include "../Engine.h"
 #include "Components.h"
 #include "EntityComponentSystem.h"
 

@@ -2,8 +2,7 @@
 #include "Helpers/FpsHelper.h"
 #include <chrono>
 #include <cstdint>
-#include <iostream>
-#include <thread>
+#include "Helpers/FpsHelper.h"
 
 int main(int argc, char** argv)
 {
