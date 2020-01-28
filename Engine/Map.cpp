@@ -47,6 +47,7 @@ void Map::load(const std::string& path, int sizeX, int sizeY)
 			mapFile.ignore();
 		}
 	}
+    
 	// We separate the Map data from the colliders with an empty line, 
 	// that is why we need to ignore the next line in order to get to the
 	// start of the colliders.
@@ -67,6 +68,12 @@ void Map::load(const std::string& path, int sizeX, int sizeY)
 	mapFile.close();
 }
 
+void Map::addTile(int sourceX, int sourceY, int xPosition, int yPosition) {
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(sourceX, sourceY, xPosition, yPosition, this->tileSize, this->mapScale, this->mapFilePath);
+	tile.addGroup(Engine::groupMap);
+}
+
 unsigned int Map::getWidth() const
 {
 	return this->actualMapSizeX * this->scaledSize;
@@ -74,10 +81,4 @@ unsigned int Map::getWidth() const
 unsigned int Map::getHeight() const
 {
 	return this->actualMapSizeY * this->scaledSize;
-}
-
-void Map::addTile(int sourceX, int sourceY, int xPosition, int yPosition) {
-	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(sourceX, sourceY, xPosition, yPosition, this->tileSize, this->mapScale, this->mapFilePath);
-	tile.addGroup(Engine::groupMap);
 }

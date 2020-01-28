@@ -1,117 +1,117 @@
 [{
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/Components.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/Components.h -o /home/gordo/Code/EngiPixi/Engine/ECS/Components.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/Components.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/Components.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/Components.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/EntityComponentSystem.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/EntityComponentSystem.h -o /home/gordo/Code/EngiPixi/Engine/ECS/EntityComponentSystem.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/TransformComponent.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/TransformComponent.h -o /home/gordo/Code/EngiPixi/Engine/ECS/TransformComponent.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/SpriteComponent.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/SpriteComponent.h -o /home/gordo/Code/EngiPixi/Engine/ECS/SpriteComponent.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/KeyboardController.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/KeyboardController.h -o /home/gordo/Code/EngiPixi/Engine/ECS/KeyboardController.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/KeyboardController.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/KeyboardController.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/KeyboardController.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/SpriteComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/ColliderComponent.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/ColliderComponent.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/ColliderComponent.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/JoystickController.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/JoystickController.h -o /home/gordo/Code/EngiPixi/Engine/ECS/JoystickController.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/TileComponent.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/TileComponent.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/TileComponent.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/Animation.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/Animation.h -o /home/gordo/Code/EngiPixi/Engine/ECS/Animation.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/TileComponent.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/TileComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/TileComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Helpers/FpsHelper.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Helpers/FpsHelper.cpp -o /home/gordo/Code/EngiPixi/Engine/Helpers/FpsHelper.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/JoystickController.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/JoystickController.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/JoystickController.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Helpers/FpsHelper.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Helpers/FpsHelper.h -o /home/gordo/Code/EngiPixi/Engine/Helpers/FpsHelper.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/TextureManager.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/TextureManager.cpp -o /home/gordo/Code/EngiPixi/Engine/TextureManager.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/JoystickController.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/JoystickController.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/JoystickController.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/ColliderComponent.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/ColliderComponent.h -o /home/gordo/Code/EngiPixi/Engine/ECS/ColliderComponent.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/EntityComponentSystem.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Engine.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Engine.h -o /home/gordo/Code/EngiPixi/Engine/Engine.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/Animation.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/Animation.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/Animation.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Engine.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Engine.cpp -o /home/gordo/Code/EngiPixi/Engine/Engine.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.h -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/JoystickController.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/JoystickController.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/JoystickController.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.h -o /home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/TileComponent.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/TileComponent.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/TileComponent.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Map.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Map.h -o /home/gordo/Code/EngiPixi/Engine/Map.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/SpriteComponent.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/SpriteComponent.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/SpriteComponent.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/TransformComponent.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/TransformComponent.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/TransformComponent.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Collision.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Collision.cpp -o /home/gordo/Code/EngiPixi/Engine/Collision.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/main.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/main.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/main.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Map.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Map.cpp -o /home/gordo/Code/EngiPixi/Engine/Map.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Map.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Map.h -o /home/gordo/Code/C++/EngiPixi/Engine/Map.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Collision.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Collision.h -o /home/gordo/Code/EngiPixi/Engine/Collision.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/TextureManager.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/TextureManager.h -o /home/gordo/Code/C++/EngiPixi/Engine/TextureManager.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/TileComponent.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/TileComponent.h -o /home/gordo/Code/EngiPixi/Engine/ECS/TileComponent.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Engine.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Engine.h -o /home/gordo/Code/C++/EngiPixi/Engine/Engine.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/TextureManager.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/TextureManager.h -o /home/gordo/Code/EngiPixi/Engine/TextureManager.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Map.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Map.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/Map.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Math/Vector2D.h",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Math/Vector2D.h -o /home/gordo/Code/EngiPixi/Engine/Math/Vector2D.h.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/TextureManager.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/TextureManager.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/TextureManager.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/ECS/EntityComponentSystem.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/ECS/EntityComponentSystem.cpp -o /home/gordo/Code/EngiPixi/Engine/ECS/EntityComponentSystem.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp -o /home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/main.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/main.cpp -o /home/gordo/Code/EngiPixi/Engine/main.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Collision.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Collision.h -o /home/gordo/Code/C++/EngiPixi/Engine/Collision.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }, {
-  "file": "/home/gordo/Code/EngiPixi/Engine/Math/Vector2D.cpp",
-  "directory": "/home/gordo/Code/EngiPixi/Engine",
-  "command": "clang  -c /home/gordo/Code/EngiPixi/Engine/Math/Vector2D.cpp -o /home/gordo/Code/EngiPixi/Engine/Math/Vector2D.cpp.o  -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf"
+  "file": "/home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.h",
+  "directory": "/home/gordo/Code/C++/EngiPixi/Engine",
+  "command": "clang  -c /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.h -o /home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.h.o  -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include -I. -I/usr/include/ -I.  -std=c++17 -O0  -Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g"
  }]
