@@ -1,18 +1,32 @@
 #include "SpriteComponent.h"
 #include <cstring>
-SpriteComponent::SpriteComponent(const std::string& path)
+SpriteComponent::SpriteComponent(const std::string& id)
 {
-    this->setTexture(path);
+    this->setTexture(id);
+}
+
+SpriteComponent::SpriteComponent(const std::string& id, bool isAnimated)
+{
+    this->animated = isAnimated;
+
+    Animation idle = Animation(0, 3, 100);
+    Animation walk = Animation(1, 8, 100);
+
+    animations.emplace("idle", idle);
+    animations.emplace("walk", walk);
+
+    this->play("idle");
+
+    this->setTexture(id);
 }
 
 SpriteComponent::~SpriteComponent()
 {
-    SDL_DestroyTexture(this->texture);
 }
 
-void SpriteComponent::setTexture(const std::string& path)
+void SpriteComponent::setTexture(const std::string& id)
 {
-    this->texture = TextureManager::load(path.c_str());
+    this->texture = Engine::assets->getTexture(id);
 }
 
 void SpriteComponent::init()
@@ -63,20 +77,7 @@ void SpriteComponent::play(const std::string& animationName)
     animationSpeed = this->animations[animationName].aSpeed;
 }
 
-SpriteComponent::SpriteComponent(const std::string& path, bool isAnimated)
-{
-    this->animated = isAnimated;
 
-    Animation idle = Animation(0, 3, 100);
-    Animation walk = Animation(1, 8, 100);
-
-    animations.emplace("idle", idle);
-    animations.emplace("walk", walk);
-
-    this->play("idle");
-
-    this->setTexture(path);
-}
 
 SDL_Rect SpriteComponent::getDestinationRect() const {
     return this->destinationRect;

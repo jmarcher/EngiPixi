@@ -43,6 +43,8 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="AssetManager.cpp"/>
+    <File Name="AssetManager.h"/>
     <File Name="Collision.h"/>
     <File Name="Collision.cpp"/>
     <VirtualDirectory Name="Math">
@@ -54,6 +56,8 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/ProjectileComponent.cpp"/>
+      <File Name="ECS/ProjectileComponent.h"/>
       <File Name="ECS/Animation.h"/>
       <File Name="ECS/EntityComponentSystem.cpp"/>
       <File Name="ECS/JoystickController.cpp"/>

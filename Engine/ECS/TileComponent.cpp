@@ -12,9 +12,9 @@ TileComponent::TileComponent(int sourceX,
     int yPosition,
     int tileSize,
     int tileScale,
-    const std::string& path)
+    const std::string& id)
 {
-    this->texture = TextureManager::load(path);
+    this->texture = Engine::assets->getTexture(id);
 
     this->position.x = xPosition;
     this->position.y = yPosition;

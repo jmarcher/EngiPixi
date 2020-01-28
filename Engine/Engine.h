@@ -19,10 +19,12 @@
 #include <string>
 #include <vector>
 
+#include "AssetManager.h"
 #include "ECS/Components.h"
 #include "TextureManager.h"
 
 class ColliderComponent;
+class AssetManager;
 
 class Engine
 {
@@ -35,6 +37,8 @@ protected:
     void handleKeyboardEvents(SDL_KeyboardEvent* event);
 
 public:
+    static SDL_Rect camera;
+    
     static bool isRunning;
 
     Engine(int flags);
@@ -55,17 +59,19 @@ public:
 
     void drawFPS(const std::string& fps);
 
-    static SDL_Rect camera;
 
     static SDL_Renderer* renderer;
 
     static SDL_Event event;
-
+    
+    static AssetManager* assets;
+    
     enum groupedLabels : std::size_t {
         groupMap,
         groupPlayers,
         groupEnemies,
         groupColliders,
+        groupProjectiles
     };
 };
 

@@ -8,5 +8,6 @@
 #include "KeyboardController.h"
 #include "JoystickController.h"
 #include "ColliderComponent.h"
+#include "ProjectileComponent.h"
 
 #endif

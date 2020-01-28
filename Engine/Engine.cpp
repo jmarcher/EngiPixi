@@ -3,15 +3,17 @@
 #include "Collision.h"
 #include "Map.h"
 
+SDL_Rect Engine::camera = { 0, 0, 800, 640 };
+
 SDL_Renderer* Engine::renderer = nullptr;
 
 SDL_Event Engine::event;
 
-SDL_Rect Engine::camera = { 0, 0, 800, 640 };
-
 Map* map;
 
 Manager manager;
+
+AssetManager* Engine::assets = new AssetManager(&manager);
 
 auto& player(manager.addEntity());
 
@@ -20,6 +22,7 @@ bool Engine::isRunning = false;
 auto& tiles(manager.getGroup(Engine::groupMap));
 auto& players(manager.getGroup(Engine::groupPlayers));
 auto& colliders(manager.getGroup(Engine::groupColliders));
+auto& projectiles(manager.getGroup(Engine::groupProjectiles));
 
 Engine::Engine(int flags)
 {
@@ -53,16 +56,25 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     } else {
         Engine::isRunning = false;
     }
-    map = new Map("../assets/sprites/terrain_big_map.png", 3, 32);
+
+    assets->addTexture("terrain", "../assets/sprites/terrain_big_map.png");
+    assets->addTexture("player", "../assets/sprites/player_anims.png");
+    assets->addTexture("projectile", "../assets/sprites/projectile.png");
+
+    map = new Map("terrain", 3, 32);
 
     map->load("../assets/sprites/big_map.map", 32, 32);
 
     player.addComponent<TransformComponent>(4);
-    player.addComponent<SpriteComponent>("../assets/sprites/player_anims.png", true);
+    player.addComponent<SpriteComponent>("player", true);
     player.addComponent<KeyboardController>();
     //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
     player.addGroup(groupPlayers);
+
+    assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
+    assets->createProjectile(Vector2D(150, 100), Vector2D(2, -1), 200, 1, "projectile");
+    assets->createProjectile(Vector2D(400, 50), Vector2D(2, 0), 200, 1, "projectile");
 }
 
 void Engine::handleEvents()
@@ -91,6 +103,13 @@ void Engine::update()
         SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
         if(Collision::AABB(cCollider, playerCollider)) {
             player.getComponent<TransformComponent>().position = playerPosition;
+        }
+    }
+
+    for(auto& p : projectiles) {
+        SDL_Rect pCollider = p->getComponent<ColliderComponent>().getCollider();
+        if(Collision::AABB(playerCollider, pCollider)) {
+            p->destroy();
         }
     }
 
@@ -125,6 +144,10 @@ void Engine::render()
     }
 
     for(auto& p : players) {
+        p->draw();
+    }
+
+    for(auto& p : projectiles) {
         p->draw();
     }
 

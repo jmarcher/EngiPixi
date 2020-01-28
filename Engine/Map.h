@@ -6,7 +6,7 @@
 class Map
 {
 private:
-	std::string mapFilePath;
+	std::string textureId;
 	unsigned int mapScale;
 	unsigned int tileSize;
 	unsigned int scaledSize;
@@ -14,7 +14,7 @@ private:
 	unsigned int actualMapSizeY;
 
 public:
-    Map(std::string mapFilePath, unsigned int mapScale, unsigned int tileSize);
+    Map(const std::string& id, unsigned int mapScale, unsigned int tileSize);
     ~Map();
 
     void load(const std::string& path, int sizeX, int sizeY);

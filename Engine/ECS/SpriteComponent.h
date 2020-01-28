@@ -1,6 +1,6 @@
 #ifndef ENGIPIXI_SPRITECOMPONENT_H
 #define ENGIPIXI_SPRITECOMPONENT_H
-#ifdef __linux__ 
+#ifdef __linux__
 #include "SDL2/SDL.h"
 #elif _WIN32
 #include "SDL.h"
@@ -13,11 +13,12 @@
 
 class TransformComponent;
 
-class SpriteComponent : public Component {
+class SpriteComponent : public Component
+{
 protected:
-    SDL_Texture *texture;
+    SDL_Texture* texture;
     SDL_Rect sourceRect, destinationRect;
-    TransformComponent *transformation;
+    TransformComponent* transformation;
 
     std::map<std::string, Animation> animations;
 
@@ -34,13 +35,13 @@ protected:
 public:
     SpriteComponent() = default;
 
-    SpriteComponent(const std::string &path);
+    SpriteComponent(const std::string& id);
 
-    SpriteComponent(const std::string &path, bool isAnimated) ;
+    SpriteComponent(const std::string& id, bool isAnimated);
 
     ~SpriteComponent();
 
-    void setTexture(const std::string &path);
+    void setTexture(const std::string& id);
 
     void init() override;
 
@@ -48,7 +49,7 @@ public:
 
     void draw() override;
 
-    void play(const std::string& animationName) ;
+    void play(const std::string& animationName);
 
     void setHorizontalFlip();
     void setVerticalFlip();

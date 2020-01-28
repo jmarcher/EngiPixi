@@ -32,7 +32,7 @@ public:
         int yPosition,
         int tileSize,
         int tileScale,
-        const std::string& path);
+        const std::string& id);
 
     void draw() override;
 
