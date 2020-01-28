@@ -6,8 +6,7 @@
 
 int main(int argc, char** argv)
 {
-    bool showFps = false;
-    Engine engine(showFps);
+    Engine engine(D_SHOW_CROSSHAIR);
     engine.start("Game", 800, 640, false);
 
     // Put this as close as possible to the start of the loop (before it starts!)
@@ -18,7 +17,7 @@ int main(int argc, char** argv)
         engine.handleEvents();
         engine.update();
         engine.render();
-        if(showFps) {
+        if(engine.showFps()) {
             fps.calculateFps();
             engine.drawFPS(fps.framesPerSecond());
         }

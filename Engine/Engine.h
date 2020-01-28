@@ -2,6 +2,8 @@
 #define ENGINE_H
 
 #define TILE_COUNT_PER_SCREEN 10
+#define D_SHOW_FPS 1
+#define D_SHOW_CROSSHAIR 2
 
 #ifdef __linux__ 
 #include "SDL2/SDL.h"
@@ -28,14 +30,14 @@ class Engine
 protected:
     TTF_Font* debugFont;
     SDL_Window* window;
-    bool _showFps;
+    int flags;
     unsigned long _frames;
     void handleKeyboardEvents(SDL_KeyboardEvent* event);
 
 public:
     static bool isRunning;
 
-    Engine(bool showFps);
+    Engine(int flags);
 
     ~Engine();
 
@@ -48,6 +50,8 @@ public:
     void render();
 
     void clean();
+
+    bool showFps() const;
 
     void drawFPS(const std::string& fps);
 

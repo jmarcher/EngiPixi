@@ -11,7 +11,6 @@ SDL_Rect Engine::camera = { 0, 0, 800, 640 };
 
 Map* map;
 
-
 Manager manager;
 
 auto& player(manager.addEntity());
@@ -22,10 +21,10 @@ auto& tiles(manager.getGroup(Engine::groupMap));
 auto& players(manager.getGroup(Engine::groupPlayers));
 auto& colliders(manager.getGroup(Engine::groupColliders));
 
-Engine::Engine(bool showFps)
+Engine::Engine(int flags)
 {
     Engine::isRunning = false;
-    this->_showFps = showFps;
+    this->flags = flags;
     this->window = nullptr;
 }
 
@@ -88,15 +87,17 @@ void Engine::update()
     manager.refresh();
     manager.update();
 
-    for (auto& collider : colliders) {
+    for(auto& collider : colliders) {
         SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
-        if (Collision::AABB(cCollider, playerCollider)) {
+        if(Collision::AABB(cCollider, playerCollider)) {
             player.getComponent<TransformComponent>().position = playerPosition;
         }
     }
 
-    camera.x = player.getComponent<TransformComponent>().position.x - 400 - player.getComponent<SpriteComponent>().getDestinationRect().w;
-    camera.y = player.getComponent<TransformComponent>().position.y - 320 - player.getComponent<SpriteComponent>().getDestinationRect().h;
+    camera.x = player.getComponent<TransformComponent>().position.x -
+        (400 - (player.getComponent<SpriteComponent>().getDestinationRect().w / 2));
+    camera.y = player.getComponent<TransformComponent>().position.y -
+        (320 - (player.getComponent<SpriteComponent>().getDestinationRect().h / 2));
 
     if(camera.x < 0)
         camera.x = 0;
@@ -119,7 +120,7 @@ void Engine::render()
         t->draw();
     }
 
-    for (auto& c : colliders) {
+    for(auto& c : colliders) {
         c->draw();
     }
 
@@ -127,9 +128,20 @@ void Engine::render()
         p->draw();
     }
 
+    if((this->flags & D_SHOW_CROSSHAIR) > 0) {
+        // Debug Lines
+        SDL_RenderDrawLine(renderer, 400, 0, 400, 640);
+        SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
+    }
+
     // If the FPS are show, we can wait to present and drawFPS will present
     // the screen for us
     SDL_RenderPresent(renderer);
+}
+
+bool Engine::showFps() const
+{
+    return (this->flags & D_SHOW_FPS) > 0;
 }
 
 void Engine::clean()
