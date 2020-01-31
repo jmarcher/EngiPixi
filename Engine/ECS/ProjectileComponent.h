@@ -10,9 +10,9 @@ class ProjectileComponent : public Component
 protected:
     TransformComponent* transform;
     Vector2D velocity;
-    int range = 0;
-    int speed = 0;
-    int distance = 0;
+    int range;
+    int speed;
+    int distance;
 
 public:
     ProjectileComponent(int rng, int spd, Vector2D vel);

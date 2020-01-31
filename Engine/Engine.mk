@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Joaquin
-Date                   :=28/01/20
+Date                   :=30/01/20
 CodeLitePath           :=/home/gordo/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -60,8 +60,8 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_EntityComponentSystem.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_JoystickController.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/ECS_TileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_EntityComponentSystem.cpp$(ObjectSuffix) \
+	$(IntermediateDirectory)/ECS_JoystickController.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) 
 
 
 
@@ -92,6 +92,14 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix): ECS/ColliderComponent.cpp $(IntermediateDirectory)/ECS_ColliderComponent.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(DependSuffix): ECS/ColliderComponent.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(DependSuffix) -MM ECS/ColliderComponent.cpp
+
+$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(PreprocessSuffix): ECS/ColliderComponent.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_ColliderComponent.cpp$(PreprocessSuffix) ECS/ColliderComponent.cpp
+
 $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix): ECS/ProjectileComponent.cpp $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ProjectileComponent.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(DependSuffix): ECS/ProjectileComponent.cpp
@@ -100,13 +108,21 @@ $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(DependSuffix): ECS/Project
 $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(PreprocessSuffix): ECS/ProjectileComponent.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(PreprocessSuffix) ECS/ProjectileComponent.cpp
 
-$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix): ECS/ColliderComponent.cpp $(IntermediateDirectory)/ECS_ColliderComponent.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ColliderComponent.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(DependSuffix): ECS/ColliderComponent.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(DependSuffix) -MM ECS/ColliderComponent.cpp
+$(IntermediateDirectory)/Collision.cpp$(ObjectSuffix): Collision.cpp $(IntermediateDirectory)/Collision.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Collision.cpp$(DependSuffix): Collision.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Collision.cpp$(DependSuffix) -MM Collision.cpp
 
-$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(PreprocessSuffix): ECS/ColliderComponent.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_ColliderComponent.cpp$(PreprocessSuffix) ECS/ColliderComponent.cpp
+$(IntermediateDirectory)/Collision.cpp$(PreprocessSuffix): Collision.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Collision.cpp$(PreprocessSuffix) Collision.cpp
+
+$(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix): AssetManager.cpp $(IntermediateDirectory)/AssetManager.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/AssetManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/AssetManager.cpp$(DependSuffix): AssetManager.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/AssetManager.cpp$(DependSuffix) -MM AssetManager.cpp
+
+$(IntermediateDirectory)/AssetManager.cpp$(PreprocessSuffix): AssetManager.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/AssetManager.cpp$(PreprocessSuffix) AssetManager.cpp
 
 $(IntermediateDirectory)/Map.cpp$(ObjectSuffix): Map.cpp $(IntermediateDirectory)/Map.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Map.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IncludePath)
@@ -132,21 +148,13 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
 
-$(IntermediateDirectory)/Collision.cpp$(ObjectSuffix): Collision.cpp $(IntermediateDirectory)/Collision.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Collision.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Collision.cpp$(DependSuffix): Collision.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Collision.cpp$(DependSuffix) -MM Collision.cpp
+$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix): Helpers/FpsHelper.cpp $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(DependSuffix): Helpers/FpsHelper.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(DependSuffix) -MM Helpers/FpsHelper.cpp
 
-$(IntermediateDirectory)/Collision.cpp$(PreprocessSuffix): Collision.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Collision.cpp$(PreprocessSuffix) Collision.cpp
-
-$(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix): AssetManager.cpp $(IntermediateDirectory)/AssetManager.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/AssetManager.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/AssetManager.cpp$(DependSuffix): AssetManager.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/AssetManager.cpp$(DependSuffix) -MM AssetManager.cpp
-
-$(IntermediateDirectory)/AssetManager.cpp$(PreprocessSuffix): AssetManager.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/AssetManager.cpp$(PreprocessSuffix) AssetManager.cpp
+$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(PreprocessSuffix): Helpers/FpsHelper.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(PreprocessSuffix) Helpers/FpsHelper.cpp
 
 $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix): Engine.cpp $(IntermediateDirectory)/Engine.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Engine.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IncludePath)
@@ -211,14 +219,6 @@ $(IntermediateDirectory)/ECS_KeyboardController.cpp$(DependSuffix): ECS/Keyboard
 
 $(IntermediateDirectory)/ECS_KeyboardController.cpp$(PreprocessSuffix): ECS/KeyboardController.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(PreprocessSuffix) ECS/KeyboardController.cpp
-
-$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix): Helpers/FpsHelper.cpp $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Helpers/FpsHelper.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(DependSuffix): Helpers/FpsHelper.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(DependSuffix) -MM Helpers/FpsHelper.cpp
-
-$(IntermediateDirectory)/Helpers_FpsHelper.cpp$(PreprocessSuffix): Helpers/FpsHelper.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(PreprocessSuffix) Helpers/FpsHelper.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
