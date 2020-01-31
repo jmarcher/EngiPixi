@@ -3,6 +3,8 @@
 #include "Collision.h"
 #include "Map.h"
 
+#include <sstream>
+
 SDL_Rect Engine::camera = { 0, 0, 800, 640 };
 
 SDL_Renderer* Engine::renderer = nullptr;
@@ -16,6 +18,7 @@ Manager manager;
 AssetManager* Engine::assets = new AssetManager(&manager);
 
 auto& player(manager.addEntity());
+auto& label(manager.addEntity());
 
 bool Engine::isRunning = false;
 
@@ -39,8 +42,6 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
 {
     int flags = 0;
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-        TTF_Init();
-        this->debugFont = TTF_OpenFont("../assets/fonts/ani.ttf", 64);
         Engine::isRunning = true;
         if(fullScreen) {
             flags = SDL_WINDOW_FULLSCREEN;
@@ -57,9 +58,15 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
         Engine::isRunning = false;
     }
 
+    if(TTF_Init() == -1) {
+        std::cout << "Can not initialize fonts" << std::endl;
+    }
+
     assets->addTexture("terrain", "../assets/sprites/terrain_big_map.png");
     assets->addTexture("player", "../assets/sprites/player_anims.png");
     assets->addTexture("projectile", "../assets/sprites/projectile.png");
+
+    assets->addFont("ani", "../assets/fonts/ani.ttf", 64);
 
     map = new Map("terrain", 3, 32);
 
@@ -72,7 +79,12 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     player.addComponent<ColliderComponent>("player");
     player.addGroup(groupPlayers);
 
-    assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
+    SDL_Color white = { 255, 255, 255 };
+
+    label
+        .addComponent<UILabel>("Text", 10, 10, "ani", white);
+
+            assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
     assets->createProjectile(Vector2D(150, 100), Vector2D(2, -1), 200, 1, "projectile");
     assets->createProjectile(Vector2D(400, 50), Vector2D(2, 0), 200, 1, "projectile");
 }
@@ -94,7 +106,12 @@ void Engine::update()
 {
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
-
+    
+    std::stringstream stringStream;
+    stringStream << "Player position." << playerPosition;
+    
+    label.getComponent<UILabel>().setText(stringStream.str(), "ani");
+    
     this->_frames++;
     manager.refresh();
     manager.update();
@@ -156,6 +173,8 @@ void Engine::render()
         SDL_RenderDrawLine(renderer, 400, 0, 400, 640);
         SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
     }
+    
+    label.draw();
 
     // If the FPS are show, we can wait to present and drawFPS will present
     // the screen for us
@@ -177,15 +196,15 @@ void Engine::clean()
 
 void Engine::drawFPS(const std::string& fps)
 {
-    SDL_Color White = { 255, 255, 255, 255 };
-    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(this->debugFont, fps.c_str(), White);
-    SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-    SDL_FreeSurface(surfaceMessage);
-
-    SDL_Rect message_rect = { 10, 10, 100, 100 }; // create a rect
-    SDL_RenderCopy(renderer, message, nullptr, &message_rect);
-
-    // We can safely call SDL_RenderPreset because when using this function the
-    // draw method will not present anything.
-    SDL_RenderPresent(renderer);
+    //    SDL_Color White = { 255, 255, 255, 255 };
+    //    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(this->debugFont, fps.c_str(), White);
+    //    SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+    //    SDL_FreeSurface(surfaceMessage);
+    //
+    //    SDL_Rect message_rect = { 10, 10, 100, 100 }; // create a rect
+    //    SDL_RenderCopy(renderer, message, nullptr, &message_rect);
+    //
+    //    // We can safely call SDL_RenderPreset because when using this function the
+    //    // draw method will not present anything.
+    //    SDL_RenderPresent(renderer);
 }

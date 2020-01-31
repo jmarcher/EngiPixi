@@ -56,6 +56,8 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/UILabel.cpp"/>
+      <File Name="ECS/UILabel.h"/>
       <File Name="ECS/ProjectileComponent.cpp"/>
       <File Name="ECS/ProjectileComponent.h"/>
       <File Name="ECS/Animation.h"/>
