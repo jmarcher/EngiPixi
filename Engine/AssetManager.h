@@ -1,7 +1,11 @@
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
 
-#include "SDL2/SDL_ttf.h"
+#ifdef __linux__
+    #include "SDL2/SDL_ttf.h"
+#elif _WIN32
+    #include "SDL_ttf.h"
+#endif
 #include <map>
 #include <string>
 

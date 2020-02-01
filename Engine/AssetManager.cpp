@@ -8,6 +8,10 @@ AssetManager::AssetManager(Manager* m)
 
 AssetManager::~AssetManager()
 {
+    std::map<std::string, TTF_Font*>::iterator iterator = this->fonts.begin();
+    while (iterator != this->fonts.end()) {
+        TTF_CloseFont(iterator->second);
+    }
 }
 
 void AssetManager::addTexture(const std::string& id, const std::string& path)

@@ -1,8 +1,14 @@
 #ifndef UILABEL_H
 #define UILABEL_H
 
+#ifdef __linux__
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
+#elif _WIN32
+#include "SDL.h"
+#include "SDL_ttf.h"
+#endif
+
 #include <string>
 
 #include "../AssetManager.h"
@@ -17,12 +23,13 @@ protected:
     std::string labelText;
     std::string labelFont;
     SDL_Texture* labelTexture;
+    TTF_Font* font;
 
 public:
     UILabel(const std::string& text, int xPosition, int yPostion, const std::string& font, SDL_Color& color);
     ~UILabel();
-    void setText(const std::string& text, const std::string& fontId);
 
+    void setText(const std::string& text, const std::string& fontId);
     void draw() override;
 };
 

@@ -18,6 +18,7 @@ Manager manager;
 AssetManager* Engine::assets = new AssetManager(&manager);
 
 auto& player(manager.addEntity());
+auto& fpsLabel(manager.addEntity());
 auto& label(manager.addEntity());
 
 bool Engine::isRunning = false;
@@ -83,6 +84,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
 
     label
         .addComponent<UILabel>("Text", 10, 10, "ani", white);
+    fpsLabel.addComponent<UILabel>("0", 640, 10, "ani", white);
 
             assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
     assets->createProjectile(Vector2D(150, 100), Vector2D(2, -1), 200, 1, "projectile");
@@ -107,10 +109,10 @@ void Engine::update()
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
     
-    std::stringstream stringStream;
-    stringStream << "Player position." << playerPosition;
+    //std::stringstream stringStream;
+    //stringStream << "Player position." << playerPosition;
     
-    label.getComponent<UILabel>().setText(stringStream.str(), "ani");
+    //label.getComponent<UILabel>().setText(stringStream.str(), "ani");
     
     this->_frames++;
     manager.refresh();
@@ -174,11 +176,13 @@ void Engine::render()
         SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
     }
     
-    label.draw();
+    //label.draw();
 
-    // If the FPS are show, we can wait to present and drawFPS will present
-    // the screen for us
-    SDL_RenderPresent(renderer);
+    if (!((this->flags & D_SHOW_FPS) > 0)) {
+        // If the FPS are show, we can wait to present and drawFPS will present
+        // the screen for us
+        SDL_RenderPresent(renderer);
+    }
 }
 
 bool Engine::showFps() const
@@ -196,15 +200,11 @@ void Engine::clean()
 
 void Engine::drawFPS(const std::string& fps)
 {
-    //    SDL_Color White = { 255, 255, 255, 255 };
-    //    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(this->debugFont, fps.c_str(), White);
-    //    SDL_Texture* message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-    //    SDL_FreeSurface(surfaceMessage);
-    //
-    //    SDL_Rect message_rect = { 10, 10, 100, 100 }; // create a rect
-    //    SDL_RenderCopy(renderer, message, nullptr, &message_rect);
-    //
-    //    // We can safely call SDL_RenderPreset because when using this function the
-    //    // draw method will not present anything.
-    //    SDL_RenderPresent(renderer);
+    fpsLabel.getComponent<UILabel>().setText(fps, "ani");
+    fpsLabel.draw();
+
+    
+        // We can safely call SDL_RenderPreset because when using this function the
+        // draw method will not present anything.
+        SDL_RenderPresent(renderer);
 }
