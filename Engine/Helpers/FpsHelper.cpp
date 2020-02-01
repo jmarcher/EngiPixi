@@ -1,15 +1,36 @@
 #include "FpsHelper.h"
 
+#include <iostream>
+const unsigned int FpsHelper::FRAME_VALUES = 8;
+const unsigned int FpsHelper::FPS = 120;
+const unsigned int FpsHelper::FRAME_DELAY = 1000 / FPS;
+
+    // An array to store frame times:
+unsigned int FpsHelper::frameTimes[8];
+
+    // Last calculated SDL_GetTicks
+unsigned int FpsHelper::frameTimeLast = 0;
+
+    // total frames rendered
+unsigned int FpsHelper::frameCount = 0;
+
+double FpsHelper::fps = 0;
+    
+    // FrameTicks
+unsigned int FpsHelper::frameStart = 0;
+unsigned int FpsHelper::frameEnd = 0;
+
+unsigned int FpsHelper::ticksT1 = 0;
 FpsHelper::FpsHelper() {
     this->init();
 }
 
 void FpsHelper::init() {
     // Set all frame times to 0ms.
-    memset(this->frameTimes, 0, sizeof(this->frameTimes));
-    this->frameCount = 0;
-    this->fps = 0;
-    this->frameTimeLast = SDL_GetTicks();
+    memset(frameTimes, 0, sizeof(frameTimes));
+    frameCount = 0;
+    fps = 0;
+    frameTimeLast = SDL_GetTicks();
 }
 
 void FpsHelper::calculateFps() {
@@ -21,10 +42,10 @@ void FpsHelper::calculateFps() {
     frameTimesIndex = frameCount % FRAME_VALUES;
 
     // save the frame time value
-    frameTimes[frameTimesIndex] = this->frameStart - frameTimeLast;
+    frameTimes[frameTimesIndex] = frameStart - frameTimeLast;
 
     // save the last frame time for the next calculateFps
-    frameTimeLast = this->frameStart;
+    frameTimeLast = frameStart;
 
     // increment the frame count
     frameCount++;
@@ -53,19 +74,29 @@ void FpsHelper::calculateFps() {
     fps = 1000.f / fps;
 }
 
-std::string FpsHelper::framesPerSecond() const {
-    return std::to_string(fps);
+std::string FpsHelper::framesPerSecond() {
+    return std::to_string(FpsHelper::fps);
 }
 
 void FpsHelper::startFrame() {
-    this->frameStart = SDL_GetTicks();
+    FpsHelper::frameStart = SDL_GetTicks();
 }
 
+
 void FpsHelper::endFrame() {
-    this->frameEnd = SDL_GetTicks() - this->frameStart;
+    FpsHelper::frameEnd = SDL_GetTicks() - frameStart;
 
     // Check if we need to delay the frames
-    if (FRAME_DELAY > this->frameEnd) {
-        SDL_Delay(FRAME_DELAY - this->frameEnd);
+    if (FRAME_DELAY > frameEnd) {
+        SDL_Delay(FRAME_DELAY - frameEnd);
     }
+}
+double FpsHelper::deltaTime()
+{
+    unsigned int actualTicks =  SDL_GetTicks();
+    double result = (actualTicks - FpsHelper::ticksT1) / 1000.0f;
+    
+    FpsHelper::ticksT1 = actualTicks;
+    
+    return result;
 }

@@ -4,7 +4,7 @@
 #include "Map.h"
 
 #include <sstream>
-
+#include "Helpers/FpsHelper.h"
 SDL_Rect Engine::camera = { 0, 0, 800, 640 };
 
 SDL_Renderer* Engine::renderer = nullptr;
@@ -109,10 +109,12 @@ void Engine::update()
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
     
-    //std::stringstream stringStream;
-    //stringStream << "Player position." << playerPosition;
+    std::stringstream stringStream;
+    stringStream << FpsHelper::deltaTime();
     
-    //label.getComponent<UILabel>().setText(stringStream.str(), "ani");
+//    std::cout << FpsHelper::deltaTime() << std::endl;
+    
+    label.getComponent<UILabel>().setText(stringStream.str(), "ani");
     
     this->_frames++;
     manager.refresh();
@@ -176,7 +178,7 @@ void Engine::render()
         SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
     }
     
-    //label.draw();
+    label.draw();
 
     if (!((this->flags & D_SHOW_FPS) > 0)) {
         // If the FPS are show, we can wait to present and drawFPS will present
