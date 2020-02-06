@@ -10,19 +10,19 @@ int main(int argc, char** argv)
     engine.start("Game", 800, 640, false);
 
     // Put this as close as possible to the start of the loop (before it starts!)
-    FpsHelper fps;
+    FpsHelper::init();
     while(Engine::isRunning) {
-        fps.startFrame();
+        FpsHelper::startFrame();
 
         engine.handleEvents();
         engine.update();
         engine.render();
         if(engine.showFps()) {
-            fps.calculateFps();
-            engine.drawFPS(fps.framesPerSecond());
+            FpsHelper::calculateFps();
+            engine.drawFPS(FpsHelper::framesPerSecond());
         }
 
-        fps.endFrame();
+        FpsHelper::endFrame();
     }
 
     engine.clean();
