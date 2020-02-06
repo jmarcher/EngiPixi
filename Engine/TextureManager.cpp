@@ -20,5 +20,5 @@ SDL_Texture* TextureManager::load(const std::string& fileName)
 
 void TextureManager::draw(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
 {
-    SDL_RenderCopyEx(Engine::renderer, texture, &source, &destination, NULL, NULL, flip);
+    SDL_RenderCopyEx(Engine::renderer, texture, &source, &destination, 0, NULL, flip);
 }

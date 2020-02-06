@@ -64,7 +64,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     }
 
     assets->addTexture("terrain", "../assets/sprites/terrain_big_map.png");
-    assets->addTexture("player", "../assets/sprites/player_anims.png");
+    assets->addTexture("player", "../assets/sprites/Character.png");
     assets->addTexture("projectile", "../assets/sprites/projectile.png");
 
     assets->addFont("ani", "../assets/fonts/ani.ttf", 64);
@@ -73,11 +73,12 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
 
     map->load("../assets/sprites/big_map.map", 32, 32);
 
-    player.addComponent<TransformComponent>(4);
+    player.addComponent<TransformComponent>(92, 92, 2);
     player.addComponent<SpriteComponent>("player", true);
     player.addComponent<KeyboardController>();
     //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
+//    player.addComponent<PhysicsComponent>();
     player.addGroup(groupPlayers);
 
     SDL_Color white = { 255, 255, 255 };
@@ -86,7 +87,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
         .addComponent<UILabel>("Text", 10, 10, "ani", white);
     fpsLabel.addComponent<UILabel>("0", 640, 10, "ani", white);
 
-            assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
+    assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
     assets->createProjectile(Vector2D(150, 100), Vector2D(2, -1), 200, 1, "projectile");
     assets->createProjectile(Vector2D(400, 50), Vector2D(2, 0), 200, 1, "projectile");
 }
@@ -108,13 +109,6 @@ void Engine::update()
 {
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
-    
-    std::stringstream stringStream;
-    stringStream << FpsHelper::deltaTime();
-    
-//    std::cout << FpsHelper::deltaTime() << std::endl;
-    
-    label.getComponent<UILabel>().setText(stringStream.str(), "ani");
     
     this->_frames++;
     manager.refresh();
@@ -143,9 +137,9 @@ void Engine::update()
         camera.x = 0;
     if(camera.y < 0)
         camera.y = 0;
-    if(camera.x > map->getWidth() - camera.w)
+    if(camera.x > static_cast<int>(map->getWidth()) - camera.w)
         camera.x = map->getWidth() - camera.w;
-    if(camera.y > map->getHeight() - camera.h)
+    if(camera.y > static_cast<int>(map->getHeight()) - camera.h)
         camera.y = map->getHeight() - camera.h;
 }
 
@@ -177,8 +171,6 @@ void Engine::render()
         SDL_RenderDrawLine(renderer, 400, 0, 400, 640);
         SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
     }
-    
-    label.draw();
 
     if (!((this->flags & D_SHOW_FPS) > 0)) {
         // If the FPS are show, we can wait to present and drawFPS will present
