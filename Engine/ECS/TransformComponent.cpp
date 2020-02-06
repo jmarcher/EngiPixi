@@ -47,3 +47,10 @@ void TransformComponent::setPosition(float x, float y) {
     this->position.x = x;
     this->position.y = y;
 }
+TransformComponent::TransformComponent(int w, int h, int scale)
+{
+    this->width = w;
+    this->height = h;
+    this->scale = scale;
+    this->setPosition(0, 0);
+}

@@ -56,6 +56,8 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/PhysicsComponent.cpp"/>
+      <File Name="ECS/PhysicsComponent.h"/>
       <File Name="ECS/UILabel.cpp"/>
       <File Name="ECS/UILabel.h"/>
       <File Name="ECS/ProjectileComponent.cpp"/>
@@ -102,7 +104,7 @@
         <IncludePath Value="."/>
         <IncludePath Value="/usr/include/"/>
       </Compiler>
-      <Linker Options="" Required="yes">
+      <Linker Options="-s" Required="yes">
         <LibraryPath Value="/usr/lib/"/>
         <Library Value="SDL2"/>
         <Library Value="SDL2_image"/>

@@ -15,9 +15,9 @@ void ProjectileComponent::init()
     transform->velocity = this->velocity;
 }
 ProjectileComponent::ProjectileComponent(int rng, int spd, Vector2D vel)
-    : range(rng)
+    : velocity(vel)
+    , range(rng)
     , speed(spd)
-    , velocity(vel)
 {
 }
 ProjectileComponent::~ProjectileComponent()

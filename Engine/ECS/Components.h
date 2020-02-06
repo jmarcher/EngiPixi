@@ -9,6 +9,7 @@
 #include "JoystickController.h"
 #include "ColliderComponent.h"
 #include "ProjectileComponent.h"
+#include "PhysicsComponent.h"
 
 // UI Components
 #include "UILabel.h"

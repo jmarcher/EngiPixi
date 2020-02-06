@@ -9,11 +9,13 @@ SpriteComponent::SpriteComponent(const std::string& id, bool isAnimated)
 {
     this->animated = isAnimated;
 
-    Animation idle = Animation(0, 3, 100);
-    Animation walk = Animation(1, 8, 100);
+    Animation idle = Animation(0, 1, 100);
+//    Animation walk = Animation(1, 3, 100);
+//    Animation run = Animation(2, 7, 80);
 
     animations.emplace("idle", idle);
-    animations.emplace("walk", walk);
+    animations.emplace("walk", idle);
+    animations.emplace("run", idle);
 
     this->play("idle");
 

@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Joaquin
-Date                   :=01/02/20
+Date                   :=06/02/20
 CodeLitePath           :=/home/gordo/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -35,7 +35,7 @@ PreprocessOnlySwitch   :=-E
 ObjectsFileList        :="Engine.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
-LinkOptions            :=  
+LinkOptions            :=  -s
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)/usr/include/ $(IncludeSwitch). 
 IncludePCH             := 
 RcIncludePath          := 
@@ -60,8 +60,8 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_UILabel.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/ECS_JoystickController.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_EntityComponentSystem.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) \
+	$(IntermediateDirectory)/ECS_UILabel.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_JoystickController.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_EntityComponentSystem.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) 
 
 
 
@@ -156,6 +156,14 @@ $(IntermediateDirectory)/Engine.cpp$(DependSuffix): Engine.cpp
 $(IntermediateDirectory)/Engine.cpp$(PreprocessSuffix): Engine.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Engine.cpp$(PreprocessSuffix) Engine.cpp
 
+$(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix): Math/Vector2D.cpp $(IntermediateDirectory)/Math_Vector2D.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Math_Vector2D.cpp$(DependSuffix): Math/Vector2D.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Math_Vector2D.cpp$(DependSuffix) -MM Math/Vector2D.cpp
+
+$(IntermediateDirectory)/Math_Vector2D.cpp$(PreprocessSuffix): Math/Vector2D.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Math_Vector2D.cpp$(PreprocessSuffix) Math/Vector2D.cpp
+
 $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix): ECS/ProjectileComponent.cpp $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/ProjectileComponent.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(DependSuffix): ECS/ProjectileComponent.cpp
@@ -196,6 +204,14 @@ $(IntermediateDirectory)/ECS_TileComponent.cpp$(DependSuffix): ECS/TileComponent
 $(IntermediateDirectory)/ECS_TileComponent.cpp$(PreprocessSuffix): ECS/TileComponent.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_TileComponent.cpp$(PreprocessSuffix) ECS/TileComponent.cpp
 
+$(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(ObjectSuffix): ECS/PhysicsComponent.cpp $(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/PhysicsComponent.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(DependSuffix): ECS/PhysicsComponent.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(DependSuffix) -MM ECS/PhysicsComponent.cpp
+
+$(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(PreprocessSuffix): ECS/PhysicsComponent.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(PreprocessSuffix) ECS/PhysicsComponent.cpp
+
 $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix): ECS/TransformComponent.cpp $(IntermediateDirectory)/ECS_TransformComponent.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/TransformComponent.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/ECS_TransformComponent.cpp$(DependSuffix): ECS/TransformComponent.cpp
@@ -211,14 +227,6 @@ $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(DependSuffix): ECS/SpriteCompo
 
 $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(PreprocessSuffix): ECS/SpriteComponent.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(PreprocessSuffix) ECS/SpriteComponent.cpp
-
-$(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix): Math/Vector2D.cpp $(IntermediateDirectory)/Math_Vector2D.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Math/Vector2D.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Math_Vector2D.cpp$(DependSuffix): Math/Vector2D.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Math_Vector2D.cpp$(DependSuffix) -MM Math/Vector2D.cpp
-
-$(IntermediateDirectory)/Math_Vector2D.cpp$(PreprocessSuffix): Math/Vector2D.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Math_Vector2D.cpp$(PreprocessSuffix) Math/Vector2D.cpp
 
 $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix): ECS/KeyboardController.cpp $(IntermediateDirectory)/ECS_KeyboardController.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) $(IncludePath)
