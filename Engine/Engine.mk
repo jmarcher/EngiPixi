@@ -61,7 +61,7 @@ AS       := /usr/bin/as
 ##
 CodeLiteDir:=/usr/share/codelite
 Objects0=$(IntermediateDirectory)/ECS_ColliderComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Collision.cpp$(ObjectSuffix) $(IntermediateDirectory)/AssetManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/TextureManager.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Helpers_FpsHelper.cpp$(ObjectSuffix) $(IntermediateDirectory)/Engine.cpp$(ObjectSuffix) $(IntermediateDirectory)/Math_Vector2D.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_ProjectileComponent.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/ECS_UILabel.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_JoystickController.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_EntityComponentSystem.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) 
+	$(IntermediateDirectory)/ECS_UILabel.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_JoystickController.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_EntityComponentSystem.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TileComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_PhysicsComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_TransformComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(ObjectSuffix) $(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(ObjectSuffix) $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) 
 
 
 
@@ -227,6 +227,14 @@ $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(DependSuffix): ECS/SpriteCompo
 
 $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(PreprocessSuffix): ECS/SpriteComponent.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/ECS_SpriteComponent.cpp$(PreprocessSuffix) ECS/SpriteComponent.cpp
+
+$(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(ObjectSuffix): Helpers/KeyboardHandler.cpp $(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/Helpers/KeyboardHandler.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(DependSuffix): Helpers/KeyboardHandler.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(DependSuffix) -MM Helpers/KeyboardHandler.cpp
+
+$(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(PreprocessSuffix): Helpers/KeyboardHandler.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Helpers_KeyboardHandler.cpp$(PreprocessSuffix) Helpers/KeyboardHandler.cpp
 
 $(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix): ECS/KeyboardController.cpp $(IntermediateDirectory)/ECS_KeyboardController.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/gordo/Code/C++/EngiPixi/Engine/ECS/KeyboardController.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/ECS_KeyboardController.cpp$(ObjectSuffix) $(IncludePath)

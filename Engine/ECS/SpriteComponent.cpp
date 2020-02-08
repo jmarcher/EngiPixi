@@ -10,11 +10,20 @@ SpriteComponent::SpriteComponent(const std::string& id, bool isAnimated)
     this->animated = isAnimated;
 
     Animation idle = Animation(0, 1, 100);
-//    Animation walk = Animation(1, 3, 100);
-//    Animation run = Animation(2, 7, 80);
+    Animation walkSouth = Animation(0, 1, 100);
+    Animation walkSouthWestEast = Animation(1, 1, 100);
+    Animation walkNorthWestEast = Animation(2, 1, 100);
+    Animation walkNorth = Animation(3, 1, 100);
+    Animation walkWestEast = Animation(4, 1, 100);
+    //    Animation walk = Animation(1, 3, 100);
+    //    Animation run = Animation(2, 7, 80);
 
     animations.emplace("idle", idle);
-    animations.emplace("walk", idle);
+    animations.emplace("walkSouth", walkSouth);
+    animations.emplace("walkNorth", walkNorth);
+    animations.emplace("walkNorthWestEast", walkNorthWestEast);
+    animations.emplace("walkSouthWestEast", walkSouthWestEast);
+    animations.emplace("walkWestEast", walkWestEast);
     animations.emplace("run", idle);
 
     this->play("idle");
@@ -50,6 +59,31 @@ void SpriteComponent::update()
     this->sourceRect.y = this->transformation->height * this->animationIndex;
     this->destinationRect.x = static_cast<int>(this->transformation->x()) - Engine::camera.x;
     this->destinationRect.y = static_cast<int>(this->transformation->y()) - Engine::camera.y;
+
+    if(this->transformation->velocity.y == -1) {
+        if(this->transformation->velocity.x == 1) {
+            this->play("walkNorthWestEast");
+            this->setHorizontalFlip();
+        } else if(this->transformation->velocity.x == -1) {
+            this->play("walkNorthWestEast");
+        } else {
+            this->play("walkNorth");
+        }
+    } else if(this->transformation->velocity.y == 1) {
+        if(this->transformation->velocity.x == 1) {
+            this->play("walkSouthWestEast");
+        } else if(this->transformation->velocity.x == -1) {
+            this->play("walkSouthWestEast");
+            this->setHorizontalFlip();
+        } else {
+            this->play("walkSouth");
+        }
+    } else if(this->transformation->velocity.x == 1) {
+        this->play("walkWestEast");
+    } else if(this->transformation->velocity.x == -1) {
+        this->play("walkWestEast");
+        this->setHorizontalFlip();
+    }
 }
 
 void SpriteComponent::draw()
@@ -79,8 +113,7 @@ void SpriteComponent::play(const std::string& animationName)
     animationSpeed = this->animations[animationName].aSpeed;
 }
 
-
-
-SDL_Rect SpriteComponent::getDestinationRect() const {
+SDL_Rect SpriteComponent::getDestinationRect() const
+{
     return this->destinationRect;
 }

@@ -64,7 +64,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     }
 
     assets->addTexture("terrain", "../assets/sprites/terrain_big_map.png");
-    assets->addTexture("player", "../assets/sprites/Character.png");
+    assets->addTexture("player", "../assets/sprites/Character_2.png");
     assets->addTexture("projectile", "../assets/sprites/projectile.png");
 
     assets->addFont("ani", "../assets/fonts/ani.ttf", 64);

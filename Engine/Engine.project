@@ -52,6 +52,8 @@
       <File Name="Math/Vector2D.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="Helpers">
+      <File Name="Helpers/KeyboardHandler.cpp"/>
+      <File Name="Helpers/KeyboardHandler.h"/>
       <File Name="Helpers/FpsHelper.h"/>
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
