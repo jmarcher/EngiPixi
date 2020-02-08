@@ -73,16 +73,16 @@ void SpriteComponent::update()
         if(this->transformation->velocity.x == 1) {
             this->play("walkSouthWestEast");
         } else if(this->transformation->velocity.x == -1) {
-            this->play("walkSouthWestEast");
-            this->setHorizontalFlip();
+            this->play("walkSouthWestEast", SDL_FLIP_HORIZONTAL);
         } else {
             this->play("walkSouth");
         }
-    } else if(this->transformation->velocity.x == 1) {
+    } else if(this->transformation->velocity.x == 1 && this->transformation->velocity.y == 0) {
         this->play("walkWestEast");
-    } else if(this->transformation->velocity.x == -1) {
-        this->play("walkWestEast");
+    } else if(this->transformation->velocity.x == -1 && this->transformation->velocity.y == 0) {
         this->setHorizontalFlip();
+        this->play("walkWestEast", SDL_FLIP_HORIZONTAL);
+        std::cout << "Moving left" << std::endl;
     }
 }
 
@@ -108,6 +108,7 @@ void SpriteComponent::setHorizontalFlip()
 
 void SpriteComponent::play(const std::string& animationName)
 {
+    this->spriteFlip = SDL_FLIP_NONE;
     animationIndex = this->animations[animationName].aIndex;
     frames = this->animations[animationName].aFrames;
     animationSpeed = this->animations[animationName].aSpeed;
@@ -116,4 +117,10 @@ void SpriteComponent::play(const std::string& animationName)
 SDL_Rect SpriteComponent::getDestinationRect() const
 {
     return this->destinationRect;
+}
+
+void SpriteComponent::play(const std::string& animationName, SDL_RendererFlip flip)
+{
+    this->play(animationName);
+    this->spriteFlip = flip;
 }

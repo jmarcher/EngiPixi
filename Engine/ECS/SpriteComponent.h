@@ -50,6 +50,8 @@ public:
     void draw() override;
 
     void play(const std::string& animationName);
+    
+    void play(const std::string& animationName, SDL_RendererFlip flip);
 
     void setHorizontalFlip();
     void setVerticalFlip();
