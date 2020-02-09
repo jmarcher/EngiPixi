@@ -66,6 +66,7 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     assets->addTexture("terrain", "../assets/sprites/terrain_big_map.png");
     assets->addTexture("player", "../assets/sprites/Character_2.png");
     assets->addTexture("projectile", "../assets/sprites/projectile.png");
+    assets->addTexture("vignette", "../assets/sprites/vignette.png");
 
     assets->addFont("ani", "../assets/fonts/ani.ttf", 64);
 
@@ -165,6 +166,8 @@ void Engine::render()
     for(auto& p : projectiles) {
         p->draw();
     }
+    
+    TextureManager::draw(assets->getTexture("vignette"), {0,0,800,640}, {0,0,800,640}, SDL_FLIP_NONE);
 
     if((this->flags & D_SHOW_CROSSHAIR) > 0) {
         // Debug Lines
