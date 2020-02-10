@@ -2,9 +2,9 @@
 #define ENGIPIXI_COLLISION_H
 
 #ifdef __linux__ 
-#include "SDL2/SDL.h"
+    #include "SDL2/SDL.h"
 #elif _WIN32
-#include "SDL.h"
+    #include "SDL.h"
 #endif
 
 #include "ECS/ColliderComponent.h"

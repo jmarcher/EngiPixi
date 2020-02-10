@@ -2,15 +2,16 @@
 #define ENGINE_H
 
 #define TILE_COUNT_PER_SCREEN 10
-#define D_SHOW_FPS 1
+#define D_SHOW_FPS 0
 #define D_SHOW_CROSSHAIR 2
+#define D_ENABLE_VIGNETTE 4
 
 #ifdef __linux__ 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
+    #include "SDL2/SDL.h"
+    #include "SDL2/SDL_image.h"
 #elif _WIN32
-#include "SDL.h"
-#include "SDL_image.h"
+    #include "SDL.h"
+    #include "SDL_image.h"
 #endif
 
 #include <iostream>

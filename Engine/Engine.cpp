@@ -3,8 +3,8 @@
 #include "Collision.h"
 #include "Map.h"
 
-#include <sstream>
 #include "Helpers/FpsHelper.h"
+#include <sstream>
 SDL_Rect Engine::camera = { 0, 0, 800, 640 };
 
 SDL_Renderer* Engine::renderer = nullptr;
@@ -79,13 +79,12 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     player.addComponent<KeyboardController>();
     //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
-//    player.addComponent<PhysicsComponent>();
+    //    player.addComponent<PhysicsComponent>();
     player.addGroup(groupPlayers);
 
     SDL_Color white = { 255, 255, 255 };
 
-    label
-        .addComponent<UILabel>("Text", 10, 10, "ani", white);
+    label.addComponent<UILabel>("Text", 10, 10, "ani", white);
     fpsLabel.addComponent<UILabel>("0", 640, 10, "ani", white);
 
     assets->createProjectile(Vector2D(200, 200), Vector2D(2, 0), 200, 2, "projectile");
@@ -110,7 +109,7 @@ void Engine::update()
 {
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
-    
+
     this->_frames++;
     manager.refresh();
     manager.update();
@@ -167,7 +166,8 @@ void Engine::render()
         p->draw();
     }
     
-    TextureManager::draw(assets->getTexture("vignette"), {0,0,800,640}, {0,0,800,640}, SDL_FLIP_NONE);
+    if((this->flags & D_ENABLE_VIGNETTE) > 0)
+        TextureManager::draw(assets->getTexture("vignette"), { 0, 0, 800, 640 }, { 0, 0, 800, 640 }, SDL_FLIP_NONE);
 
     if((this->flags & D_SHOW_CROSSHAIR) > 0) {
         // Debug Lines
@@ -175,7 +175,7 @@ void Engine::render()
         SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
     }
 
-    if (!((this->flags & D_SHOW_FPS) > 0)) {
+    if(!((this->flags & D_SHOW_FPS) > 0)) {
         // If the FPS are show, we can wait to present and drawFPS will present
         // the screen for us
         SDL_RenderPresent(renderer);
@@ -200,8 +200,7 @@ void Engine::drawFPS(const std::string& fps)
     fpsLabel.getComponent<UILabel>().setText(fps, "ani");
     fpsLabel.draw();
 
-    
-        // We can safely call SDL_RenderPreset because when using this function the
-        // draw method will not present anything.
-        SDL_RenderPresent(renderer);
+    // We can safely call SDL_RenderPreset because when using this function the
+    // draw method will not present anything.
+    SDL_RenderPresent(renderer);
 }

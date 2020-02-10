@@ -2,11 +2,10 @@
 #include "Helpers/FpsHelper.h"
 #include <chrono>
 #include <cstdint>
-#include "Helpers/FpsHelper.h"
 
 int main(int argc, char** argv)
 {
-    Engine engine(D_SHOW_FPS);
+    Engine engine(D_SHOW_FPS | D_ENABLE_VIGNETTE);
     engine.start("Game", 800, 640, false);
 
     // Put this as close as possible to the start of the loop (before it starts!)
