@@ -28,10 +28,10 @@ protected:
     TTF_Font* font;
 
 public:
-    UILabel(const std::string& text, int xPosition, int yPostion, const std::string& font, SDL_Color& color);
+    UILabel(const std::string& text, int xPosition, int yPostion, const char* font, SDL_Color& color);
     ~UILabel();
 
-    void setText(const std::string& text, const std::string& fontId);
+    void setText(const std::string& text, const char* fontId);
     void draw() override;
 };
 

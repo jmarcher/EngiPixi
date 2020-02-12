@@ -8,22 +8,22 @@ AssetManager::AssetManager(Manager* m)
 
 AssetManager::~AssetManager()
 {
-    std::map<std::string, TTF_Font*>::iterator iterator = this->fonts.begin();
+    std::map<const char*, TTF_Font*>::iterator iterator = this->fonts.begin();
     while (iterator != this->fonts.end()) {
         TTF_CloseFont(iterator->second);
     }
 }
 
-void AssetManager::addTexture(const std::string& id, const std::string& path)
+void AssetManager::addTexture(const char* id, const std::string& path)
 {
     textures.emplace(id, TextureManager::load(path));
 }
 
-SDL_Texture* AssetManager::getTexture(const std::string& id)
+SDL_Texture* AssetManager::getTexture(const char* id)
 {
     return this->textures[id];
 }
-void AssetManager::createProjectile(Vector2D position, Vector2D velocity, int range, int speed, const std::string& textureId)
+void AssetManager::createProjectile(Vector2D position, Vector2D velocity, int range, int speed, const char* textureId)
 {
     auto& projectile(manager->addEntity());
 
@@ -34,12 +34,12 @@ void AssetManager::createProjectile(Vector2D position, Vector2D velocity, int ra
     projectile.addGroup(Engine::groupProjectiles);
 }
 
-void AssetManager::addFont(const std::string& id, const std::string& fontName, unsigned int size)
+void AssetManager::addFont(const char* id, const std::string& fontName, unsigned int size)
 {
     this->fonts.emplace(id, TTF_OpenFont(fontName.c_str(), size));
 }
 
-TTF_Font* AssetManager::getFont(const std::string& id)
+TTF_Font* AssetManager::getFont(const char* id)
 {
     return this->fonts[id];
 }

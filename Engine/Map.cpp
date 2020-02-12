@@ -7,7 +7,7 @@
 
 extern Manager manager;
 
-Map::Map(const std::string& id, unsigned int mapScale, unsigned int tileSize)
+Map::Map(const char* id, unsigned int mapScale, unsigned int tileSize)
 {
 	this->textureId = id;
 	this->mapScale = mapScale;
@@ -56,7 +56,7 @@ void Map::load(const std::string& path, int sizeX, int sizeY)
 	for (int y = 0; y < sizeY; y++) {
 		for (int x = 0; x < sizeX; x++) {
 			mapFile.get(c);
-			if (c == '1') {
+			if (c == COLLIDE) {
 				auto& collider(manager.addEntity());
 				collider.addComponent<ColliderComponent>("terrain", x * this->scaledSize, y*this->scaledSize, this->scaledSize);
 				collider.addGroup(Engine::groupColliders);

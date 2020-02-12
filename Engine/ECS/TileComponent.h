@@ -9,7 +9,6 @@
 
 #include "../Math/Vector2D.h"
 #include "EntityComponentSystem.h"
-#include <string>
 
 class SpriteComponent;
 
@@ -32,7 +31,7 @@ public:
         int yPosition,
         int tileSize,
         int tileScale,
-        const std::string& id);
+        const char* id);
 
     void draw() override;
 

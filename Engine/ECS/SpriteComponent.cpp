@@ -1,11 +1,11 @@
 #include "SpriteComponent.h"
 #include <cstring>
-SpriteComponent::SpriteComponent(const std::string& id)
+SpriteComponent::SpriteComponent(const char* id)
 {
     this->setTexture(id);
 }
 
-SpriteComponent::SpriteComponent(const std::string& id, bool isAnimated)
+SpriteComponent::SpriteComponent(const char* id, bool isAnimated)
 {
     this->animated = isAnimated;
 
@@ -35,7 +35,7 @@ SpriteComponent::~SpriteComponent()
 {
 }
 
-void SpriteComponent::setTexture(const std::string& id)
+void SpriteComponent::setTexture(const char* id)
 {
     this->texture = Engine::assets->getTexture(id);
 }
@@ -106,7 +106,7 @@ void SpriteComponent::setHorizontalFlip()
     this->spriteFlip = SDL_FLIP_HORIZONTAL;
 }
 
-void SpriteComponent::play(const std::string& animationName)
+void SpriteComponent::play(const char* animationName)
 {
     this->spriteFlip = SDL_FLIP_NONE;
     animationIndex = this->animations[animationName].aIndex;
@@ -119,7 +119,7 @@ SDL_Rect SpriteComponent::getDestinationRect() const
     return this->destinationRect;
 }
 
-void SpriteComponent::play(const std::string& animationName, SDL_RendererFlip flip)
+void SpriteComponent::play(const char* animationName, SDL_RendererFlip flip)
 {
     this->play(animationName);
     this->spriteFlip = flip;

@@ -1,12 +1,13 @@
-#include "ColliderComponent.h"
 #include "../TextureManager.h"
+#include "ColliderComponent.h"
 
 ColliderComponent::ColliderComponent(const std::string& t)
 {
     this->tag = t;
 }
 
-ColliderComponent::ColliderComponent(const std::string& t, int xPosition, int yPosition, int size) {
+ColliderComponent::ColliderComponent(const std::string& t, int xPosition, int yPosition, int size)
+{
     this->tag = t;
     collider.x = xPosition;
     collider.y = yPosition;
@@ -20,14 +21,13 @@ void ColliderComponent::init()
     transform = &entity->getComponent<TransformComponent>();
 
     this->displayTexture = TextureManager::load("../assets/sprites/collider.png");
-    this->sourceRect = { 0,0,32,32 };
-    this->destinationRect = { this->collider.x, this->collider.y, this->collider.w,this->collider.h};
-
+    this->sourceRect = { 0, 0, 32, 32 };
+    this->destinationRect = { this->collider.x, this->collider.y, this->collider.w, this->collider.h };
 }
 
 void ColliderComponent::update()
 {
-    if (this->tag != "terrain") {
+    if(this->tag != "terrain") {
         collider.x = static_cast<int>(transform->x());
         collider.y = static_cast<int>(transform->y());
 
@@ -39,7 +39,8 @@ void ColliderComponent::update()
     this->destinationRect.y = collider.y - Engine::camera.y;
 }
 
-void ColliderComponent::draw() {
+void ColliderComponent::draw()
+{
     TextureManager::draw(this->displayTexture, this->sourceRect, this->destinationRect, SDL_FLIP_NONE);
 }
 

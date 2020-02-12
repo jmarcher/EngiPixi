@@ -9,7 +9,6 @@
 #include "Animation.h"
 #include "Components.h"
 #include <map>
-#include <string>
 
 class TransformComponent;
 
@@ -20,7 +19,7 @@ protected:
     SDL_Rect sourceRect, destinationRect;
     TransformComponent* transformation;
 
-    std::map<std::string, Animation> animations;
+    std::map<const char*, Animation> animations;
 
     int frames = 1;
 
@@ -35,13 +34,13 @@ protected:
 public:
     SpriteComponent() = default;
 
-    SpriteComponent(const std::string& id);
+    SpriteComponent(const char* id);
 
-    SpriteComponent(const std::string& id, bool isAnimated);
+    SpriteComponent(const char* id, bool isAnimated);
 
     ~SpriteComponent();
 
-    void setTexture(const std::string& id);
+    void setTexture(const char* id);
 
     void init() override;
 
@@ -49,9 +48,9 @@ public:
 
     void draw() override;
 
-    void play(const std::string& animationName);
+    void play(const char* animationName);
     
-    void play(const std::string& animationName, SDL_RendererFlip flip);
+    void play(const char* animationName, SDL_RendererFlip flip);
 
     void setHorizontalFlip();
     void setVerticalFlip();

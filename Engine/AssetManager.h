@@ -17,8 +17,8 @@
 class AssetManager
 {
 protected:
-    std::map<std::string, SDL_Texture*> textures;
-    std::map<std::string, TTF_Font*> fonts;
+    std::map<const char*, SDL_Texture*> textures;
+    std::map<const char*, TTF_Font*> fonts;
     Manager* manager;
 
 public:
@@ -26,15 +26,15 @@ public:
     ~AssetManager();
 
     // Texture managment
-    void addTexture(const std::string& id, const std::string& path);
-    SDL_Texture* getTexture(const std::string& id);
+    void addTexture(const char* id, const std::string& path);
+    SDL_Texture* getTexture(const char* id);
 
     // Game objects
-    void createProjectile(Vector2D position, Vector2D velocity, int range, int speed, const std::string& textureId);
+    void createProjectile(Vector2D position, Vector2D velocity, int range, int speed, const char* textureId);
 
     // Fonts
-    void addFont(const std::string& id, const std::string& fontName, unsigned int size);
-    TTF_Font* getFont(const std::string& id);
+    void addFont(const char* id, const std::string& fontName, unsigned int size);
+    TTF_Font* getFont(const char* id);
 };
 
 #endif // ASSETMANAGER_H

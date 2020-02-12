@@ -1,6 +1,6 @@
 #include "UILabel.h"
 
-UILabel::UILabel(const std::string& text, int xPosition, int yPostion, const std::string& font, SDL_Color& color)
+UILabel::UILabel(const std::string& text, int xPosition, int yPostion, const char* font, SDL_Color& color)
     : textColor(color), labelText(text)
 {
     this->position.x = xPosition;
@@ -13,7 +13,7 @@ UILabel::~UILabel()
 {
 }
 
-void UILabel::setText(const std::string& text, const std::string& fontId)
+void UILabel::setText(const std::string& text, const char* fontId)
 {
         SDL_Surface* surface = TTF_RenderText_Blended(this->font, text.c_str(), this->textColor);
         this->labelTexture = SDL_CreateTextureFromSurface(Engine::renderer, surface);       

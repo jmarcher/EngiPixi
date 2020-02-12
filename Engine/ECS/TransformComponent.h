@@ -35,6 +35,8 @@ public:
     void update() override;
 
     void setPosition(float x, float y);
+    
+    void bounce(const Vector2D& oldPosition);
 };
 
 #endif //ENGIPIXI_TRANSFORMCOMPONENT_H

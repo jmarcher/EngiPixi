@@ -117,7 +117,8 @@ void Engine::update()
     for(auto& collider : colliders) {
         SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
         if(Collision::AABB(cCollider, playerCollider)) {
-            player.getComponent<TransformComponent>().position = playerPosition;
+//            player.getComponent<TransformComponent>().velocity.zero();
+            player.getComponent<TransformComponent>().bounce(playerPosition);
         }
     }
 

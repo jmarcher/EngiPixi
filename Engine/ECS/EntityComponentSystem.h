@@ -51,7 +51,11 @@ public:
     virtual void update()
     {
     }
-    
+
+    virtual void lateUpdate()
+    {
+    }
+
     virtual void draw()
     {
     }
@@ -85,6 +89,13 @@ public:
     {
         for(auto& component : this->components) {
             component->update();
+        }
+    }
+
+    void lateUpdate()
+    {
+        for(auto& component : this->components) {
+            component->lateUpdate();
         }
     }
 
@@ -166,6 +177,11 @@ public:
     {
         for(auto& entity : entities) {
             entity->update();
+        }
+
+        // For entities that need to be updated after all the entites updated
+        for(auto& entity : entities) {
+            entity->lateUpdate();
         }
     }
 

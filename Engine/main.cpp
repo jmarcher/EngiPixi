@@ -2,6 +2,7 @@
 #include "Helpers/FpsHelper.h"
 #include <chrono>
 #include <cstdint>
+#include "Helpers/Debug/Assert.h"
 
 int main(int argc, char** argv)
 {
@@ -10,6 +11,7 @@ int main(int argc, char** argv)
 
     // Put this as close as possible to the start of the loop (before it starts!)
     FpsHelper::init();
+//    ASSERT_MSG(!Engine::isRunning, "Engine should not be running");
     while(Engine::isRunning) {
         FpsHelper::startFrame();
 

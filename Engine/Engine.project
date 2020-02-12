@@ -52,6 +52,9 @@
       <File Name="Math/Vector2D.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="Helpers">
+      <VirtualDirectory Name="Debug">
+        <File Name="Helpers/Debug/Assert.h"/>
+      </VirtualDirectory>
       <File Name="Helpers/KeyboardHandler.cpp"/>
       <File Name="Helpers/KeyboardHandler.h"/>
       <File Name="Helpers/FpsHelper.h"/>
@@ -102,7 +105,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="prepend" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-std=c++17 -O0;-Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+      <Compiler Options="-std=c++17 -O0;-Wall -lSDL2main -lSDL2 -lSDL2_image -lSDL2_image -lSDL2_ttf -g -DASSERTIONS_ENABLED" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
         <IncludePath Value="/usr/include/"/>
       </Compiler>

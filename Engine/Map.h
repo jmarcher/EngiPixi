@@ -6,20 +6,22 @@
 class Map
 {
 private:
-	std::string textureId;
+	const char* textureId;
 	unsigned int mapScale;
 	unsigned int tileSize;
 	unsigned int scaledSize;
 	unsigned int actualMapSizeX;
 	unsigned int actualMapSizeY;
+    
+    const char COLLIDE = '1';
 
 public:
-    Map(const std::string& id, unsigned int mapScale, unsigned int tileSize);
+    Map(const char* id, unsigned int mapScale, unsigned int tileSize);
     ~Map();
 
     void load(const std::string& path, int sizeX, int sizeY);
 
-	void addTile(int sourceX, int sourceU, int xPosition, int yPosition);
+	void addTile(int sourceX, int sourceY, int xPosition, int yPosition);
 
 	unsigned int getWidth() const;
 	unsigned int getHeight() const;

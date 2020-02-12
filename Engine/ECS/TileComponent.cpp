@@ -12,7 +12,7 @@ TileComponent::TileComponent(int sourceX,
     int yPosition,
     int tileSize,
     int tileScale,
-    const std::string& id)
+    const char* id)
 {
     this->texture = Engine::assets->getTexture(id);
 
