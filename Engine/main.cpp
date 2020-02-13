@@ -11,19 +11,22 @@ int main(int argc, char** argv)
 
     // Put this as close as possible to the start of the loop (before it starts!)
     FpsHelper::init();
-//    ASSERT_MSG(!Engine::isRunning, "Engine should not be running");
+    
     while(Engine::isRunning) {
+        
         FpsHelper::startFrame();
 
         engine.handleEvents();
         engine.update();
         engine.render();
+        
         if(engine.showFps()) {
             FpsHelper::calculateFps();
             engine.drawFPS(FpsHelper::framesPerSecond());
         }
 
         FpsHelper::endFrame();
+        
     }
 
     engine.clean();

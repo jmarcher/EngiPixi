@@ -3,8 +3,10 @@
 #include "Collision.h"
 #include "Map.h"
 
+#include "Helpers/Debug/Assert.h"
 #include "Helpers/FpsHelper.h"
 #include <sstream>
+
 SDL_Rect Engine::camera = { 0, 0, 800, 640 };
 
 SDL_Renderer* Engine::renderer = nullptr;
@@ -76,9 +78,9 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
 
     player.addComponent<TransformComponent>(92, 92, 2);
     player.addComponent<SpriteComponent>("player", true);
-    player.addComponent<KeyboardController>();
     //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
+    player.addComponent<KeyboardController>();
     //    player.addComponent<PhysicsComponent>();
     player.addGroup(groupPlayers);
 
@@ -109,25 +111,29 @@ void Engine::update()
 {
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
+    bool collidingWithSomething = false;
+    for(auto& collider : colliders) {
+        SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
+        if(Collision::AABB(cCollider, playerCollider)) {
+            player.getComponent<TransformComponent>().setSpeed(1.0f);
+            collidingWithSomething = true;
+        }
+    }
+    if(!collidingWithSomething) {
+        player.getComponent<TransformComponent>().speed = TRANSFORM_BASE_SPEED;
+    }
 
+    // std::cout << player.getComponent<TransformComponent>().speed << std::endl;
     this->_frames++;
     manager.refresh();
     manager.update();
 
-    for(auto& collider : colliders) {
-        SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
-        if(Collision::AABB(cCollider, playerCollider)) {
-//            player.getComponent<TransformComponent>().velocity.zero();
-            player.getComponent<TransformComponent>().bounce(playerPosition);
-        }
-    }
-
-    for(auto& p : projectiles) {
-        SDL_Rect pCollider = p->getComponent<ColliderComponent>().getCollider();
-        if(Collision::AABB(playerCollider, pCollider)) {
-            p->destroy();
-        }
-    }
+    //    for(auto& p : projectiles) {
+    //        SDL_Rect pCollider = p->getComponent<ColliderComponent>().getCollider();
+    //        if(Collision::AABB(playerCollider, pCollider)) {
+    //            p->destroy();
+    //        }
+    //    }
 
     camera.x = player.getComponent<TransformComponent>().position.x -
         (400 - (player.getComponent<SpriteComponent>().getDestinationRect().w / 2));
@@ -166,7 +172,7 @@ void Engine::render()
     for(auto& p : projectiles) {
         p->draw();
     }
-    
+
     if((this->flags & D_ENABLE_VIGNETTE) > 0)
         TextureManager::draw(assets->getTexture("vignette"), { 0, 0, 800, 640 }, { 0, 0, 800, 640 }, SDL_FLIP_NONE);
 
@@ -176,7 +182,7 @@ void Engine::render()
         SDL_RenderDrawLine(renderer, 0, 320, 800, 320);
     }
 
-    if(!((this->flags & D_SHOW_FPS) > 0)) {
+    if(!this->showFps()) {
         // If the FPS are show, we can wait to present and drawFPS will present
         // the screen for us
         SDL_RenderPresent(renderer);

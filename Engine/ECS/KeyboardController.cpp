@@ -1,6 +1,7 @@
 #include "KeyboardController.h"
 
 #include "../Helpers/KeyboardHandler.h"
+#include <iostream>
 
 void KeyboardController::init()
 {
@@ -11,7 +12,6 @@ void KeyboardController::init()
 void KeyboardController::update()
 {
 
-    
     if(Engine::event.type == SDL_KEYDOWN) {
         switch(Engine::event.key.keysym.sym) {
         case SDLK_w:

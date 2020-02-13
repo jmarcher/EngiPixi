@@ -59,6 +59,8 @@ void Map::load(const std::string& path, int sizeX, int sizeY)
 			if (c == COLLIDE) {
 				auto& collider(manager.addEntity());
 				collider.addComponent<ColliderComponent>("terrain", x * this->scaledSize, y*this->scaledSize, this->scaledSize);
+                collider.addComponent<TransformComponent>(1.0f);
+                collider.getComponent<TransformComponent>().speed = 1.0f;
 				collider.addGroup(Engine::groupColliders);
 			}
 			mapFile.ignore();

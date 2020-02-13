@@ -1,4 +1,6 @@
 #include "TransformComponent.h"
+#include <iostream>
+#include "../Helpers/Debug/Assert.h"
 
 TransformComponent::TransformComponent()
 {
@@ -48,8 +50,8 @@ void TransformComponent::init()
 
 void TransformComponent::update()
 {
-    this->position.x += this->velocity.x * static_cast<float>(this->speed);
-    this->position.y += this->velocity.y * static_cast<float>(this->speed);
+    this->position.x += this->velocity.x * this->speed;
+    this->position.y += this->velocity.y * this->speed;
 }
 
 void TransformComponent::setPosition(float x, float y)
@@ -67,6 +69,7 @@ TransformComponent::TransformComponent(int w, int h, int scale)
 void TransformComponent::bounce(const Vector2D& oldPosition)
 {
     Vector2D result = (position - oldPosition).normalized();
+    
     switch(static_cast<int>(result.x)) {
     case 1:
         this->position.x = this->position.x + 2;
@@ -83,4 +86,8 @@ void TransformComponent::bounce(const Vector2D& oldPosition)
     default:
         break;
     }
+}
+TransformComponent::TransformComponent(float speed)
+{
+    this->speed = speed;
 }
