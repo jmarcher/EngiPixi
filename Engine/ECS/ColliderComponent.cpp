@@ -76,3 +76,22 @@ TransformComponent* ColliderComponent::getTransform()
 {
     return transform;
 }
+ColliderComponent::ColliderComponent(const std::string& t, const Offset& transformOffset)
+{
+    this->tag = t;
+    this->m_transformsSprite = true;
+    this->m_transformOffset = transformOffset;
+}
+ColliderComponent::ColliderComponent(const std::string& t,
+    int xPosition,
+    int yPosition,
+    int size,
+    const Offset& transformOffset)
+{
+    this->tag = t;
+    collider.x = xPosition;
+    collider.y = yPosition;
+    collider.h = collider.w = size;
+    this->m_transformsSprite = true;
+    this->m_transformOffset = transformOffset;
+}

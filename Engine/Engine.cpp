@@ -112,21 +112,30 @@ void Engine::update()
     SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
     bool collidingWithSomething = false;
-    for(auto& collider : colliders) {
-        SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
-        if(Collision::AABB(cCollider, playerCollider)) {
-            player.getComponent<TransformComponent>().setSpeed(1.0f);
-            collidingWithSomething = true;
-        }
-    }
-    if(!collidingWithSomething) {
-        player.getComponent<TransformComponent>().speed = TRANSFORM_BASE_SPEED;
-    }
+
 
     // std::cout << player.getComponent<TransformComponent>().speed << std::endl;
     this->_frames++;
     manager.refresh();
     manager.update();
+    
+    for(auto& collider : colliders) {
+        SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
+        if(Collision::AABB(cCollider, playerCollider)) {
+            player.getComponent<TransformComponent>().setSpeed(collider->getComponent<TransformComponent>().speed);
+            collidingWithSomething = true;
+            if(collider->getComponent<ColliderComponent>().transformsSprite()){
+                player.getComponent<SpriteComponent>().setOffset(
+                collider->getComponent<ColliderComponent>().getOffset(Y), Y
+                );
+            }
+        }
+    }
+    
+    if(!collidingWithSomething) {
+        player.getComponent<TransformComponent>().speed = TRANSFORM_BASE_SPEED;
+    }
+
 
     //    for(auto& p : projectiles) {
     //        SDL_Rect pCollider = p->getComponent<ColliderComponent>().getCollider();

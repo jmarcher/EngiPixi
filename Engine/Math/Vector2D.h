@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+enum Direction{
+    X,
+    Y
+};
+
 class Vector2D{
 //private:
 public:

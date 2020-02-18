@@ -11,6 +11,16 @@
 #include "EntityComponentSystem.h"
 #include <string>
 
+#include "../Math/Vector2D.h"
+
+struct Offset{
+  int  m_transformOffsetX, m_transformOffsetY; 
+  Offset(int x, int y){
+    this->m_transformOffsetX = x;  
+    this->m_transformOffsetY = y;  
+  };
+};
+
 class ColliderComponent : public Component
 {
 protected:
@@ -19,10 +29,14 @@ protected:
     SDL_Rect sourceRect, destinationRect;
     TransformComponent* transform;
     std::string tag;
+    bool m_transformsSprite = false;
+    Offset m_transformOffset = {0,0};
 
 public:
     ColliderComponent(const std::string& t);
     ColliderComponent(const std::string& t, int xPosition, int yPosition, int size);
+    ColliderComponent(const std::string& t, int xPosition, int yPosition, int size, const Offset& transformOffset);
+    ColliderComponent(const std::string& t, const Offset& transformOffset);
 
     ColliderComponent& setCollider(const SDL_Rect& collider);
 
@@ -33,6 +47,16 @@ public:
     const SDL_Rect& getCollider() const;
 
     const std::string& getTag() const;
+    
+    bool transformsSprite() const { return m_transformsSprite; };
+    
+    int getOffset(Direction d) const {
+        if(d == X){
+            return this->m_transformOffset.m_transformOffsetX;
+        }
+        
+        return this->m_transformOffset.m_transformOffsetY;
+    };
     
     TransformComponent* getTransform();
     

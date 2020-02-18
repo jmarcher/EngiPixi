@@ -10,7 +10,10 @@
 #include "Components.h"
 #include <map>
 
+#include "../Math/Vector2D.h"
+
 class TransformComponent;
+
 
 class SpriteComponent : public Component
 {
@@ -55,6 +58,18 @@ public:
     void setHorizontalFlip();
     void setVerticalFlip();
     void setNoFlip();
+    
+    void setOffset(int offset, Direction direction){
+      if(offset != 0){
+          if(direction == X){
+              this->sourceRect.x += offset;
+              this->destinationRect.w = offset;
+          }else{
+              this->sourceRect.y += offset;
+              this->destinationRect.h = offset;
+          }
+      }  
+    };
 
     SDL_Rect getDestinationRect() const;
 };
