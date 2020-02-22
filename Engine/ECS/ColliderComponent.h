@@ -9,7 +9,7 @@
 
 #include "Components.h"
 #include "EntityComponentSystem.h"
-#include <string>
+#include <cstring>
 
 #include "../Math/Vector2D.h"
 
@@ -28,25 +28,25 @@ protected:
     SDL_Texture* displayTexture;
     SDL_Rect sourceRect, destinationRect;
     TransformComponent* transform;
-    std::string tag;
+    const char * tag;
     bool m_transformsSprite = false;
     Offset m_transformOffset = {0,0};
 
 public:
-    ColliderComponent(const std::string& t);
-    ColliderComponent(const std::string& t, int xPosition, int yPosition, int size);
-    ColliderComponent(const std::string& t, int xPosition, int yPosition, int size, const Offset& transformOffset);
-    ColliderComponent(const std::string& t, const Offset& transformOffset);
+    ColliderComponent(const char* t);
+    ColliderComponent(const char* t, int xPosition, int yPosition, int size);
+    ColliderComponent(const char* t, int xPosition, int yPosition, int size, const Offset& transformOffset);
+    ColliderComponent(const char* t, const Offset& transformOffset);
 
     ColliderComponent& setCollider(const SDL_Rect& collider);
 
-    ColliderComponent& setTag(const std::string& tag);
+    ColliderComponent& setTag(const char* tag);
 
     ColliderComponent& setTransform(TransformComponent* transform);
 
     const SDL_Rect& getCollider() const;
 
-    const std::string& getTag() const;
+    const char * getTag() const;
     
     bool transformsSprite() const { return m_transformsSprite; };
     

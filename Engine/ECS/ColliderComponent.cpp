@@ -1,12 +1,12 @@
 #include "../TextureManager.h"
 #include "ColliderComponent.h"
 
-ColliderComponent::ColliderComponent(const std::string& t)
+ColliderComponent::ColliderComponent(const char* t)
 {
     this->tag = t;
 }
 
-ColliderComponent::ColliderComponent(const std::string& t, int xPosition, int yPosition, int size)
+ColliderComponent::ColliderComponent(const char* t, int xPosition, int yPosition, int size)
 {
     this->tag = t;
     collider.x = xPosition;
@@ -21,18 +21,18 @@ void ColliderComponent::init()
     transform = &entity->getComponent<TransformComponent>();
 
     this->displayTexture = TextureManager::load("../assets/sprites/collider.png");
-    this->sourceRect = { 0, 0, 32, 32 };
+    this->sourceRect = { this->collider.x, this->collider.y, this->collider.w, this->collider.h };
     this->destinationRect = { this->collider.x, this->collider.y, this->collider.w, this->collider.h };
 }
 
 void ColliderComponent::update()
 {
-    if(this->tag != "terrain") {
-        collider.x = static_cast<int>(transform->x());
-        collider.y = static_cast<int>(transform->y());
+    if(std::strcmp(this->tag, "terrain") != 0) {
+        collider.x = sourceRect.x  + static_cast<int>(transform->x());
+        collider.y = sourceRect.y + static_cast<int>(transform->y());
 
-        collider.w = transform->width * transform->scale;
-        collider.h = transform->height * transform->scale;
+//        collider.w = transform->width * transform->scale;
+//        collider.h = transform->height * transform->scale;
     }
 
     this->destinationRect.x = collider.x - Engine::camera.x;
@@ -41,16 +41,26 @@ void ColliderComponent::update()
 
 void ColliderComponent::draw()
 {
-    TextureManager::draw(this->displayTexture, this->sourceRect, this->destinationRect, SDL_FLIP_NONE);
+    if(std::strcmp(this->tag, "player") == 0){
+        std::cout << "This is a player" << std::endl;
+        SDL_SetRenderDrawColor(Engine::renderer, 255, 0, 100, 255);
+        std::cout << Vector2D(this->destinationRect.w, this->destinationRect.h) << Vector2D(this->destinationRect.x,this->destinationRect.y)  << std::endl;
+    }else{
+        SDL_SetRenderDrawColor(Engine::renderer, 227, 5, 197, 255);
+        
+    }
+    SDL_RenderDrawRect(Engine::renderer, &this->destinationRect);
+//    TextureManager::draw(this->displayTexture, this->sourceRect, this->destinationRect, SDL_FLIP_NONE);
 }
 
 ColliderComponent& ColliderComponent::setCollider(const SDL_Rect& collider)
 {
     this->collider = collider;
+    this->init();
     return *this;
 }
 
-ColliderComponent& ColliderComponent::setTag(const std::string& tag)
+ColliderComponent& ColliderComponent::setTag(const char * tag)
 {
     this->tag = tag;
     return *this;
@@ -67,7 +77,7 @@ const SDL_Rect& ColliderComponent::getCollider() const
     return collider;
 }
 
-const std::string& ColliderComponent::getTag() const
+const char* ColliderComponent::getTag() const
 {
     return tag;
 }
@@ -76,13 +86,13 @@ TransformComponent* ColliderComponent::getTransform()
 {
     return transform;
 }
-ColliderComponent::ColliderComponent(const std::string& t, const Offset& transformOffset)
+ColliderComponent::ColliderComponent(const char* t, const Offset& transformOffset)
 {
     this->tag = t;
     this->m_transformsSprite = true;
     this->m_transformOffset = transformOffset;
 }
-ColliderComponent::ColliderComponent(const std::string& t,
+ColliderComponent::ColliderComponent(const char* t,
     int xPosition,
     int yPosition,
     int size,

@@ -1,6 +1,8 @@
+#include "../Collision.h"
+#include "../Helpers/Debug/Assert.h"
 #include "TransformComponent.h"
 #include <iostream>
-#include "../Helpers/Debug/Assert.h"
+#include "../Engine.h"
 
 TransformComponent::TransformComponent()
 {
@@ -50,6 +52,35 @@ void TransformComponent::init()
 
 void TransformComponent::update()
 {
+
+    auto& colliders(manager->getGroup(Engine::groupColliders));
+    SDL_Rect playerCollider = *(&entity->getComponent<ColliderComponent>().getCollider());
+    for(auto& collider : colliders) {
+        SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
+        CollisionPart cp = Collision::Colliding(playerCollider,cCollider);
+        switch(cp) {
+        case CP_TOP:
+            if(this->velocity.y > 0) {
+                this->velocity.y = 0;
+            }
+            break;
+        case CP_LEFT:
+            if(this->velocity.x > 0) {
+                this->velocity.x = 0;
+            }
+            break;
+        case CP_RIGHT:
+            if(this->velocity.x < 0) {
+                this->velocity.x = 0;
+            }
+            break;
+        case CP_BOTTOM:
+            if(this->velocity.y < 0) {
+                this->velocity.y = 0;
+            }
+            break;
+        }
+    }
     this->position.x += this->velocity.x * this->speed;
     this->position.y += this->velocity.y * this->speed;
 }
@@ -68,21 +99,25 @@ TransformComponent::TransformComponent(int w, int h, int scale)
 }
 void TransformComponent::bounce(const Vector2D& oldPosition)
 {
-    Vector2D result = (position - oldPosition).normalized();
-    
-    switch(static_cast<int>(result.x)) {
+    if(velocity.y > 0)
+        std::cout << velocity << std::endl;
+    switch(static_cast<int>(velocity.x)) {
     case 1:
-        this->position.x = this->position.x + 2;
+        this->position.x = this->position.x - 1;
+        break;
     case -1:
-        this->position.x = this->position.x - 2;
+        this->position.x = this->position.x + 1;
+        break;
     default:
         break;
     }
-    switch(static_cast<int>(result.y)) {
+    switch(static_cast<int>(velocity.y)) {
     case 1:
-        this->position.y = this->position.y + 2;
+        this->position.y = this->position.y - 1;
+        break;
     case -1:
-        this->position.y = this->position.y - 2;
+        this->position.y = this->position.y + 1;
+        break;
     default:
         break;
     }

@@ -75,14 +75,19 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
     map = new Map("terrain", 3, 32);
 
     map->load("../assets/sprites/big_map.map", 32, 32);
+    const int playerScale = 2;
 
-    player.addComponent<TransformComponent>(92, 92, 2);
+    player.addComponent<TransformComponent>(92, 92, playerScale);
     player.addComponent<SpriteComponent>("player", true);
     //    player.addComponent<JoystickController>();
     player.addComponent<ColliderComponent>("player");
     player.addComponent<KeyboardController>();
     //    player.addComponent<PhysicsComponent>();
     player.addGroup(groupPlayers);
+
+    SDL_Rect playerCollider = { 35 * playerScale, 75 * playerScale, 20 * playerScale, 10 * playerScale };
+    player.getComponent<TransformComponent>().setManager(&manager);
+    player.getComponent<ColliderComponent>().setCollider(playerCollider);
 
     SDL_Color white = { 255, 255, 255 };
 
@@ -113,36 +118,21 @@ void Engine::update()
     Vector2D playerPosition = player.getComponent<TransformComponent>().position;
     bool collidingWithSomething = false;
 
-
     // std::cout << player.getComponent<TransformComponent>().speed << std::endl;
     this->_frames++;
     manager.refresh();
     manager.update();
-    
+
     for(auto& collider : colliders) {
         SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
-        if(Collision::AABB(cCollider, playerCollider)) {
-            player.getComponent<TransformComponent>().setSpeed(collider->getComponent<TransformComponent>().speed);
+        if(Collision::Colliding(playerCollider, cCollider)) {
             collidingWithSomething = true;
-            if(collider->getComponent<ColliderComponent>().transformsSprite()){
-                player.getComponent<SpriteComponent>().setOffset(
-                collider->getComponent<ColliderComponent>().getOffset(Y), Y
-                );
-            }
         }
     }
-    
+
     if(!collidingWithSomething) {
         player.getComponent<TransformComponent>().speed = TRANSFORM_BASE_SPEED;
     }
-
-
-    //    for(auto& p : projectiles) {
-    //        SDL_Rect pCollider = p->getComponent<ColliderComponent>().getCollider();
-    //        if(Collision::AABB(playerCollider, pCollider)) {
-    //            p->destroy();
-    //        }
-    //    }
 
     camera.x = player.getComponent<TransformComponent>().position.x -
         (400 - (player.getComponent<SpriteComponent>().getDestinationRect().w / 2));
@@ -219,4 +209,8 @@ void Engine::drawFPS(const std::string& fps)
     // We can safely call SDL_RenderPreset because when using this function the
     // draw method will not present anything.
     SDL_RenderPresent(renderer);
+}
+std::vector<Entity*>& Engine::getGroup(Group g)
+{
+    return manager.getGroup(g);
 }

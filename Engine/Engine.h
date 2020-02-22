@@ -44,6 +44,8 @@ public:
     ~Engine();
 
     void start(const std::string& title, int width, int height, bool fullScreen);
+    
+    std::vector<Entity*>& getGroup(Group g);
 
     void handleEvents();
 
