@@ -6,8 +6,7 @@
 #include "../Helpers/Debug/Assert.h"
 const float TRANSFORM_BASE_SPEED = 3.0f;
 class TransformComponent : public Component {
-protected:
-    Manager* manager;
+
 public:
     Vector2D position;
     Vector2D velocity;
@@ -43,10 +42,6 @@ public:
     
     void setSpeed(float s){
         speed = s;
-    }
-    
-    void setManager(Manager* m){
-        manager = m;
     }
     
     void bounce(const Vector2D& oldPosition);

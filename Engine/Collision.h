@@ -25,7 +25,7 @@ public:
     static CollisionPart Colliding(const SDL_Rect& A, const SDL_Rect& B);
     static CollisionPart Colliding(const ColliderComponent& A, const ColliderComponent& B);
 
-    inline static bool betweenThreshold(int a, int b)
+    inline static bool InRangeWithEpsilon(int a, int b)
     {
         return (a >= (b - COLLISION_THRESHOLD)) && (a <= (b + COLLISION_THRESHOLD));
     }

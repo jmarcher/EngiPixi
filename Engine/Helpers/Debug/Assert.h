@@ -5,6 +5,7 @@
 
 #include <iostream>
 
+#define LOG(x) std::cout << "Log: " << x << std::endl;
 inline void reportAssertionFailure(const char* expresion, const char* msg2, const char* file, int line)
 {
     std::cerr << "Assertion Failure: " << expresion << ", " << msg2 << " at " << file << ", line " << line << std::endl;
@@ -33,6 +34,7 @@ inline void reportAssertionFailure(const char* expresion, const char* msg2, cons
 // Define empty Asserts
 #define ASSERT(expr)          // Nothing to do
 #define ASSERT_MSG(expr, msg) // Nothing to do
+#define LOG(x) // Nothing to do
 
 #endif
 

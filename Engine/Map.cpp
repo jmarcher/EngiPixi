@@ -60,8 +60,8 @@ void Map::load(const std::string& path, int sizeX, int sizeY)
                 Offset spriteOffset = { -16, -16 };
                 collider.addComponent<ColliderComponent>(
                     "terrain", x * this->scaledSize, y * this->scaledSize, this->scaledSize, spriteOffset);
-                collider.addComponent<TransformComponent>(1.0f);
-                collider.getComponent<TransformComponent>().speed = 1.0f;
+//                collider.addComponent<TransformComponent>(1.0f);
+//                collider.getComponent<TransformComponent>().speed = 1.0f;
                 collider.addGroup(Engine::groupColliders);
             }
             mapFile.ignore();

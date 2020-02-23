@@ -82,7 +82,6 @@ void SpriteComponent::update()
     } else if(this->transformation->velocity.x == -1 && this->transformation->velocity.y == 0) {
         this->setHorizontalFlip();
         this->play("walkWestEast", SDL_FLIP_HORIZONTAL);
-        std::cout << "Moving left" << std::endl;
     }
 }
 

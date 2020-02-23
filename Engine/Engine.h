@@ -17,6 +17,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "AssetManager.h"
 #include "ECS/Components.h"
@@ -36,6 +37,8 @@ protected:
 
 public:
     static SDL_Rect camera;
+
+    static std::shared_ptr<Manager> managerPtr;
     
     static bool isRunning;
 
@@ -44,8 +47,6 @@ public:
     ~Engine();
 
     void start(const std::string& title, int width, int height, bool fullScreen);
-    
-    std::vector<Entity*>& getGroup(Group g);
 
     void handleEvents();
 

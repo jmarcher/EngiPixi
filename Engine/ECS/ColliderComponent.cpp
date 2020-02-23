@@ -15,10 +15,11 @@ ColliderComponent::ColliderComponent(const char* t, int xPosition, int yPosition
 }
 void ColliderComponent::init()
 {
-    if(!entity->hasComponents<TransformComponent>()) {
-        entity->addComponent<TransformComponent>();
+    if(entity->hasComponent<TransformComponent>()) {
+        transform = &entity->getComponent<TransformComponent>();
+    }else{
+        transform = nullptr;
     }
-    transform = &entity->getComponent<TransformComponent>();
 
     this->displayTexture = TextureManager::load("../assets/sprites/collider.png");
     this->sourceRect = { this->collider.x, this->collider.y, this->collider.w, this->collider.h };
@@ -42,9 +43,7 @@ void ColliderComponent::update()
 void ColliderComponent::draw()
 {
     if(std::strcmp(this->tag, "player") == 0){
-        std::cout << "This is a player" << std::endl;
         SDL_SetRenderDrawColor(Engine::renderer, 255, 0, 100, 255);
-        std::cout << Vector2D(this->destinationRect.w, this->destinationRect.h) << Vector2D(this->destinationRect.x,this->destinationRect.y)  << std::endl;
     }else{
         SDL_SetRenderDrawColor(Engine::renderer, 227, 5, 197, 255);
         

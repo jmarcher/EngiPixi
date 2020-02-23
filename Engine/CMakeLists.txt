@@ -6,6 +6,7 @@ find_package(SDL2 REQUIRED)
 include_directories(${CMAKE_BINARY_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
+set(ASSERTIONS_ENABLED 1)
 
 #add_executable(EngiPixi
 #        main.cpp

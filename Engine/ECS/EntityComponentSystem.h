@@ -128,7 +128,7 @@ public:
         this->groupBitset[group] = false;
     }
 
-    template <typename T> bool hasComponents() const
+    template <typename T> bool hasComponent() const
     {
         return componentBitSet[getComponentTypeID<T>()];
     }

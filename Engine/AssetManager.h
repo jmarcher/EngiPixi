@@ -8,6 +8,7 @@
 #endif
 #include <map>
 #include <string>
+#include <memory>
 
 #include "ECS/EntityComponentSystem.h"
 #include "Map.h"
@@ -19,10 +20,12 @@ class AssetManager
 protected:
     std::map<const char*, SDL_Texture*> textures;
     std::map<const char*, TTF_Font*> fonts;
-    Manager* manager;
 
 public:
-    AssetManager(Manager* manager);
+
+    AssetManager();
+
+
     ~AssetManager();
 
     // Texture managment

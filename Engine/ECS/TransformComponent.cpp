@@ -4,6 +4,10 @@
 #include <iostream>
 #include "../Engine.h"
 
+extern Manager manager;
+extern std::vector<Entity*>& colliders;
+
+//auto& tpColliders(manager.getGroup(Engine::groupColliders));
 TransformComponent::TransformComponent()
 {
     this->position.zero();
@@ -53,29 +57,35 @@ void TransformComponent::init()
 void TransformComponent::update()
 {
 
-    auto& colliders(manager->getGroup(Engine::groupColliders));
+
     SDL_Rect playerCollider = *(&entity->getComponent<ColliderComponent>().getCollider());
+//    std::cout << Vector2D(playerCollider.x, playerCollider.y) << std::endl;
     for(auto& collider : colliders) {
+        if(! collider->hasComponent<ColliderComponent>()) continue;
         SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
         CollisionPart cp = Collision::Colliding(playerCollider,cCollider);
         switch(cp) {
         case CP_TOP:
-            if(this->velocity.y > 0) {
+            std::cout << "From top" << std::endl;
+                if(this->velocity.y > 0) {
                 this->velocity.y = 0;
             }
-            break;
-        case CP_LEFT:
+                break;
+            case CP_LEFT:
+            std::cout << "From left" << std::endl;
             if(this->velocity.x > 0) {
                 this->velocity.x = 0;
             }
-            break;
-        case CP_RIGHT:
-            if(this->velocity.x < 0) {
-                this->velocity.x = 0;
-            }
-            break;
-        case CP_BOTTOM:
-            if(this->velocity.y < 0) {
+                break;
+            case CP_RIGHT:
+                std::cout << "From right" << std::endl;
+                if(this->velocity.x < 0) {
+                    this->velocity.x = 0;
+                }
+                break;
+            case CP_BOTTOM:
+                std::cout << "From bottom" << std::endl;
+                if(this->velocity.y < 0) {
                 this->velocity.y = 0;
             }
             break;
@@ -90,6 +100,7 @@ void TransformComponent::setPosition(float x, float y)
     this->position.x = x;
     this->position.y = y;
 }
+
 TransformComponent::TransformComponent(int w, int h, int scale)
 {
     this->width = w;
@@ -97,6 +108,7 @@ TransformComponent::TransformComponent(int w, int h, int scale)
     this->scale = scale;
     this->setPosition(0, 0);
 }
+
 void TransformComponent::bounce(const Vector2D& oldPosition)
 {
     if(velocity.y > 0)
@@ -122,6 +134,7 @@ void TransformComponent::bounce(const Vector2D& oldPosition)
         break;
     }
 }
+
 TransformComponent::TransformComponent(float speed)
 {
     this->speed = speed;
