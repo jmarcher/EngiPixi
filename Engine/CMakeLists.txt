@@ -7,6 +7,7 @@ include_directories(${CMAKE_BINARY_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
 set(ASSERTIONS_ENABLED 1)
+add_definitions(-DASSERTIONS_ENABLED)
 
 #add_executable(EngiPixi
 #        main.cpp

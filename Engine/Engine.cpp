@@ -65,16 +65,23 @@ void Engine::start(const std::string& title, int width, int height, bool fullScr
         std::cout << "Can not initialize fonts" << std::endl;
     }
 
-    assets->addTexture("terrain", "../assets/sprites/terrain_big_map.png");
+
+    assets->addTexture("tree", "../assets/sprites/tree.png");
+    assets->addTexture("big_stone", "../assets/sprites/big_stone.png");
+    assets->addTexture("small_stone", "../assets/sprites/small_stone.png");
+
     assets->addTexture("player", "../assets/sprites/Character_2.png");
     assets->addTexture("projectile", "../assets/sprites/projectile.png");
     assets->addTexture("vignette", "../assets/sprites/vignette.png");
 
     assets->addFont("ani", "../assets/fonts/ani.ttf", 64);
 
+    assets->addTexture("terrain", "../assets/sprites/terrain.png");
+
     map = new Map("terrain", 3, 32);
 
     map->load("../assets/sprites/big_map.map", 32, 32);
+
     const int playerScale = 2;
 
     player.addComponent<TransformComponent>(92, 92, playerScale);

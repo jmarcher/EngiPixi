@@ -4,7 +4,7 @@
 #include "Components.h"
 #include "../Math/Vector2D.h"
 #include "../Helpers/Debug/Assert.h"
-const float TRANSFORM_BASE_SPEED = 3.0f;
+const float TRANSFORM_BASE_SPEED = 5.0f;
 class TransformComponent : public Component {
 
 public:

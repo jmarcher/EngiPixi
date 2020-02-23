@@ -35,6 +35,7 @@ protected:
 public:
     ColliderComponent(const char* t);
     ColliderComponent(const char* t, int xPosition, int yPosition, int size);
+    ColliderComponent(const char* t, int xPosition, int yPosition, int width, int height);
     ColliderComponent(const char* t, int xPosition, int yPosition, int size, const Offset& transformOffset);
     ColliderComponent(const char* t, const Offset& transformOffset);
 
