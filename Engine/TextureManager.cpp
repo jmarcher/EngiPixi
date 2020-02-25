@@ -23,7 +23,7 @@ SDL_Texture* TextureManager::load(const std::string& fileName)
 void TextureManager::draw(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
 {
     // Now we check if we need to render the texture or not.
-    if(destination.x < (Engine::camera.w + destination.w) && destination.x >= ((-1) * destination.w))
-        if(destination.y < (Engine::camera.h + destination.h) && destination.y >= ((-1) * destination.h))
+//    if(destination.x < (Engine::camera.w + destination.w) && destination.x >= ((-1) * destination.w))
+//        if(destination.y < (Engine::camera.h + destination.h) && destination.y >= ((-1) * destination.h))
             SDL_RenderCopyEx(Engine::renderer, texture, &source, &destination, 0, NULL, flip);
 }

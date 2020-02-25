@@ -3,6 +3,7 @@
 #include "../Helpers/Logger.h"
 
 TileComponent::~TileComponent() {
+    LOG("Texture destroyed");
     SDL_DestroyTexture(this->texture);
 }
 
@@ -29,6 +30,15 @@ TileComponent::TileComponent(int sourceX,
     this->destinationRect.h = this->destinationRect.w = tileSize * tileScale;
 }
 
+
+TileComponent::TileComponent(const char *textureId, SDL_Rect sR, SDL_Rect dR, Vector2D p) {
+    texture = Engine::assets->getTexture(textureId);
+    sourceRect = sR;
+    destinationRect = dR;
+    position = p;
+}
+
+
 void TileComponent::draw() {
 //    LOG("Draw this here" << position << Vector2D(destinationRect.w,destinationRect.h));
 
@@ -38,11 +48,4 @@ void TileComponent::draw() {
 void TileComponent::update() {
     destinationRect.x = static_cast<int>(position.x) - Engine::camera.x;
     destinationRect.y = static_cast<int>(position.y) - Engine::camera.y;
-}
-
-TileComponent::TileComponent(const char *textureId, SDL_Rect sR, SDL_Rect dR, Vector2D p) {
-    texture = Engine::assets->getTexture(textureId);
-    sourceRect = sR;
-    destinationRect = dR;
-    position = p;
 }

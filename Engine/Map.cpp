@@ -4,6 +4,7 @@
 #include "Map.h"
 #include <fstream>
 #include "Helpers/Caster.h"
+#include "Helpers/Logger.h"
 
 extern Manager manager;
 
@@ -148,15 +149,28 @@ void Map::load(const std::string &path, int sizeX, int sizeY) {
 //            LOG_IF(terrainObject, terrainObject > 0);
             switch (terrainObject) {
                 case TO_TREE: {
-                    SDL_Rect rect = {0, 0, 79, 116};
-                    Vector2D position(x * scaledSize, y * scaledSize);
-                    const char * treeTextId = "tree";
-                    Map::addTerrainObject(treeTextId,rect, rect, position);
+                    SDL_Rect source = {0, 0, 79, 116};
+                    SDL_Rect destination = {source.x, source.y, source.w * static_cast<int>(mapScale),
+                                            source.h * static_cast<int>(mapScale)};
+                    LOG(destination.h << (y * scaledSize));
+                    Vector2D position(static_cast<float>(x * static_cast<int>(scaledSize)) -
+                                                          (static_cast<float>(destination.w) / 2.0f),
+                                      static_cast<float>(y * static_cast<int>(scaledSize)) -
+                                      (static_cast<float>(destination.h)));
+                    Map::addTerrainObject("tree", source, destination, position);
                 }
                     break;
-                case TO_BIG_ROCK:
-                    break;
-                default:
+                case TO_BIG_ROCK: {
+                    SDL_Rect source = {0, 0, 79, 116};
+                    SDL_Rect destination = {source.x, source.y, source.w * static_cast<int>(mapScale),
+                                            source.h * static_cast<int>(mapScale)};
+                    LOG(destination.h << (y * scaledSize));
+                    Vector2D position(static_cast<float>(x * static_cast<int>(scaledSize)) -
+                                      (static_cast<float>(destination.w) / 2.0f),
+                                      static_cast<float>(y * static_cast<int>(scaledSize)) -
+                                      (static_cast<float>(destination.h)));
+                    Map::addTerrainObject("big_rock", source, destination, position);
+                }
                     break;
             }
 

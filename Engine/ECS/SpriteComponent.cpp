@@ -1,11 +1,11 @@
 #include "SpriteComponent.h"
 #include <cstring>
-SpriteComponent::SpriteComponent(const char* id)
+SpriteComponent::SpriteComponent(const std::string& id)
 {
     this->setTexture(id);
 }
 
-SpriteComponent::SpriteComponent(const char* id, bool isAnimated)
+SpriteComponent::SpriteComponent(const std::string& id, bool isAnimated)
 {
     this->animated = isAnimated;
 
@@ -35,7 +35,7 @@ SpriteComponent::~SpriteComponent()
 {
 }
 
-void SpriteComponent::setTexture(const char* id)
+void SpriteComponent::setTexture(const std::string& id)
 {
     this->texture = Engine::assets->getTexture(id);
 }

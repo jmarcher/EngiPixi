@@ -4,11 +4,13 @@
 #include "SDL2/SDL.h"
 #elif _WIN32
 #include "SDL.h"
+
 #endif
+#include <map>
+#include <string>
 
 #include "Animation.h"
 #include "Components.h"
-#include <map>
 
 #include "../Math/Vector2D.h"
 
@@ -37,13 +39,13 @@ protected:
 public:
     SpriteComponent() = default;
 
-    SpriteComponent(const char* id);
+    SpriteComponent(const std::string& id);
 
-    SpriteComponent(const char* id, bool isAnimated);
+    SpriteComponent(const std::string& id, bool isAnimated);
 
     ~SpriteComponent();
 
-    void setTexture(const char* id);
+    void setTexture(const std::string& id);
 
     void init() override;
 

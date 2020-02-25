@@ -65,7 +65,7 @@ void Engine::start(const std::string &title, int width, int height, bool fullScr
     }
 
 
-    assets->addTexture("big_stone", "../assets/sprites/big_stone.png");
+    assets->addTexture("big_rock", "../assets/sprites/big_stone.png");
     assets->addTexture("small_stone", "../assets/sprites/small_stone.png");
 
     assets->addTexture("player", "../assets/sprites/Character_2.png");
