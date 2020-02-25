@@ -5,137 +5,120 @@
 #include "../Engine.h"
 
 extern Manager manager;
-extern std::vector<Entity*>& colliders;
+extern std::vector<Entity *> &colliders;
 
 //auto& tpColliders(manager.getGroup(Engine::groupColliders));
-TransformComponent::TransformComponent()
-{
-    this->position.zero();
+TransformComponent::TransformComponent() {
+    position.zero();
 }
 
-TransformComponent::TransformComponent(int scale)
-{
-    this->position.x = 400 - 64;
-    this->position.y = 320 - 64;
-    this->scale = scale;
+TransformComponent::TransformComponent(int s) {
+    position.x = 400 - 64;
+    position.y = 320 - 64;
+    scale = s;
 }
 
-TransformComponent::TransformComponent(float x, float y, int scale)
-{
-    this->setPosition(x, y);
-    this->scale = scale;
+TransformComponent::TransformComponent(float x, float y, int s) {
+    setPosition(x, y);
+    scale = s;
 }
 
-TransformComponent::TransformComponent(float x, float y)
-{
-    this->setPosition(x, y);
+TransformComponent::TransformComponent(float x, float y) {
+    setPosition(x, y);
 }
 
-TransformComponent::TransformComponent(float x, float y, int w, int h, int scale)
-{
-    this->setPosition(x, y);
-    this->width = w;
-    this->height = h;
-    this->scale = scale;
+TransformComponent::TransformComponent(float x, float y, int w, int h, int s) {
+    setPosition(x, y);
+    width = w;
+    height = h;
+    scale = s;
 }
 
-float TransformComponent::x() const
-{
-    return this->position.x;
+float TransformComponent::x() const {
+    return position.x;
 }
 
-float TransformComponent::y() const
-{
-    return this->position.y;
+float TransformComponent::y() const {
+    return position.y;
 }
 
-void TransformComponent::init()
-{
-    this->velocity.zero();
+void TransformComponent::init() {
+    velocity.zero();
 }
 
-void TransformComponent::update()
-{
+void TransformComponent::update() {
 
 
     SDL_Rect playerCollider = *(&entity->getComponent<ColliderComponent>().getCollider());
 //    std::cout << Vector2D(playerCollider.x, playerCollider.y) << std::endl;
-    for(auto& collider : colliders) {
-        if(! collider->hasComponent<ColliderComponent>()) continue;
+    for (auto &collider : colliders) {
+        if (!collider->hasComponent<ColliderComponent>()) continue;
         SDL_Rect cCollider = collider->getComponent<ColliderComponent>().getCollider();
-        CollisionPart cp = Collision::Colliding(playerCollider,cCollider);
-        switch(cp) {
-        case CP_TOP:
-            std::cout << "From top" << std::endl;
-                if(this->velocity.y > 0) {
-                this->velocity.y = 0;
-            }
+        CollisionPart cp = Collision::Colliding(playerCollider, cCollider);
+        switch (cp) {
+            case CP_TOP:
+                if (velocity.y > 0) {
+                    velocity.y = 0;
+                }
                 break;
             case CP_LEFT:
-            std::cout << "From left" << std::endl;
-            if(this->velocity.x > 0) {
-                this->velocity.x = 0;
-            }
+                if (velocity.x > 0) {
+                    velocity.x = 0;
+                }
                 break;
             case CP_RIGHT:
-                std::cout << "From right" << std::endl;
-                if(this->velocity.x < 0) {
-                    this->velocity.x = 0;
+                if (velocity.x < 0) {
+                    velocity.x = 0;
                 }
                 break;
             case CP_BOTTOM:
-                std::cout << "From bottom" << std::endl;
-                if(this->velocity.y < 0) {
-                this->velocity.y = 0;
-            }
-            break;
+                if (velocity.y < 0) {
+                    velocity.y = 0;
+                }
+                break;
         }
     }
-    this->position.x += this->velocity.x * this->speed;
-    this->position.y += this->velocity.y * this->speed;
+    position.x += velocity.x * speed;
+    position.y += velocity.y * speed;
 }
 
-void TransformComponent::setPosition(float x, float y)
-{
-    this->position.x = x;
-    this->position.y = y;
+void TransformComponent::setPosition(float x, float y) {
+    position.x = x;
+    position.y = y;
 }
 
-TransformComponent::TransformComponent(int w, int h, int scale)
-{
-    this->width = w;
-    this->height = h;
-    this->scale = scale;
-    this->setPosition(0, 0);
+TransformComponent::TransformComponent(int w, int h, int s) {
+    width = w;
+    height = h;
+    scale = s;
+    setPosition(0, 0);
 }
 
-void TransformComponent::bounce(const Vector2D& oldPosition)
-{
-    if(velocity.y > 0)
+void TransformComponent::bounce(const Vector2D &oldPosition) {
+    if (velocity.y > 0)
         std::cout << velocity << std::endl;
-    switch(static_cast<int>(velocity.x)) {
-    case 1:
-        this->position.x = this->position.x - 1;
-        break;
-    case -1:
-        this->position.x = this->position.x + 1;
-        break;
-    default:
-        break;
+    switch (static_cast<int>(velocity.x)) {
+        case 1:
+            position.x = position.x - 1;
+            break;
+        case -1:
+            position.x = position.x + 1;
+            break;
+        default:
+            break;
     }
-    switch(static_cast<int>(velocity.y)) {
-    case 1:
-        this->position.y = this->position.y - 1;
-        break;
-    case -1:
-        this->position.y = this->position.y + 1;
-        break;
-    default:
-        break;
+    switch (static_cast<int>(velocity.y)) {
+        case 1:
+            position.y = position.y - 1;
+            break;
+        case -1:
+            position.y = position.y + 1;
+            break;
+        default:
+            break;
     }
 }
 
-TransformComponent::TransformComponent(float speed)
-{
-    this->speed = speed;
+TransformComponent::TransformComponent(float s) {
+    speed = s;
 }

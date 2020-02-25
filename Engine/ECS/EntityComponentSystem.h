@@ -106,7 +106,7 @@ public:
         }
     }
 
-    bool isActive() const
+    [[nodiscard]] bool isActive() const
     {
         return this->active;
     }
@@ -219,7 +219,7 @@ public:
 
     Entity& addEntity()
     {
-        Entity* entity = new Entity(*this);
+        auto* entity = new Entity(*this);
         std::unique_ptr<Entity> uniquePointer { entity };
         entities.emplace_back(std::move(uniquePointer));
 

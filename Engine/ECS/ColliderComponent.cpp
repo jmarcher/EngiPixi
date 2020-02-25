@@ -42,10 +42,8 @@ void ColliderComponent::draw() {
         SDL_SetRenderDrawColor(Engine::renderer, 255, 0, 100, 255);
     } else {
         SDL_SetRenderDrawColor(Engine::renderer, 227, 5, 197, 255);
-
     }
     SDL_RenderDrawRect(Engine::renderer, &this->destinationRect);
-//    TextureManager::draw(this->displayTexture, this->sourceRect, this->destinationRect, SDL_FLIP_NONE);
 }
 
 ColliderComponent &ColliderComponent::setCollider(const SDL_Rect &collider) {

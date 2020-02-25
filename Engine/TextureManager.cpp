@@ -12,7 +12,9 @@ SDL_Texture* TextureManager::load(const std::string& fileName)
 {
     SDL_Texture* result;
     SDL_Surface* temporalSurface = IMG_Load(fileName.c_str());
+    ASSERT_MSG(temporalSurface != nullptr, "Image could not be loaded");
     result = SDL_CreateTextureFromSurface(Engine::renderer, temporalSurface);
+    ASSERT_MSG(result != nullptr, "Texture could not be loaded " << SDL_GetError());
     SDL_FreeSurface(temporalSurface);
 
     return result;

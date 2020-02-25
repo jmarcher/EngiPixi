@@ -5,14 +5,14 @@
 
 #include <iostream>
 
-#define LOG(x) std::cout << "Log: " << x << std::endl;
-inline void reportAssertionFailure(const char* expresion, const char* msg2, const char* file, int line)
-{
+inline void reportAssertionFailure(const char *expresion, const char *msg2, const char *file, int line) {
     std::cerr << "Assertion Failure: " << expresion << ", " << msg2 << " at " << file << ", line " << line << std::endl;
 }
 
 #if __linux__
+
 #include <signal.h>
+
 #define debugBreak() raise(SIGTRAP);
 #elif __WINDOWS__
 #if __WIN32__
@@ -21,12 +21,12 @@ inline void reportAssertionFailure(const char* expresion, const char* msg2, cons
 #define debugBreak() asm("{int $03}")
 #endif
 #endif
-#define ASSERT_MSG(expr, msg)                                    \
+#define ASSERT_MSG(expr, msg)    [&](){                          \
     if(expr) {                                                   \
     } else {                                                     \
         reportAssertionFailure(#expr, #msg, __FILE__, __LINE__); \
         debugBreak();                                            \
-    }
+    }}()
 
 #define ASSERT(expr) ASSERT_MSG(expr, "")
 

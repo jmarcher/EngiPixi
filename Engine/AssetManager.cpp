@@ -13,10 +13,19 @@ AssetManager::~AssetManager() {
 
 void AssetManager::addTexture(const char *id, const std::string &path) {
     textures.emplace(id, TextureManager::load(path));
+    ASSERT_MSG(this->textures[id] != nullptr, "Null pointer");
 }
 
 SDL_Texture *AssetManager::getTexture(const char *id) {
-    return this->textures[id];
+    // ASSERT_MSG(this->textures[id] != nullptr, "Null pointer");
+//    if(this->textures.at(id) == nullptr){
+//        std::cerr << id << std::endl;
+//    }
+    try{
+        return this->textures.at(id);
+    }catch(std::out_of_range e){
+        std::cerr << "error here: " << id << " . "<< __LINE__ << std::endl;
+    }
 }
 
 void AssetManager::createProjectile(Vector2D position, Vector2D velocity, int range, int speed, const char *textureId) {

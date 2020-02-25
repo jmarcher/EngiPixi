@@ -7,7 +7,7 @@ include_directories(${CMAKE_BINARY_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
 set(ASSERTIONS_ENABLED 1)
-add_definitions(-DASSERTIONS_ENABLED)
+add_definitions(-DASSERTIONS_ENABLED -D__DEBUG)
 
 #add_executable(EngiPixi
 #        main.cpp
@@ -30,6 +30,6 @@ file(GLOB source_files
         "Math/*.cpp"
         )
 
-add_executable(EngiPixi ${source_files} ECS/SpriteComponent.h ECS/TransformComponent.h Math/Vector2D.h Math/Vector2D.cpp Helpers/FpsHelper.cpp Helpers/FpsHelper.h ECS/KeyboardController.h ECS/ColliderComponent.h Collision.h Collision.cpp)
+add_executable(EngiPixi ${source_files} ECS/SpriteComponent.h ECS/TransformComponent.h Math/Vector2D.h Math/Vector2D.cpp Helpers/FpsHelper.cpp Helpers/FpsHelper.h ECS/KeyboardController.h ECS/ColliderComponent.h Collision.h Collision.cpp Helpers/Caster.h Helpers/Logger.h ECS/PositionComponent.cpp ECS/PositionComponent.h)
 
 target_link_libraries(EngiPixi SDL2 SDL2_image SDL2_ttf)

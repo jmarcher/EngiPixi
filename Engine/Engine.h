@@ -5,6 +5,7 @@
 #define D_SHOW_FPS 0
 #define D_SHOW_CROSSHAIR 2
 #define D_ENABLE_VIGNETTE 4
+#define D_SHOW_COLLIDERS 8
 
 #ifdef __linux__ 
     #include "SDL2/SDL.h"
@@ -38,8 +39,6 @@ protected:
 public:
     static SDL_Rect camera;
 
-    static std::shared_ptr<Manager> managerPtr;
-    
     static bool isRunning;
 
     Engine(int flags);
@@ -60,7 +59,6 @@ public:
 
     void drawFPS(const std::string& fps);
 
-
     static SDL_Renderer* renderer;
 
     static SDL_Event event;
@@ -72,7 +70,8 @@ public:
         groupPlayers,
         groupEnemies,
         groupColliders,
-        groupProjectiles
+        groupProjectiles,
+        groupTerrainObjects
     };
 };
 

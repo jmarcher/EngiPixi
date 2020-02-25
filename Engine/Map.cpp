@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "Map.h"
 #include <fstream>
+#include "Helpers/Caster.h"
 
 extern Manager manager;
 
@@ -42,23 +43,21 @@ void Map::load(const std::string &path, int sizeX, int sizeY) {
             addTile(sourceX, sourceY, x * this->scaledSize, y * this->scaledSize);
             mapFile.ignore();
         }
-        std::cout << std::endl;
     }
 
     // We separate the Map data from the colliders with an empty line,
     // that is why we need to ignore the next line in order to get to the
     // start of the colliders.
     mapFile.ignore();
-
+    unsigned int collider = 0;
     for (int y = 0; y < sizeY; y++) {
         for (int x = 0; x < sizeX; x++) {
             mapFile.get(c);
-            int collider = 0;
-            collider += atoi(&c) * 10;
-            mapFile.get(c);
-            collider += atoi(&c);
+            collider = char_to_uint(c) * 10;
 
-            std::cout << collider << ',';
+            mapFile.get(c);
+            collider += char_to_uint(c);
+
             switch (collider) {
                 case CT_FULL: {
                     auto &item(manager.addEntity());
@@ -100,10 +99,10 @@ void Map::load(const std::string &path, int sizeX, int sizeY) {
                     break;
 
                 case CT_TOP_RIGHT: {
-                    auto &c(manager.addEntity());
-                    c.addComponent<ColliderComponent>("terrain", x * scaledSize + (scaledSize / 2), y * scaledSize,
-                                                      scaledSize / 2);
-                    c.addGroup(Engine::groupColliders);
+                    auto &item(manager.addEntity());
+                    item.addComponent<ColliderComponent>("terrain", x * scaledSize + (scaledSize / 2), y * scaledSize,
+                                                         scaledSize / 2);
+                    item.addGroup(Engine::groupColliders);
                 }
                     break;
 
@@ -134,7 +133,35 @@ void Map::load(const std::string &path, int sizeX, int sizeY) {
 
             mapFile.ignore();
         }
-        std::cout << std::endl;
+    }
+
+    mapFile.ignore();
+
+    unsigned int terrainObject = 0;
+    for (int y = 0; y < sizeY; y++) {
+        for (int x = 0; x < sizeX; x++) {
+            mapFile.get(c);
+            terrainObject = char_to_uint(c) * 10;
+
+            mapFile.get(c);
+            terrainObject += char_to_uint(c);
+//            LOG_IF(terrainObject, terrainObject > 0);
+            switch (terrainObject) {
+                case TO_TREE: {
+                    SDL_Rect rect = {0, 0, 79, 116};
+                    Vector2D position(x * scaledSize, y * scaledSize);
+                    const char * treeTextId = "tree";
+                    Map::addTerrainObject(treeTextId,rect, rect, position);
+                }
+                    break;
+                case TO_BIG_ROCK:
+                    break;
+                default:
+                    break;
+            }
+
+            mapFile.ignore();
+        }
     }
 
     mapFile.close();
@@ -153,4 +180,10 @@ unsigned int Map::getWidth() const {
 
 unsigned int Map::getHeight() const {
     return this->actualMapSizeY * this->scaledSize;
+}
+
+void Map::addTerrainObject(const char *texture, SDL_Rect source, SDL_Rect destination, Vector2D position) {
+    auto &tile(manager.addEntity());
+    tile.addComponent<TileComponent>(texture, source, destination, position);
+    tile.addGroup(Engine::groupTerrainObjects);
 }
