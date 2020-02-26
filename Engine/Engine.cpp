@@ -146,6 +146,8 @@ void Engine::update() {
 
 void Engine::render() {
     SDL_RenderClear(renderer);
+    SDL_Rect playerCollider = player.getComponent<ColliderComponent>().getCollider();
+    Vector2D colliderPosition(playerCollider.x,playerCollider.y);
     //    map->draw();
 
     //    manager.draw();
@@ -158,6 +160,11 @@ void Engine::render() {
             c->draw();
         }
     }
+        for (auto &tO : terrainObjects) {
+        if(tO->getComponent<PositionComponent>().isBeforePlayer(colliderPosition)){
+            tO->draw();
+        }
+    }
 
     for (auto &p : players) {
         p->draw();
@@ -168,7 +175,9 @@ void Engine::render() {
     }
 
     for (auto &tO : terrainObjects) {
-        tO->draw();
+        if(tO->getComponent<PositionComponent>().isAfterPlayer(colliderPosition)){
+            tO->draw();
+        }
     }
 
     if ((this->flags & D_ENABLE_VIGNETTE) > 0)

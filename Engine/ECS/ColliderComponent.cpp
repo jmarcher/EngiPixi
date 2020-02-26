@@ -1,5 +1,6 @@
 #include "../TextureManager.h"
 #include "ColliderComponent.h"
+#include "../Helpers/Logger.h"
 
 ColliderComponent::ColliderComponent(const char *t) {
     this->tag = t;
@@ -13,10 +14,12 @@ ColliderComponent::ColliderComponent(const char *t, int xPosition, int yPosition
 }
 
 void ColliderComponent::init() {
-    if (entity->hasComponent<TransformComponent>()) {
-        transform = &entity->getComponent<TransformComponent>();
+    if(entity->hasComponent<TransformComponent>()){
+        positionComponent = &entity->getComponent<TransformComponent>();
+    }else if (entity->hasComponent<PositionComponent>()) {
+        positionComponent = &entity->getComponent<PositionComponent>();
     } else {
-        transform = nullptr;
+        positionComponent = nullptr;
     }
 
     this->displayTexture = TextureManager::load("../assets/sprites/collider.png");
@@ -25,12 +28,13 @@ void ColliderComponent::init() {
 }
 
 void ColliderComponent::update() {
-    if (std::strcmp(this->tag, "terrain") != 0) {
-        collider.x = sourceRect.x + static_cast<int>(transform->x());
-        collider.y = sourceRect.y + static_cast<int>(transform->y());
+    if (positionComponent != nullptr && std::strcmp(this->tag, "terrain") != 0) {
+        LOG(positionComponent->getPosition());
+        collider.x = sourceRect.x + static_cast<int>(positionComponent->x());
+        collider.y = sourceRect.y + static_cast<int>(positionComponent->y());
 
-//        collider.w = transform->width * transform->scale;
-//        collider.h = transform->height * transform->scale;
+//        collider.w = positionComponent->width * positionComponent->scale;
+//        collider.h = positionComponent->height * positionComponent->scale;
     }
 
     this->destinationRect.x = collider.x - Engine::camera.x;
@@ -57,8 +61,8 @@ ColliderComponent &ColliderComponent::setTag(const char *tag) {
     return *this;
 }
 
-ColliderComponent &ColliderComponent::setTransform(TransformComponent *transform) {
-    this->transform = transform;
+ColliderComponent &ColliderComponent::setPosition(PositionComponent *position) {
+    this->positionComponent = position;
     return *this;
 }
 
@@ -70,8 +74,8 @@ const char *ColliderComponent::getTag() const {
     return tag;
 }
 
-TransformComponent *ColliderComponent::getTransform() {
-    return transform;
+PositionComponent *ColliderComponent::getPosition() {
+    return positionComponent;
 }
 
 ColliderComponent::ColliderComponent(const char *t, const Offset &transformOffset) {

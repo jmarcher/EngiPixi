@@ -34,14 +34,6 @@ TransformComponent::TransformComponent(float x, float y, int w, int h, int s) {
     scale = s;
 }
 
-float TransformComponent::x() const {
-    return position.x;
-}
-
-float TransformComponent::y() const {
-    return position.y;
-}
-
 void TransformComponent::init() {
     velocity.zero();
 }

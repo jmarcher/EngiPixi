@@ -27,7 +27,7 @@ protected:
     SDL_Rect collider;
     SDL_Texture* displayTexture;
     SDL_Rect sourceRect, destinationRect;
-    TransformComponent* transform;
+    PositionComponent* positionComponent;
     const char * tag;
     bool m_transformsSprite = false;
     Offset m_transformOffset = {0,0};
@@ -43,7 +43,7 @@ public:
 
     ColliderComponent& setTag(const char* tag);
 
-    ColliderComponent& setTransform(TransformComponent* transform);
+    ColliderComponent& setPosition(PositionComponent* position);
 
     const SDL_Rect& getCollider() const;
 
@@ -59,7 +59,7 @@ public:
         return this->m_transformOffset.m_transformOffsetY;
     };
     
-    TransformComponent* getTransform();
+    PositionComponent* getPosition();
     
     void init() override;
 

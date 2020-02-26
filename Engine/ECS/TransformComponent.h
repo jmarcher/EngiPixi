@@ -1,14 +1,16 @@
 #ifndef ENGIPIXI_TRANSFORMCOMPONENT_H
 #define ENGIPIXI_TRANSFORMCOMPONENT_H
 
-#include "Components.h"
+#include "PositionComponent.h"
+
 #include "../Math/Vector2D.h"
 #include "../Helpers/Debug/Assert.h"
 const float TRANSFORM_BASE_SPEED = 1.5f;
-class TransformComponent : public Component {
+class PositionComponent;
+class TransformComponent : public PositionComponent {
 
 public:
-    Vector2D position;
+//    Vector2D position;
     Vector2D velocity;
 
     unsigned short width = 32;
@@ -29,10 +31,6 @@ public:
     TransformComponent(float speed);
 
     TransformComponent(float x, float y, int w, int h, int scale);
-
-    [[nodiscard]] float x() const;
-
-    [[nodiscard]] float y() const;
 
     void init() override;
 

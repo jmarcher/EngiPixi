@@ -3,7 +3,7 @@
 #include "../Helpers/Logger.h"
 
 TileComponent::~TileComponent() {
-    LOG("Texture destroyed");
+//    LOG("Texture destroyed");
     SDL_DestroyTexture(this->texture);
 }
 

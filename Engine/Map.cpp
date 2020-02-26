@@ -152,19 +152,20 @@ void Map::load(const std::string &path, int sizeX, int sizeY) {
                     SDL_Rect source = {0, 0, 79, 116};
                     SDL_Rect destination = {source.x, source.y, source.w * static_cast<int>(mapScale),
                                             source.h * static_cast<int>(mapScale)};
-                    LOG(destination.h << (y * scaledSize));
+//                    LOG(destination.h << (y * scaledSize));?
                     Vector2D position(static_cast<float>(x * static_cast<int>(scaledSize)) -
                                                           (static_cast<float>(destination.w) / 2.0f),
                                       static_cast<float>(y * static_cast<int>(scaledSize)) -
                                       (static_cast<float>(destination.h)));
-                    Map::addTerrainObject("tree", source, destination, position);
+                    auto &tile = Map::addTerrainObject("tree", source, destination, position);
+                    tile.addComponent<ColliderComponent>("terrain_object", -20, -20, 40, 30);
                 }
                     break;
                 case TO_BIG_ROCK: {
                     SDL_Rect source = {0, 0, 79, 116};
                     SDL_Rect destination = {source.x, source.y, source.w * static_cast<int>(mapScale),
                                             source.h * static_cast<int>(mapScale)};
-                    LOG(destination.h << (y * scaledSize));
+//                    LOG(destination.h << (y * scaledSize));
                     Vector2D position(static_cast<float>(x * static_cast<int>(scaledSize)) -
                                       (static_cast<float>(destination.w) / 2.0f),
                                       static_cast<float>(y * static_cast<int>(scaledSize)) -
@@ -196,8 +197,12 @@ unsigned int Map::getHeight() const {
     return this->actualMapSizeY * this->scaledSize;
 }
 
-void Map::addTerrainObject(const char *texture, SDL_Rect source, SDL_Rect destination, Vector2D position) {
+Entity& Map::addTerrainObject(const char *texture, SDL_Rect source, SDL_Rect destination, Vector2D position) {
     auto &tile(manager.addEntity());
     tile.addComponent<TileComponent>(texture, source, destination, position);
+    Vector2D convertedPosition(position.x + (static_cast<float>(destination.w)/2.0f), position.y + static_cast<float>(destination.h));
+    tile.addComponent<PositionComponent>(convertedPosition);
     tile.addGroup(Engine::groupTerrainObjects);
+
+    return tile;
 }

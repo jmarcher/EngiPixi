@@ -5,8 +5,9 @@ project(EngiPixi)
 find_package(SDL2 REQUIRED)
 include_directories(${CMAKE_BINARY_DIR})
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(ASSERTIONS_ENABLED 1)
+set(__ENABLE_LOGGER__ 0)
 add_definitions(-DASSERTIONS_ENABLED -D__DEBUG)
 
 #add_executable(EngiPixi

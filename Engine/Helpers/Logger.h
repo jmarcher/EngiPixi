@@ -1,6 +1,6 @@
 #ifndef ENGIPIXI_LOGGER_H
 #define ENGIPIXI_LOGGER_H
-#ifdef __DEBUG
+#if defined(__DEBUG) && __ENABLE_LOGGER__
 
 #include <iostream>
 

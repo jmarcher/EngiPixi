@@ -40,7 +40,7 @@ public:
     void load(const std::string &path, int sizeX, int sizeY);
 
     void addTile(int sourceX, int sourceY, int xPosition, int yPosition);
-    static void addTerrainObject(const char* texture, SDL_Rect source, SDL_Rect destination, Vector2D position);
+    static Entity& addTerrainObject(const char* texture, SDL_Rect source, SDL_Rect destination, Vector2D position);
 
     unsigned int getWidth() const;
 

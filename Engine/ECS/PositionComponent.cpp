@@ -20,3 +20,11 @@ void PositionComponent::update() {
 void PositionComponent::draw() {
     Component::draw();
 }
+
+float PositionComponent::x() const {
+    return position.x;
+}
+
+float PositionComponent::y() const {
+    return position.y;
+}

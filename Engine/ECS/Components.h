@@ -10,6 +10,7 @@
 #include "ColliderComponent.h"
 #include "ProjectileComponent.h"
 #include "PhysicsComponent.h"
+#include "PositionComponent.h"
 
 // UI Components
 #include "UILabel.h"
