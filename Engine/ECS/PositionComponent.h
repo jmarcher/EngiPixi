@@ -5,29 +5,38 @@
 #ifndef ENGIPIXI_POSITIONCOMPONENT_H
 #define ENGIPIXI_POSITIONCOMPONENT_H
 
+#ifdef __linux__
+
+#include "SDL2/SDL.h"
+
+#elif _WIN32
+#include "SDL.h"
+#endif
+
 #include "EntityComponentSystem.h"
 //#include "Components.h"
 #include "../Math/Vector2D.h"
 
 
-class PositionComponent:public Component{
+
+class PositionComponent : public Component {
 public:
     Vector2D position;
-    PositionComponent(){position={0,0};}
-    PositionComponent(int x, int y);
-    PositionComponent(Vector2D p):position(p){}
 
-    const Vector2D& getPosition() const{
+    PositionComponent() { position = {0, 0}; }
+
+    PositionComponent(int x, int y);
+
+    PositionComponent(Vector2D p) : position(p) {}
+
+    const Vector2D &getPosition() const {
         return position;
     }
 
-    bool isBeforePlayer(const Vector2D& p) const{
-        return position.y < p.y;
-    }
+    bool isBeforePlayer(const Vector2D &p, const SDL_Rect &playerRect) const;
 
-    bool isAfterPlayer(const Vector2D& p) const{
-        return position.y > p.y;
-    }
+
+    bool isAfterPlayer(const Vector2D &p, const SDL_Rect &playerRect) const;
 
     [[nodiscard]] float x() const;
 

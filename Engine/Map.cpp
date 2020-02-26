@@ -203,6 +203,7 @@ Entity& Map::addTerrainObject(const char *texture, SDL_Rect source, SDL_Rect des
     Vector2D convertedPosition(position.x + (static_cast<float>(destination.w)/2.0f), position.y + static_cast<float>(destination.h));
     tile.addComponent<PositionComponent>(convertedPosition);
     tile.addGroup(Engine::groupTerrainObjects);
+    tile.addGroup(Engine::groupColliders);
 
     return tile;
 }

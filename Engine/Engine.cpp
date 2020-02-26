@@ -161,7 +161,7 @@ void Engine::render() {
         }
     }
         for (auto &tO : terrainObjects) {
-        if(tO->getComponent<PositionComponent>().isBeforePlayer(colliderPosition)){
+        if(tO->getComponent<PositionComponent>().isBeforePlayer(colliderPosition, player.getComponent<SpriteComponent>().getDestinationRect())){
             tO->draw();
         }
     }
@@ -175,7 +175,7 @@ void Engine::render() {
     }
 
     for (auto &tO : terrainObjects) {
-        if(tO->getComponent<PositionComponent>().isAfterPlayer(colliderPosition)){
+        if(tO->getComponent<PositionComponent>().isAfterPlayer(colliderPosition, player.getComponent<SpriteComponent>().getDestinationRect())){
             tO->draw();
         }
     }

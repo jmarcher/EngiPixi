@@ -1,8 +1,8 @@
 //
 // Created by gordo on 24.02.20.
 //
-
 #include "PositionComponent.h"
+#include "../Collision.h"
 
 PositionComponent::PositionComponent(int x, int y) {
     position.x = x;
@@ -27,4 +27,16 @@ float PositionComponent::x() const {
 
 float PositionComponent::y() const {
     return position.y;
+}
+
+bool PositionComponent::isBeforePlayer(const Vector2D &p, const SDL_Rect &playerRect) const {
+    SDL_Rect destinationRect = *(&entity->getComponent<TileComponent>().destinationRect);
+    return Collision::AABB(playerRect, destinationRect) &&
+           (position.y < p.y);
+}
+
+bool PositionComponent::isAfterPlayer(const Vector2D &p, const SDL_Rect &playerRect) const  {
+    SDL_Rect destinationRect = *(&entity->getComponent<TileComponent>().destinationRect);
+
+    return !Collision::AABB(playerRect, destinationRect)  || (position.y >= p.y);
 }
