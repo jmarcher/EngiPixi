@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="Engine" Version="10.0.0" InternalType="Console">
+<CodeLite_Project Name="Engine" Version="11000" InternalType="Console">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
@@ -52,6 +52,8 @@
       <File Name="Math/Vector2D.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="Helpers">
+      <File Name="Helpers/Logger.h"/>
+      <File Name="Helpers/Caster.h"/>
       <VirtualDirectory Name="Debug">
         <File Name="Helpers/Debug/Assert.h"/>
       </VirtualDirectory>
@@ -61,6 +63,8 @@
       <File Name="Helpers/FpsHelper.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ECS">
+      <File Name="ECS/PositionComponent.h"/>
+      <File Name="ECS/PositionComponent.cpp"/>
       <File Name="ECS/PhysicsComponent.cpp"/>
       <File Name="ECS/PhysicsComponent.h"/>
       <File Name="ECS/UILabel.cpp"/>
