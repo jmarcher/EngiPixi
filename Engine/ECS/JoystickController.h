@@ -1,10 +1,12 @@
 #ifndef JOYSTICKCONTROLLER_H
 #define JOYSTICKCONTROLLER_H
-#ifdef __linux__ 
-#include "SDL2/SDL.h"
+
+#if defined(__linux__) || defined(__APPLE__)
+    #include "SDL2/SDL.h"
 #elif _WIN32
-#include "SDL.h"
+    #include "SDL.h"
 #endif
+
 #include "../Engine.h"
 #include "Components.h"
 #include "EntityComponentSystem.h"

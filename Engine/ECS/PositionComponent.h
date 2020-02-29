@@ -5,12 +5,10 @@
 #ifndef ENGIPIXI_POSITIONCOMPONENT_H
 #define ENGIPIXI_POSITIONCOMPONENT_H
 
-#ifdef __linux__
-
-#include "SDL2/SDL.h"
-
+#if defined(__linux__) || defined(__APPLE__)
+    #include "SDL2/SDL.h"
 #elif _WIN32
-#include "SDL.h"
+    #include "SDL.h"
 #endif
 
 #include "EntityComponentSystem.h"

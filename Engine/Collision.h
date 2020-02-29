@@ -1,7 +1,7 @@
 #ifndef ENGIPIXI_COLLISION_H
 #define ENGIPIXI_COLLISION_H
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__APPLE__)
 
 #include "SDL2/SDL.h"
 

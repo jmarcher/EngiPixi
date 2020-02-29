@@ -1,12 +1,12 @@
 #ifndef UILABEL_H
 #define UILABEL_H
 
-#ifdef __linux__
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
+#if defined(__linux__) || defined(__APPLE__)
+    #include "SDL2/SDL.h"
+    #include "SDL2/SDL_ttf.h"
 #elif _WIN32
-#include "SDL.h"
-#include "SDL_ttf.h"
+    #include "SDL.h"
+    #include "SDL_ttf.h"
 #endif
 
 

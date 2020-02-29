@@ -1,7 +1,7 @@
 #ifndef ENGIPIXI_COLLIDERCOMPONENT_H
 #define ENGIPIXI_COLLIDERCOMPONENT_H
 
-#ifdef __linux__ 
+#if defined(__linux__) || defined(__APPLE__)
 #include "SDL2/SDL.h"
 #elif _WIN32
 #include "SDL.h"

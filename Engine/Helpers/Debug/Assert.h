@@ -9,7 +9,7 @@ inline void reportAssertionFailure(const char *expresion, const char *msg2, cons
     std::cerr << "Assertion Failure: " << expresion << ", " << msg2 << " at " << file << ", line " << line << std::endl;
 }
 
-#if __linux__
+#if defined(__linux__) || defined(__APPLE__)
 
 #include <signal.h>
 

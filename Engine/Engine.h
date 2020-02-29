@@ -7,7 +7,7 @@
 #define D_ENABLE_VIGNETTE 4
 #define D_SHOW_COLLIDERS 8
 
-#ifdef __linux__ 
+#if defined(__linux__) || defined(__APPLE__)
     #include "SDL2/SDL.h"
     #include "SDL2/SDL_image.h"
 #elif _WIN32
